@@ -10,14 +10,12 @@ use App\Http\Controllers\Admin\MomController;
 use App\Http\Controllers\Admin\NoticeController;
 use App\Http\Controllers\Admin\CmsController;
 use App\Http\Controllers\Admin\Master\ServiceMasterController;
-
 use App\Http\Controllers\Admin\PaymentController;
-
 use App\Http\Controllers\Admin\LanguageController;
-
 use App\Http\Controllers\Admin\SecurityQuestionController;
-
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Home\HomeController;
+
  
 
 /*
@@ -31,6 +29,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', [HomeController::class, 'index'])->name('welcome.home');
 
 Route::redirect('admin','admin/login');
 
