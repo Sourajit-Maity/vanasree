@@ -1,0 +1,594 @@
+/*!
+ * Start Bootstrap - Creative v3.3.7+1 (https://startbootstrap.com/template-overviews/creative)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+ @import url(https://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+html,
+body {
+ 
+}
+body {
+  font-family: 'Nanum Gothic', sans-serif;
+}
+a {
+  -webkit-transition: all 0.35s;
+  -moz-transition: all 0.35s;
+  transition: all 0.35s;
+  color: #de3c4b;
+}
+a:hover,
+a:focus {
+  color: #eb3812;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+}
+p {
+  font-size: 13px;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+.bg-primary {
+  background-color: #de3c4b;
+}
+.bg-primary-dark {
+  background-color: #49111c;
+  color: white;
+}
+.bg-secondary-dark {
+  background-color: #22333b;
+  color: white;
+}
+.bg-light {
+  background-color: #f2f4f3;
+}
+.bg-dark {
+  background-color: #0a0908;
+  color: white;
+}
+.text-faded {
+  color: rgba(255, 255, 255, 0.7);
+}
+section {
+  padding: 100px 0;
+}
+aside {
+  padding: 50px 0;
+}
+.no-padding {
+  padding: 0;
+}
+/*mobile navigation*/
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: absolute; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: #66883b; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+.mobileOpen {
+  color: #fff;
+  position: absolute;
+  display: block;
+  background-color: #444;
+  max-height: 100vh!important;
+  border-color: rgba(34, 34, 34, 0.05);
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+  height: 100vh;
+  width: 100vw;
+  top: 0px;
+  -webkit-transition: all 0.35s;
+  -moz-transition: all 0.35s;
+  transition: all 0.35s;
+}
+
+
+header .header-content {
+  position: relative;
+  text-align: center;
+  padding: 50px 15px 50px;
+}
+header .header-content .header-content-inner h1 {
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 30px;
+
+}
+header .header-content .header-content-inner hr {
+  margin: 30px auto;
+}
+header .header-content .header-content-inner p {
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 16px;
+  margin-bottom: 50px;
+}
+@media (min-width: 768px) {
+
+  header .header-content {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    padding: 0 50px;
+  }
+  header .header-content .header-content-inner {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  header .header-content .header-content-inner h1 {
+    font-size: 50px;
+  }
+  header .header-content .header-content-inner p {
+    font-size: 18px;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.section-heading {
+  margin-top: 0;
+  font-size:50px; 
+  color:#36506e; 
+  font-weight: 600;
+}
+
+.no-gutter > [class*='col-'] {
+  padding-right: 0;
+  padding-left: 0;
+}
+.btn-default {
+  color: #222222;
+  background-color: white;
+  border-color: white;
+  -webkit-transition: all 0.35s;
+  -moz-transition: all 0.35s;
+  transition: all 0.35s;
+}
+.btn-default:hover,
+.btn-default:focus,
+.btn-default.focus,
+.btn-default:active,
+.btn-default.active,
+.open > .dropdown-toggle.btn-default {
+  color: #222222;
+  background-color: #f2f2f2;
+  border-color: #ededed;
+}
+.btn-default:active,
+.btn-default.active,
+.open > .dropdown-toggle.btn-default {
+  background-image: none;
+}
+.btn-default.disabled,
+.btn-default[disabled],
+fieldset[disabled] .btn-default,
+.btn-default.disabled:hover,
+.btn-default[disabled]:hover,
+fieldset[disabled] .btn-default:hover,
+.btn-default.disabled:focus,
+.btn-default[disabled]:focus,
+fieldset[disabled] .btn-default:focus,
+.btn-default.disabled.focus,
+.btn-default[disabled].focus,
+fieldset[disabled] .btn-default.focus,
+.btn-default.disabled:active,
+.btn-default[disabled]:active,
+fieldset[disabled] .btn-default:active,
+.btn-default.disabled.active,
+.btn-default[disabled].active,
+fieldset[disabled] .btn-default.active {
+  background-color: white;
+  border-color: white;
+}
+.btn-default .badge {
+  color: white;
+  background-color: #222222;
+}
+.btn-primary {
+  color: white;
+  background-color: #de3c4b;
+  border-color: #de3c4b;
+  -webkit-transition: all 0.35s;
+  -moz-transition: all 0.35s;
+  transition: all 0.35s;
+}
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary.focus,
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+  color: white;
+  background-color: #ee4b28;
+  border-color: #ed431f;
+}
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+  background-image: none;
+}
+.btn-primary.disabled,
+.btn-primary[disabled],
+fieldset[disabled] .btn-primary,
+.btn-primary.disabled:hover,
+.btn-primary[disabled]:hover,
+fieldset[disabled] .btn-primary:hover,
+.btn-primary.disabled:focus,
+.btn-primary[disabled]:focus,
+fieldset[disabled] .btn-primary:focus,
+.btn-primary.disabled.focus,
+.btn-primary[disabled].focus,
+fieldset[disabled] .btn-primary.focus,
+.btn-primary.disabled:active,
+.btn-primary[disabled]:active,
+fieldset[disabled] .btn-primary:active,
+.btn-primary.disabled.active,
+.btn-primary[disabled].active,
+fieldset[disabled] .btn-primary.active {
+  background-color: #de3c4b;
+  border-color: #de3c4b;
+}
+.btn-primary .badge {
+  color: #de3c4b;
+  background-color: white;
+}
+.btn {
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+  border: none;
+  border-radius: 300px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.btn-xl {
+  padding: 15px 30px;
+}
+::-moz-selection {
+  color: white;
+  text-shadow: none;
+  background: #222222;
+}
+::selection {
+  color: white;
+  text-shadow: none;
+  background: #222222;
+}
+img::selection {
+  color: white;
+  background: transparent;
+}
+img::-moz-selection {
+  color: white;
+  background: transparent;
+}
+body {
+  webkit-tap-highlight-color: #222222;
+}
+
+/*menu icon*/
+#nav-icon1, #nav-icon2, #nav-icon3, #nav-icon4 {
+  width: 30px;
+  height: 35px;
+  position: relative;
+  margin: 10px auto;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: .5s ease-in-out;
+  -moz-transition: .5s ease-in-out;
+  -o-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+  cursor: pointer;
+  line-height: 5px;
+}
+
+#nav-icon1 span, #nav-icon3 span, #nav-icon4 span {
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background: #fff;
+  border-radius: 2px;
+  opacity: 1;
+  left: 0;
+  line-height: 5px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: .25s ease-in-out;
+  -moz-transition: .25s ease-in-out;
+  -o-transition: .25s ease-in-out;
+  transition: .25s ease-in-out;
+}
+
+#nav-icon1 span:nth-child(1) {
+  top: 0px;
+}
+
+#nav-icon1 span:nth-child(2) {
+  top: 9px;
+}
+
+#nav-icon1 span:nth-child(3) {
+  top: 18px;
+}
+
+#nav-icon1.open span:nth-child(1) {
+  top: 9px;
+  -webkit-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  -o-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+
+#nav-icon1.open span:nth-child(2) {
+  opacity: 0;
+  left: -60px;
+}
+
+#nav-icon1.open span:nth-child(3) {
+  top: 9px;
+  -webkit-transform: rotate(-135deg);
+  -moz-transform: rotate(-135deg);
+  -o-transform: rotate(-135deg);
+  transform: rotate(-135deg);
+}
+.navbar-brand>img {padding-left: 60px;}
+
+/*desktop index*/
+.navigation {
+  background-color:rgba(0,0,0,0.3);
+  z-index: 100;
+}
+
+
+.fixednav{
+  top: 0;
+  border-width: 0 0 1px;
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+}
+.ocslide {
+  height: 85vh;
+  width: 100%;
+  background-size: cover;
+}
+.iconboxmob {
+  background-color:#128ac0; 
+  color:white; 
+  font-size:10vw; 
+  padding: 10px;
+}
+.iconboxdesk {
+  background-color:rgba(0,0,0,0.3);
+  color:white;
+  font-size:40px;
+  padding: 10px;
+  border:1px solid rgba(255,255,255,0.3);
+  padding: 30px;
+}
+.iconboxdesk:hover {
+  background-color:rgba(0,0,0,0.7);
+}
+/*other page*/
+.sidenav {
+    height: 100vh; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: absolute; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: #66883b; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+    overflow-y: hidden;
+}
+.sidenav li {
+  display: block;
+  padding: 5px 15px;
+}
+.sidenav li a {
+ color: #000;
+ font-size: 16px;
+ line-height: 1.7;
+}
+.sidenav ul {
+  list-style: none;
+
+}
+
+.togglenavbar {
+  position: absolute;
+   top: 9px;
+   left: 9px;
+   width: 32px;
+   height: 32px;
+   z-index: 100;
+   padding: 0;
+   background-color: transparent;
+   border: 0;
+   margin-top: -5px;
+}
+.topbar {
+  background-color: #128ac0;
+  padding: 10px 0; 
+}
+.logo {
+  display: block;
+  text-align: center;
+  background-image: url(../img/logo.png);
+  height: 30px;
+  width: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+
+}
+.sidenav-open {
+  width: 100%;
+}
+.floatingtopbar {
+    background-color: transparent;
+    position: absolute;
+    padding: 10px 0; 
+    width: 100%;
+    display: inline-block;
+    height: 50px;
+    }
+    /*secodary navbar*/
+.navbar-secondary {
+  position: relative;
+  width: 100%;
+  right: 0px;
+  color: white;
+  background-color: #128ac0; 
+  z-index: 200;
+  transition: 0.35s all;
+}
+.navbar-secondary li {
+ padding: 5px 15px;
+ margin:10px 0; 
+
+}
+.sidenav li a:hover {
+  text-decoration: none;
+  color:#128ac0;
+}
+ul>li {
+  position: relative;
+    display: inline;
+    
+  }
+  @media(max-width:768px){
+    .topbar {
+      background-color: transparent;
+      padding: 10px 0; 
+      width: 150px;
+      display: inline-block;
+      height: 82px;
+  
+      }
+  }
+@media (min-width: 768px) {
+  .navigation {
+    background-color: transparent;
+
+  }
+  .floatingtopbar {
+    background-color: transparent;
+    position: absolute;
+    padding: 10px 0; 
+    width: 300px;
+    display: inline-block;
+    height: 100px;
+    }
+  
+    .logo {
+    display: inline-block;
+    background-image: url(../img/logo.png);
+    height: 60px;
+    width: 150px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left center;
+    margin-left: 30px;
+  }
+  .sidenav {
+    color:#66883b;
+    float: right;
+    height: auto; /* 100% Full-height */
+    width: auto; /* 0 width - change this with JavaScript */
+    position: static;
+    z-index: 1; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: transparent; /* Black*/
+    overflow-x: visible; /* Disable horizontal scroll */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+    overflow-y: visible;
+    padding-top: 22px;
+
+}
+.sidenav li {
+  display: inline-block;
+  font-weight: 600;
+}
+.sidenav li .infolink {    background-color: #66883b !important;    padding: 10px 20px;border-radius: 50px !important;color: #fff;}
+.sidenav li a{
+  padding: 10px 20px;
+}
+.sidenav li a:hover {
+  padding: 10px 20px;
+    border-radius: 50px !important;
+    border: 2px solid #80f26c !important;
+    color: #666666 !important;
+}
+.sidenav li a:hover {
+  text-decoration: none;
+  color: #128ac0;
+}
+.sidenav li a:active {
+  color: #128ac0;
+}
+.navbar-secondary {
+  position: absolute;
+  top:0px;
+  margin-top: 82px;
+  width: 100%;
+  color: white;
+  background-color: #128ac0; 
+ height: 0;
+ padding-top: -10px;
+ z-index: 200;
+  text-align: right;
+  transition: 0.35s all;
+  opacity:0;
+}
+.navbar-secondary li { 
+ padding: 3px 15px; 
+ margin:10px 0; 
+ font-weight: 300;
+
+}
+.navbar-secondary li a { color:#000;
+font-size: 14px;}
+.navbar-secondary li a:hover {color:#fff; }
+.navbar-secondary li a:active {color:#fff; }
+.infoMenu {
+  padding-right:545px;
+}
+.locationMenu {
+  padding-right:610px;
+}
+.videoMenu {
+  padding-right: 312px;
+}
+.businessMenu {
+  padding-right: 92px;
+}
+.mediaboardMenu {
+  padding-right: 94px;
+}
+
+
+}
