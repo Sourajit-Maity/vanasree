@@ -1,4 +1,10 @@
-header{padding: 20px 0px;
+header{padding: 10px 0px;
+    padding: 10px 0px;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    background: #fff;
+    z-index: 999999;
 
 }
 img{max-width:100%;}
@@ -46,11 +52,12 @@ img{max-width:100%;}
 
 .u-section-1{
     background-image: linear-gradient(0deg, rgba(102,136,59,0.6), rgba(102,136,59,0.6)), url(../images/crown_phase_1-karjat-mumbai-shree_samarth_reality.jpeg.webp);
-    height: 800px;
+    height: 700px;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    padding-top:50px;
     
 }
 
@@ -208,6 +215,8 @@ img{max-width:100%;}
     border-radius: 50%;
     /* height: 221px; */
     display: block;
+    position: absolute;
+    left: 36%;
 }
 
 .u-white, .u-body.u-white, section.u-white:before, .u-white > .u-container-layout:before, .u-white > .u-inner-container-layout:before, .u-container-layout.u-container-layout.u-white:before, .u-table-alt-white tr:nth-child(even) {
@@ -231,7 +240,9 @@ img{max-width:100%;}
     font-weight: 700;
     font-size: 1.875rem;
     margin: 30px auto 0;
+    padding-top: 100px;
 }
+
 .form-outer .u-grey-5{
     color: #111111;
     background: #f2f2f2;
@@ -246,6 +257,13 @@ img{max-width:100%;}
   
     color: inherit;
     height: auto;
+}
+.about-us a{
+    border-radius: 50px !important;
+    border: 2px solid #66883b;
+    color: #1a1a1a;
+    padding: 10px 30px;
+
 }
 
 .form-outer .u-btn-submit{
@@ -275,6 +293,126 @@ img{max-width:100%;}
     width: 100%;
     text-align: center;
 }
+
+#gallery {
+    padding-top: 40px;
+  }
+  @media screen and (min-width: 991px) {
+    #gallery {
+      padding: 60px 30px 0 30px;
+    }
+  }
+  
+  .img-wrapper {
+    position: relative;
+    margin-top: 15px;
+  }
+  .img-wrapper img {
+    width: 100%;
+  }
+  
+  .img-overlay {
+    background: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+  }
+  .img-overlay i {
+    color: #fff;
+    font-size: 3em;
+  }
+  
+  #overlay {
+    background: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  #overlay img {
+    margin: 0;
+    width: 80%;
+    height: auto;
+    -o-object-fit: contain;
+       object-fit: contain;
+    padding: 5%;
+  }
+  @media screen and (min-width: 768px) {
+    #overlay img {
+      width: 60%;
+    }
+  }
+  @media screen and (min-width: 1200px) {
+    #overlay img {
+      width: 50%;
+    }
+  }
+  
+  #nextButton {
+    color: #fff;
+    font-size: 2em;
+    transition: opacity 0.8s;
+  }
+  #nextButton:hover {
+    opacity: 0.7;
+  }
+  @media screen and (min-width: 768px) {
+    #nextButton {
+      font-size: 3em;
+    }
+  }
+  
+  #prevButton {
+    color: #fff;
+    font-size: 2em;
+    transition: opacity 0.8s;
+  }
+  #prevButton:hover {
+    opacity: 0.7;
+  }
+  @media screen and (min-width: 768px) {
+    #prevButton {
+      font-size: 3em;
+    }
+  }
+  
+  #exitButton {
+    color: #fff;
+    font-size: 2em;
+    transition: opacity 0.8s;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+  #exitButton:hover {
+    opacity: 0.7;
+  }
+  @media screen and (min-width: 768px) {
+    #exitButton {
+      font-size: 3em;
+    }
+  }
+
+  #gallery #image-gallery{
+    margin-bottom: 30px;
+
+    }
+  
 
 
 @media only screen and (max-width: 768px) {
@@ -351,4 +489,15 @@ img{max-width:100%;}
       .u-section-4 .u-image-1{
         margin-bottom: 30px;
       }
+}
+
+#toTop {
+    padding: 12px 11px;
+    background: #577533;
+    color: #fff;
+    position: fixed;
+    bottom: 16px;
+    right: 24px;
+    display: none;
+    border-radius: 50%;
 }

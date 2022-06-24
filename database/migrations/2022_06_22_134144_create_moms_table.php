@@ -18,6 +18,8 @@ class CreateMomsTable extends Migration
             $table->string('mom_number');
             $table->string('mom_name');
             $table->string('mom_name_slug')->nullable();
+            $table->string('mom_date')->nullable();
+            $table->string('mom_time')->nullable();
             $table->text('mom_description')->nullable();
             $table->text('mom_photo_path')->nullable();
             $table->foreignId('user_id')->nullable()->references('id')->on('users')->onDelete('cascade');

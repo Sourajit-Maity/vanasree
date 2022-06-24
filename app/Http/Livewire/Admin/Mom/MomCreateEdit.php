@@ -17,7 +17,7 @@ class MomCreateEdit extends Component
     use AlertMessage;
     use WithFileUploads;
     public $mom_number,$active, $mom,$mom_photo_path,$user_id;
-    public $mom_name, $mom_description, $blankArr;
+    public $mom_name, $mom_description,$mom_time, $mom_date, $blankArr;
     public $isEdit = false;
     public $statusList = [];
     public $photos = [];
@@ -48,11 +48,24 @@ class MomCreateEdit extends Component
             'mom_number' => 'required',
             'mom_photo_path' => 'required',
             'mom_name' => 'required',
+            'mom_date' => 'required',
+            'mom_time' => 'required',
             'mom_description' => 'required',
             'active' => 'required',
         ]);
+        if(!$this->isEdit){
+            $validatedData['mom_photo_path'] = $this->mom_photo_path->store('files', 'public'); 
+        }
+        if($this->isEdit){
+            if($validatedData['mom_photo_path'] == $this->mom->mom_photo_path){
+                
+                $validatedData['mom_photo_path'] = $this->mom->mom_photo_path;
+            }
+           else{
+                $validatedData['mom_photo_path'] = $this->mom_photo_path->store('files', 'public');
+            }
+        }
         
-        $validatedData['mom_photo_path'] = $this->mom_photo_path->store('files', 'public');
         $validatedData['user_id'] = auth()->user()->id;
 
         if(!$this->isEdit)
@@ -60,7 +73,7 @@ class MomCreateEdit extends Component
         if($this->isEdit)
         $this->mom->update($validatedData);
      
-        $msgAction = 'Meeting of Minute has been '. ($this->isEdit ? 'updated' : 'created') . ' successfully';
+        $msgAction = 'Minutes of the Meeting has been '. ($this->isEdit ? 'updated' : 'created') . ' successfully';
         $this->showToastr("success",$msgAction);
 
         return redirect()->route('moms.index');

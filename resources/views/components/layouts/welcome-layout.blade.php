@@ -14,7 +14,7 @@
   <!-- fontawesome -->
 
   <link rel="stylesheet" href="{{asset('welcome_assets/css/menu.css')}}">
-  <link rel="stylesheet" href="{{asset('welcome_assets/style.css')}}">
+  <link rel="stylesheet" href="{{asset('welcome_assets/css/style.css')}}">
 
   <link rel="stylesheet" href="{{asset('welcome_assets/css/all.css')}}">
   <link rel="stylesheet" href="{{asset('welcome_assets/css/brands.css')}}">
@@ -24,7 +24,7 @@
   <link rel="stylesheet" href="{{asset('welcome_assets/css/easy-responsive-tabs.css')}}">
   <link rel="stylesheet" href="{{asset('welcome_assets/css/slick.css')}}">
   <link rel="stylesheet" href="{{asset('welcome_assets/css/bootstrap.min.css')}}">
-  <link rel="stylesheet" href="{{asset('welcome_assets/style.css')}}">
+  <link rel="stylesheet" href="{{asset('welcome_assets/css/style.css')}}">
   @stack('css')
 </head>
 

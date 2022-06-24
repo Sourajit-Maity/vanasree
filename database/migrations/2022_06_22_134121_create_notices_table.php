@@ -18,6 +18,8 @@ class CreateNoticesTable extends Migration
             $table->string('notice_number');
             $table->string('notice_name');
             $table->string('notice_name_slug')->nullable();
+            $table->string('notice_date')->nullable();
+            $table->string('notice_time')->nullable();
             $table->text('notice_description')->nullable();
             $table->text('notice_photo_path')->nullable();
             $table->foreignId('user_id')->nullable()->references('id')->on('users')->onDelete('cascade');

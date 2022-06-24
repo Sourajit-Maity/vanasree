@@ -1,14 +1,26 @@
 <x-admin.form-section submit="saveOrUpdate">
     <x-slot name="form">
         <x-admin.form-group>
-            <x-admin.lable value="Mom Number" required />
-            <x-admin.input type="text" wire:model.defer="mom_number" placeholder="Mom Number"  class="{{ $errors->has('mom_number') ? 'is-invalid' :'' }}" />
+            <x-admin.lable value="Minutes of the Meeting Number" required />
+            <x-admin.input type="text" wire:model.defer="mom_number" placeholder="Minutes of the Meeting Number"  class="{{ $errors->has('mom_number') ? 'is-invalid' :'' }}" />
             <x-admin.input-error for="mom_number" />
         </x-admin.form-group>
         <x-admin.form-group>
-            <x-admin.lable value="Mom Head"  required />
+            <x-admin.lable value="Minutes of the Meeting Head"  required />
             <x-admin.input type="text" wire:model.defer="mom_name" placeholder="Mom Head"  class="{{ $errors->has('mom_name') ? 'is-invalid' :'' }}" />
             <x-admin.input-error for="mom_name" />
+        </x-admin.form-group>
+
+        <x-admin.form-group>
+            <x-admin.lable value="Minutes of the Meeting Date" required />
+            <x-admin.input type="text" wire:model.defer="mom_date" placeholder="Minutes of the Meeting Date" autocomplete="off"   class="{{ $errors->has('mom_date') ? 'is-invalid' :'' }}" />
+            <x-admin.input-error for="mom_date" />
+        </x-admin.form-group>
+        
+        <x-admin.form-group>
+            <x-admin.lable value="Minutes of the Meeting Time"  required />
+            <x-admin.input type="text" wire:model.defer="mom_time"  placeholder="Minutes of the Meeting Time" autocomplete="off"  id="mom_time"   class="{{ $errors->has('mom_time') ? 'is-invalid' :'' }}" />
+            <x-admin.input-error for="mom_time" />
         </x-admin.form-group>
        
         <x-admin.form-group>
@@ -46,3 +58,21 @@
         <x-admin.link :href="route('moms.index')" color="secondary">Cancel</x-admin.link>
     </x-slot>
 </x-form-section>
+@push('js')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+
+  $(document).ready(function() {
+
+    $('#event_year').on('change', function(e) {
+      //console.log(e.target.value)
+      @this.set('event_year', e.target.value);
+    });
+
+    $('#p_date').on('change', function(e) {
+      //console.log(e.target.value)
+      @this.set('event_date', e.target.value);
+    });
+});
+    </script>
+@endpush

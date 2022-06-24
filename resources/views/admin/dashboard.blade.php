@@ -97,7 +97,7 @@
                                 @endif
                             </div>
                             <a href="{{ route('notice.index') }}" class="btn btn-label-brand btn-bold"
-                                style="float: right;">View all Circular</a>
+                                style="float: right;">View all Circular/Notice</a>
                         </div>
                     </div>
                 </div>
@@ -125,7 +125,7 @@
                                                 class="kt-badge kt-badge--username kt-badge--unified-success kt-badge--lg kt-badge--rounded kt-badge--bold">{{ substr(ucfirst($users->first_name), 0, 1) }}</span>
                                             <div class="kt-widget4__info">
                                                 <a href="{{ route('users.show', ['user' => $users->id]) }}"
-                                                    class="kt-widget4__username" title="Click to view Minutes of Meeting">
+                                                    class="kt-widget4__username" title="Click to view Minutes of the Meeting">
                                                     &nbsp;&nbsp;{{ $users->mom_name }}
                                                 </a>
                                                 <p class="kt-widget4__text">
@@ -139,7 +139,7 @@
                                         <div class="kt-widget4__pic kt-widget4__pic--pic">
                                         </div>
                                         <div class="kt-widget4__info">
-                                            No Minutes of Meeting record found.
+                                            No Minutes of the Meeting record found.
                                         </div>
                                     </div>
                                 @endif

@@ -18,7 +18,7 @@ class NoticeCreateEdit extends Component
     use AlertMessage;
     use WithFileUploads;
     public $notice_number,$active, $notice,$notice_photo_path,$user_id;
-    public $notice_name, $notice_description, $blankArr;
+    public $notice_name, $notice_description, $notice_time, $notice_date,$blankArr;
     public $isEdit = false;
     public $statusList = [];
     public $photos = [];
@@ -50,10 +50,22 @@ class NoticeCreateEdit extends Component
             'notice_photo_path' => 'required',
             'notice_name' => 'required',
             'notice_description' => 'required',
+            'notice_date' => 'required',
+            'notice_time' => 'required',
             'active' => 'required',
         ]);
-        
-        $validatedData['notice_photo_path'] = $this->notice_photo_path->store('files', 'public');
+        if(!$this->isEdit){
+            $validatedData['notice_photo_path'] = $this->notice_photo_path->store('files', 'public');
+        }
+        if($this->isEdit){
+            if($validatedData['notice_photo_path'] == $this->notice->notice_photo_path){
+                
+                $validatedData['notice_photo_path'] = $this->notice->notice_photo_path;
+            }
+           else{
+            $validatedData['notice_photo_path'] = $this->notice_photo_path->store('files', 'public');
+        }
+        }
         $validatedData['user_id'] = auth()->user()->id;
 
         if(!$this->isEdit)
@@ -61,7 +73,7 @@ class NoticeCreateEdit extends Component
         if($this->isEdit)
         $this->notice->update($validatedData);
      
-        $msgAction = 'Notice has been '. ($this->isEdit ? 'updated' : 'created') . ' successfully';
+        $msgAction = 'Circular/Notice has been '. ($this->isEdit ? 'updated' : 'created') . ' successfully';
         $this->showToastr("success",$msgAction);
 
         return redirect()->route('notice.index');

@@ -1,10 +1,18 @@
 <footer class="u-clearfix u-footer u-grey-dark-2">
     <div class="container">
         <div class="row">
-            <div class="col-sm-4 text-center"><img src="{{asset('welcome_assets/images/logo.png" class="u-image-circle"/></div>
+            <div class="col-sm-4 text-center"><img src="{{asset('welcome_assets/images/logo.png')}}" class="u-image-circle"/></div>
             <div class="col-sm-4">
-                <h5>Block header</h5>
-                <p>Block content. Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam nunc justo sagittis suscipit ultrices.</p>
+                <h5>VANASHRI</h5>
+                <p>The Central Bank Employees’ Co-op. Hsg. Soc. Ltd.
+                    (Regd. No. BOM/HSG/1908/19-11-68)</p>
+                    <h5>Registered Office:</h5>
+                <p>Opp. Diamond Talkies,<br>
+                    Lokmanya Tilak Road,<br>
+                    Borivali (West),<br>
+                    Mumbai – 400092<br>
+                    Email: vanashri1968@gmail.com</p>
+
             </div>
             <div class="col-sm-4 text-center">
                 <a class="u-social-url" title="facebook" target="_blank" href=""><span class="u-icon u-social-facebook u-social-icon u-icon-1"><svg class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-8dc3"><circle fill="currentColor" cx="56.1" cy="56.1" r="55"></circle><path fill="#FFFFFF" d="M73.5,31.6h-9.1c-1.4,0-3.6,0.8-3.6,3.9v8.5h12.6L72,58.3H60.8v40.8H43.9V58.3h-8V43.9h8v-9.2
@@ -30,3 +38,22 @@
         </div>
     </div>
 </footer>
+<div id='toTop'><img src="{{asset('welcome_assets/images/icons.jpg')}}"/></div>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script>
+    $(window).scroll(function() {
+    if ($(this).scrollTop()) {
+        $('#toTop').fadeIn();
+    } else {
+        $('#toTop').fadeOut();
+    }
+});
+
+$("#toTop").click(function () {
+   //1 second of animation time
+   //html works for FFX but not Chrome
+   //body works for Chrome but not FFX
+   //This strange selector seems to work universally
+   $("html, body").animate({scrollTop: 0}, 1000);
+});
+    </script>

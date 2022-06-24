@@ -1,16 +1,26 @@
 <x-admin.form-section submit="saveOrUpdate">
     <x-slot name="form">
         <x-admin.form-group>
-            <x-admin.lable value="Circular Number" required />
-            <x-admin.input type="text" wire:model.defer="notice_number" placeholder="Circular Number"  class="{{ $errors->has('notice_number') ? 'is-invalid' :'' }}" />
+            <x-admin.lable value="Circular/Notice Number" required />
+            <x-admin.input type="text" wire:model.defer="notice_number" placeholder="Circular/Notice Number"  class="{{ $errors->has('notice_number') ? 'is-invalid' :'' }}" />
             <x-admin.input-error for="notice_number" />
         </x-admin.form-group>
         <x-admin.form-group>
-            <x-admin.lable value="Circular Head"  required />
-            <x-admin.input type="text" wire:model.defer="notice_name" placeholder="Circular Head"  class="{{ $errors->has('notice_name') ? 'is-invalid' :'' }}" />
+            <x-admin.lable value="Circular/Notice Head"  required />
+            <x-admin.input type="text" wire:model.defer="notice_name" placeholder="Circular/Notice Head"  class="{{ $errors->has('notice_name') ? 'is-invalid' :'' }}" />
             <x-admin.input-error for="notice_name" />
         </x-admin.form-group>
-       
+        <x-admin.form-group>
+            <x-admin.lable value="Circular/Notice Date" required />
+            <x-admin.input type="text" wire:model.defer="notice_date" placeholder="Circular/Notice Date" autocomplete="off"   class="{{ $errors->has('notice_date') ? 'is-invalid' :'' }}" />
+            <x-admin.input-error for="notice_date" />
+        </x-admin.form-group>
+        
+        <x-admin.form-group>
+            <x-admin.lable value="Circular/Notice Time"  required />
+            <x-admin.input type="text" wire:model.defer="notice_time"  placeholder="Circular/Notice Time" autocomplete="off"  id="notice_time"   class="{{ $errors->has('notice_time') ? 'is-invalid' :'' }}" />
+            <x-admin.input-error for="notice_time" />
+        </x-admin.form-group>
         <x-admin.form-group>
             <x-admin.lable value="File" required />
             <x-admin.input type="file" wire:model.defer="notice_photo_path"   class="{{ $errors->has('notice_photo_path') ? 'is-invalid' :'' }}" accept="image/*" />

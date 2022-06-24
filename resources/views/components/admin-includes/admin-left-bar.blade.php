@@ -6,7 +6,7 @@
 		<div class="kt-aside__brand kt-grid__item " id="kt_aside_brand">
 			<div class="kt-aside__brand-logo">
 				<a href="{{route('admin.dashboard')}}" class="logo_text_custom">
-					<span>{{  ('Vanasree') }}</span> 
+					<span>{{  ('VANASHRI') }}</span> 
 					<!-- <img alt="Logo" src="{{asset('admin_assets/logo/logo.png')}}" width="150px" height="50px"/> -->
 				</a>
 			</div>
@@ -48,7 +48,7 @@
 					<li class="kt-menu__item  {{ Request::is('admin/users*') ? 'kt-menu__item--active' : '' }}" aria-haspopup="true"><a href="{{route('users.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon flaticon-avatar"></i><span class="kt-menu__link-text">Users</span></a></li>
 
 					<li class="kt-menu__section ">
-						<h4 class="kt-menu__section-text">Circular/MOM Management</h4>
+						<h4 class="kt-menu__section-text">Circular/Notice/Minutes of the Meeting Management</h4>
 						<i class="kt-menu__section-icon flaticon-more-v2"></i>
 					</li>
 					<li class="kt-menu__item  {{ Request::is('admin/notice*') ? 'kt-menu__item--active' : '' }}" aria-haspopup="true"><a href="{{route('notice.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon fas fa-id-card"></i><span class="kt-menu__link-text">Circular/Notice</span></a></li>

@@ -12,7 +12,7 @@ class Notice extends Model implements HasMedia
     use HasFactory;
     use Sluggable;
     use HasMediaTrait;
-    protected $fillable = ['notice_number','notice_name','notice_name_slug','notice_description','notice_photo_path','user_id','active'];
+    protected $fillable = ['notice_number','notice_name','notice_date','notice_time','notice_name_slug','notice_description','notice_photo_path','user_id','active'];
 
     
     public function sluggable(): array

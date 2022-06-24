@@ -13,11 +13,11 @@
     <x-slot name="thead">
         <tr role="row">
             <th tabindex="0" aria-controls="kt_table_1" rowspan="1" colspan="1" style="width: 22%;"
-                aria-sort="ascending" aria-label="Agent: activate to sort column descending">Notice Number <i
+                aria-sort="ascending" aria-label="Agent: activate to sort column descending">Circular/Notice Number <i
                     class="fa fa-fw fa-sort pull-right" style="cursor: pointer;" wire:click="sortBy('notice_number')"></i>
             </th>
             <th tabindex="0" aria-controls="kt_table_1" rowspan="1" colspan="1" style="width: 23%;"
-                aria-label="Company Email: activate to sort column ascending">Notice Name <i
+                aria-label="Company Email: activate to sort column ascending">Circular/Notice Name <i
                     class="fa fa-fw fa-sort pull-right" style="cursor: pointer;" wire:click="sortBy('notice_name')"></i></th>
             <!-- <th tabindex="0" aria-controls="kt_table_1" rowspan="1" colspan="1" style="width: 20%;"
                 aria-label="Company Agent: activate to sort column ascending">User <i

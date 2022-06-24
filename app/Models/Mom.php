@@ -12,7 +12,7 @@ class Mom extends Model implements HasMedia
     use HasFactory;
     use Sluggable;
     use HasMediaTrait;
-    protected $fillable = ['mom_number','mom_name','mom_name_slug','mom_description','mom_photo_path','user_id','active'];
+    protected $fillable = ['mom_number','mom_name','mom_date','mom_time','mom_name_slug','mom_description','mom_photo_path','user_id','active'];
 
     
     public function sluggable(): array
@@ -23,7 +23,9 @@ class Mom extends Model implements HasMedia
             ]
         ];
     }
-  
+    // protected $casts = [
+    //     'mom_date' => 'date:d-m-Y'
+    // ];
     public function user(){
         return $this->belongsTo(User::class,'user_id');
     }
