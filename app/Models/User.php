@@ -99,7 +99,7 @@ class User extends Authenticatable implements HasMedia
     {
         return [
             'username' => [
-                'source' => 'last_name'.'flat_number'
+                'source' => 'last_name'.'flat_number'.'tower_number'
             ]
         ];
     }

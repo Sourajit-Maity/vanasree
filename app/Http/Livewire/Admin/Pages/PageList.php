@@ -1,25 +1,23 @@
 <?php
 
-namespace App\Http\Livewire\Admin\Cms;
-
-use Livewire\Component;
+namespace App\Http\Livewire\Admin\Pages;
 use App\Http\Livewire\Traits\AlertMessage;
+use Livewire\Component;
 use App\Models\Cms;
+use App\Models\Pages;
 use Livewire\WithPagination;
 use App\Http\Livewire\Traits\WithSorting;
 
-class CmsList extends Component
+class PageList extends Component
 {
     use WithPagination;
     use WithSorting;
     use AlertMessage;
-    public $perPageList = [];
-    public $badgeColors = ['info', 'success', 'brand', 'dark', 'primary', 'warning'];
-
-
+    public $perPageList = []; 
+    public $badgeColors = ['info', 'success', 'brand', 'dark', 'primary', 'warning']; 
     protected $paginationTheme = 'bootstrap';
 
-    public $searchTitle, $perPage = 5, $search;
+    public $searchName, $searchStatus = -1, $searchDelete = -1, $perPage = 5;
     protected $listeners = ['deleteConfirm', 'changeStatus'];
 
     public function mount()
@@ -37,7 +35,6 @@ class CmsList extends Component
         $arrIndex = array_rand($this->badgeColors);
         return $this->badgeColors[$arrIndex];
     }
-
     public function updatingPerPage()
     {
         $this->resetPage();
@@ -49,21 +46,22 @@ class CmsList extends Component
     }
     public function resetSearch()
     {
-        $this->searchTitle = "";
+        $this->searchName = "";
+        $this->searchStatus = -1;
     }
-
     public function render()
     {
-        $queryData = Cms::query();
-
-        if ($this->searchTitle)
-            $queryData->orWhere('title', 'like', '%' . $this->searchTitle . '%');
-
-        return view('livewire.admin.cms.cms-list', [
-            'cms' => $queryData
-                ->orderBy($this->sortBy, $this->sortDirection)
+        
+        $CmsQuery = Pages::query();
+        if ($this->searchName)
+        $CmsQuery->orWhere('name', 'like', '%' . $this->searchName . '%');
+        return view('livewire.admin.pages.page-list',
+            [
+                'pages' => $CmsQuery
+                ->orderBy($this->sortBy, $this->sortDirection) 
                 ->paginate($this->perPage)
-        ]);
+            ] 
+        );
     }
-    
 }
+    

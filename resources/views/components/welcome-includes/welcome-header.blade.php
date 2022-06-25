@@ -1,60 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Vanashri</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+ 
+  <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i">
+  <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
+  <script src="{{asset('welcome_assets/js/script.js')}}"></script>
+  <link rel="stylesheet" href="{{asset('welcome_assets/css/menu.css')}}">
+  <link rel="stylesheet" href="{{asset('welcome_assets/css/style.css')}}">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
 <header>
-<div class="container">
-    <div class="row">
+    <div class="container">
+        <div class="row">
         <div class="col-sm-3"><img src="{{asset('welcome_assets/images/logo.png')}}" width="100px"/></div>
-        <div class="col-sm-9">
-            <nav class="navigation">
-                <div class="container-fluid">
-                <div class="row">
-                    <!-- Brand and toggle get grouped for better mobile display -->
-                    <div class="topbar">
-                        <button type="button" class="togglenavbar visible-xs">
-                            <div id="nav-icon1">
-                                  <span></span>
-                                  <span></span>
-                                  <span></span>
+            <div class="col-sm-9">
+                <nav class="navigation">
+                    <div class="container-fluid">
+                    <div class="row">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="topbar">
+                            <button type="button" class="togglenavbar visible-xs">
+                                <div id="nav-icon1">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
                                 </div>
-                        </button>
-                      
-        
-                    </div>
-        
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="sidenav">
-                         <ul class="">
-                            <li>
-                                <a class="infolink">Home</a>
-                              
-                            </li>
-                            <li>
-                                <a href="location.html">Circulars - Notices</a>
-                             
-                            </li>
-                            <li>
-                                <a class="premiumlink">Minutes of Meetings</a>
-                        
-        
-                            </li>
-                            <li>
-                                <a class="roomlink">Photo Gallery</a>
-                          
-                            </li>
-                            <li>
-                                <a href="video.html">About us</a>
+                            </button>                              
+                        </div>        
+                        <div class="sidenav">
+                            <ul class="">
+                                <li>
+                                    <a href="{{route('welcome.home')}}">Home</a>
+                                
+                                </li>
+                                <li>
+                                    <a href="{{route('welcome.about')}}">About us</a>
+                                
+                                </li>
+                                <li>
+                                    <a href="{{route('welcome.circular-notice')}}">Circulars - Notices</a>
+                                
+                                </li>
+                                <li>
+                                    <a href="{{route('welcome.minutes-of-meeting')}}">Minutes of Meetings</a>
                             
-                            </li>
-                      
-                        </ul>
-                        <div class="secondlevelmenu"> </div>
+            
+                                </li>
+                                <li>
+                                    <a href="{{route('welcome.gallery')}}">Photo Gallery</a>
+                            
+                                </li>
+                                <li>
+                                    <a href="{{route('welcome.contact')}}">Contact Us</a>
+                            
+                                </li>
+                               
+                        
+                            </ul>
+                            <div class="secondlevelmenu"> </div>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                        </div>
                     </div>
-                    <!-- /.navbar-collapse -->
-                    </div>
-                </div>
-                <!-- /.container-fluid -->
-            </nav>
-
-
+                    <!-- /.container-fluid -->
+                </nav>
+            </div>
         </div>
     </div>
-</div>
 </header>
+<body>

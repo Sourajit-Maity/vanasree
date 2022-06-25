@@ -8,13 +8,17 @@ use App\Http\Controllers\Admin\CountryController;
 use App\Http\Controllers\Admin\StateController;
 use App\Http\Controllers\Admin\MomController;
 use App\Http\Controllers\Admin\NoticeController;
-use App\Http\Controllers\Admin\CmsController;
 use App\Http\Controllers\Admin\Master\ServiceMasterController;
 use App\Http\Controllers\Admin\PaymentController;
 use App\Http\Controllers\Admin\LanguageController;
 use App\Http\Controllers\Admin\SecurityQuestionController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Home\HomeController;
+use App\Http\Controllers\Admin\CmsController;
+use App\Http\Controllers\Admin\HomepageController;
+use App\Http\Controllers\Admin\FaqpageController;
+use App\Http\Controllers\Admin\ContactuspageController;
+use App\Http\Controllers\Admin\AboutpageController;
 
  
 
@@ -56,6 +60,11 @@ Route::group(['prefix' => 'admin', 'middleware'=> 'auth:sanctum'], function(){
         'payments' => PaymentController::class,
         'security-question' => SecurityQuestionController::class,
         'gallery' => ServiceMasterController::class,
+        'homepage' => HomepageController::class,
+        'faqpage' => FaqpageController::class,
+        'contactuspage' => ContactuspageController::class,
+        'aboutpage' => AboutpageController::class,
+        'pages' => CmsController::class,
 
     ]);
 });

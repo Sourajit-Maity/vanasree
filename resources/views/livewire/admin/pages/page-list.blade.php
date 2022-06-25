@@ -1,8 +1,8 @@
 <x-admin.table>
-    <!-- <x-slot name="search">
+    {{-- <x-slot name="search">
         <x-admin.input type="search" class="form-control form-control-sm" wire:model.debounce.500ms="search"
             aria-controls="kt_table_1" id="generalSearch" />
-    </x-slot> -->
+    </x-slot> --}}
     <x-slot name="perPage">
         <label>Show
             <x-admin.dropdown wire:model="perPage" class="custom-select custom-select-sm form-control form-control-sm">
@@ -15,16 +15,16 @@
 
     <x-slot name="thead">
         <tr role="row">
-            <th tabindex="0" aria-controls="kt_table_1" rowspan="1" colspan="1" style="width: 60%;"
-                aria-sort="ascending" aria-label="Agent: activate to sort column descending">Title <i
-                    class="fa fa-fw fa-sort pull-right" style="cursor: pointer;" wire:click="sortBy('title')"></i>
-            </th>
-            <th class="align-center" rowspan="1" colspan="1" style="width: 40%;" aria-label="Actions">Actions</th>
+            <th tabindex="0" aria-controls="kt_table_1" rowspan="1" colspan="1" style="width: 22%;"
+                aria-sort="ascending" aria-label="Agent: activate to sort column descending">Page <i
+                    class="fa fa-fw fa-sort pull-right" style="cursor: pointer;" wire:click="sortBy('name')"></i>
+            </th>  
+            <th class="align-center" rowspan="1" colspan="1" style="width: 20%;" aria-label="Actions">Actions</th>
         </tr>
 
         <tr class="filter">
             <th>
-                <x-admin.input type="search" wire:model.defer="searchTitle" placeholder="" autocomplete="off"
+                <x-admin.input type="search" wire:model.defer="searchName" placeholder="" autocomplete="off"
                     class="form-control-sm form-filter" />
             </th>
             <th>
@@ -51,24 +51,28 @@
     </x-slot>
 
     <x-slot name="tbody">
-        @forelse($cms as $item)
+        @forelse($pages as $page)
             <tr role="row" class="odd">
-                <td>{{ $item->title }}</td>
+                <td class="sorting_1" tabindex="0">{{ $page->name }}</td>
+               
+
+                
                 <x-admin.td-action>
-                    <a class="dropdown-item" href="{{ route('cms.edit', ['cm' => $item->id]) }}"><i
+                    <a class="dropdown-item" href="{{ route('pages.edit', ['page' => $page->id]) }}"><i
                             class="la la-edit"></i> Edit</a>
+                    
                 </x-admin.td-action>
             </tr>
-        @empty
+        @empty 
             <tr>
                 <td colspan="5" class="align-center">No records available</td>
             </tr>
         @endforelse
     </x-slot>
     <x-slot name="pagination">
-        {{ $cms->links() }}
+        {{ $pages->links() }}
     </x-slot>
     <x-slot name="showingEntries">
-        Showing {{ $cms->firstitem() ?? 0 }} to {{ $cms->lastitem() ?? 0 }} of {{ $cms->total() }} entries
+        Showing {{ $pages->firstitem() }} to {{ $pages->lastitem() }} of {{ $pages->total() }} entries
     </x-slot>
 </x-admin.table>

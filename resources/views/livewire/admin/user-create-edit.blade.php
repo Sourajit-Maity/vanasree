@@ -42,6 +42,12 @@
                         <x-admin.input type="password" wire:model.defer="password_confirmation" placeholder="Reenter Password" autocomplete="off" class="{{ $errors->has('password_confirmation') ? 'is-invalid' :'' }}"/>
                         <x-admin.input-error for="password_confirmation" />
                     </x-admin.form-group>
+                    @else
+                    <x-admin.form-group>
+                        <x-admin.lable value="UserName"  required />
+                        <x-admin.input type="username" wire:model.defer="username" placeholder="Username" autocomplete="off" class="{{ $errors->has('username') ? 'is-invalid' :'' }}" readonly/>
+                        <x-admin.input-error for="username" />
+                    </x-admin.form-group>
                     @endif
                     <x-admin.form-group>
                         <x-admin.lable value="Status" />

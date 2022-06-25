@@ -61,7 +61,8 @@
 						<h4 class="kt-menu__section-text">CMS Management</h4>
 						<i class="kt-menu__section-icon flaticon-more-v2"></i>
 					</li>
-					<li class="kt-menu__item  {{ Request::is('admin/cms*') ? 'kt-menu__item--active' : '' }}" aria-haspopup="true"><a href="{{route('cms.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon flaticon-list-1"></i><span class="kt-menu__link-text">CMS</span></a></li>
+					<li class="kt-menu__item  {{ Request::is('admin/pages*') ? 'kt-menu__item--active' : '' }}" aria-haspopup="true"><a href="{{route('pages.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon fas fa-file-alt"></i><span class="kt-menu__link-text">CMS</span></a></li>
+					<!-- <li class="kt-menu__item  {{ Request::is('admin/cms*') ? 'kt-menu__item--active' : '' }}" aria-haspopup="true"><a href="{{route('cms.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon flaticon-list-1"></i><span class="kt-menu__link-text">CMS</span></a></li> -->
 					<li class="kt-menu__item {{ Request::is('admin/master/gallery*') ? 'kt-menu__item--active' : '' }}" aria-haspopup="true"><a href="{{route('gallery.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon fas fa-tags"><span></span></i><span class="kt-menu__link-text">Gallery</span></a></li>
 
 				

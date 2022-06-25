@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Cms;
+use App\Models\Pages;
 
 class CmsController extends Controller
 {
@@ -15,7 +16,7 @@ class CmsController extends Controller
      */
     public function index()
     {
-        return view('admin.cms.list');
+        return view('admin.pages.list');
     }
 
     /**
@@ -58,19 +59,27 @@ class CmsController extends Controller
      */
     public function edit($id)
     {
-        $cms = Cms::find($id);
-        if(!is_null($cms) && $cms->slug=="about-us"){
-            return view('admin.cms.about-us-edit',compact('cms'));
-        }elseif(!is_null($cms) && $cms->slug=="privacy-policy"){
-            return view('admin.cms.privacy-policy-edit',compact('cms'));
-        }elseif(!is_null($cms) && $cms->slug=="privacy"){
-            return view('admin.cms.privacy',compact('cms'));
-        }elseif(!is_null($cms) && $cms->slug=="terms-of-use"){
-            return view('admin.cms.terms-conditions-edit',compact('cms'));
-        }elseif(!is_null($cms) && $cms->slug=="copyright-policy"){
-            return view('admin.cms.copyright-policy-edit',compact('cms'));
-        }else{
-            return redirect()->back()->with('error','CMS not found');
+        $cms = Pages::findOrFail($id);
+        if (!empty($cms)) {
+            //dd($cms);
+            if ($cms->slug == 'home_page') {
+                //dd($cms);
+                $details = Pages::with(['home'])->findOrFail($id);
+                //dd($details);
+                return view('admin.cms.home-page-edit', compact('details'));
+            }
+            // if ($cms->slug == 'faq_page') {
+            //     $details = Pages::with(['faq'])->findOrFail($id);
+            //     return view('admin.cms.faq-page-edit', compact('details'));
+            // }
+            if ($cms->slug == 'about_page') {
+                $details = Pages::with(['about'])->findOrFail($id);
+                return view('admin.cms.about-page-edit', compact('details'));
+            }
+            if ($cms->slug == 'contact_page') {
+                $details = Pages::with(['contact'])->findOrFail($id);
+                return view('admin.cms.contact-us-page-edit', compact('details'));
+            }
         }
     }
 

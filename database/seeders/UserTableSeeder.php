@@ -24,9 +24,9 @@ class UserTableSeeder extends Seeder
         ]);
         $superAdminUser->assignRole('SUPER-ADMIN');
        
-        User::factory(10)->create()->each(function ($user) {
-            $user->assignRole('USER');
-        });
+        // User::factory(10)->create()->each(function ($user) {
+        //     $user->assignRole('USER');
+        // });
 
        
     }

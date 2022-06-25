@@ -19,8 +19,12 @@ class DatabaseSeeder extends Seeder
         $this->call(StateSeeder::class);
         $this->call(CitySeeder::class);
         $this->call(CmsSeeder::class);
+        $this->call(PagesSeeder::class);
         $this->call(LanguageSeeder::class);
         $this->call(SecurityQuestionSeeder::class);
+        $this->call(ContactPageTableSeeder::class);
+        $this->call(HomePageTableSeeder::class);
+        $this->call(AboutPageTableSeeder::class);
         
        
         // \App\Models\User::factory(10)->create();
