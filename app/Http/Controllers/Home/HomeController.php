@@ -28,6 +28,21 @@ class HomeController extends Controller
         return view('Welcome.gallery');
     }
 
+    public function contact(Request $request)
+    { 
+        return view('Welcome.contact');
+    }
+
+    public function minutes_of_meeting(Request $request)
+    { 
+        return view('Welcome.mom');
+    }
+
+    public function circular_notice(Request $request)
+    { 
+        return view('Welcome.circular');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

@@ -32,6 +32,9 @@ use App\Http\Controllers\Home\HomeController;
 Route::get('/', [HomeController::class, 'index'])->name('welcome.home');
 Route::get('/about', [HomeController::class, 'about'])->name('welcome.about');
 Route::get('/gallery', [HomeController::class, 'gallery'])->name('welcome.gallery');
+Route::get('/contact', [HomeController::class, 'contact'])->name('welcome.contact');
+Route::get('/minutes-of-meeting', [HomeController::class, 'minutes_of_meeting'])->name('welcome.minutes-of-meeting');
+Route::get('/circular-notice', [HomeController::class, 'circular_notice'])->name('welcome.circular-notice');
 
 Route::redirect('admin','admin/login');
 

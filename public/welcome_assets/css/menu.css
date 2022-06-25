@@ -408,8 +408,8 @@ body {
   padding: 5px 15px;
 }
 .sidenav li a {
- color: #000;
- font-size: 16px;
+ color: green;
+ font-size: 12px;
  line-height: 1.7;
 }
 .sidenav ul {
@@ -538,7 +538,7 @@ ul>li {
   padding: 10px 20px;
 }
 .sidenav li a:hover {
-  padding: 10px 20px;
+  padding: 10px 10px;
     border-radius: 50px !important;
     border: 2px solid #80f26c !important;
     color: #666666 !important;

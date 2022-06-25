@@ -15,7 +15,6 @@
   <link rel="stylesheet" href="{{asset('welcome_assets/css/menu.css')}}">
   <link rel="stylesheet" href="{{asset('welcome_assets/css/style.css')}}">
 </head>
-<body> 
 <header>
     <div class="container">
         <div class="row">
@@ -41,11 +40,15 @@
                                 
                                 </li>
                                 <li>
-                                    <a href="{{route('welcome.about')}}">Circulars - Notices</a>
+                                    <a href="{{route('welcome.about')}}">About us</a>
                                 
                                 </li>
                                 <li>
-                                    <a href="{{route('welcome.home')}}">Minutes of Meetings</a>
+                                    <a href="{{route('welcome.circular-notice')}}">Circulars - Notices</a>
+                                
+                                </li>
+                                <li>
+                                    <a href="{{route('welcome.minutes-of-meeting')}}">Minutes of Meetings</a>
                             
             
                                 </li>
@@ -54,9 +57,10 @@
                             
                                 </li>
                                 <li>
-                                    <a href="{{route('welcome.about')}}">About us</a>
-                                
+                                    <a href="{{route('welcome.contact')}}">Contact Us</a>
+                            
                                 </li>
+                               
                         
                             </ul>
                             <div class="secondlevelmenu"> </div>
@@ -70,6 +74,8 @@
         </div>
     </div>
 </header>
+<body> 
+
 <section class="u-section-1">
     <div class="container">
         <div class="row">

@@ -14,8 +14,10 @@
   <script src="{{asset('welcome_assets/js/script.js')}}"></script>
   <link rel="stylesheet" href="{{asset('welcome_assets/css/menu.css')}}">
   <link rel="stylesheet" href="{{asset('welcome_assets/css/style.css')}}">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
 </head>
-<body>
+
   
 <header>
 <div class="container">
@@ -82,24 +84,93 @@
     </div>
 </div>
 </header>
+<body>
 
-<section class="about-us">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6">
-                <h2>Sample Headline</h2>
-            </div>
-            <div class="col-sm-6">
-                <h4> Sample Headline</h4>
-                <p>Sample text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sapien lorem, finibus sed maximus dictum, sodales eget dui. Nullam aliquam diam ut est eleifend, et molestie erat rutrum. Mauris et erat condimentum, iaculis nunc id, lacinia dolor. Integer consequat nisi interdum libero. </p>
-                <h4>Sample Headline</h4>
-                <p>Sample text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sapien lorem, finibus sed maximus dictum, sodales eget dui. Nullam aliquam diam ut est eleifend, et molestie erat rutrum</p>
-                <a href="#">learn more</a>
-                   
-            </div>
-        </div>
-    </div>
-</section>
+<div class="w3-container w3-teal">
+<h1>Circulars - Notices</h1>
+</div>
+
+<div class="w3-content">
+
+<div class="w3-row w3-margin">
+
+<div class="w3-third">
+  <img src="{{asset('welcome_assets/images/new1.jpeg')}}" style="width:100%;min-height:200px">
+</div>
+<div class="w3-twothird w3-container">
+  <h2>5 Terre</h2>
+  <p>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+  </p>
+</div>
+
+</div>
+<div class="w3-row w3-margin">
+
+<div class="w3-third">
+  <img src="{{asset('welcome_assets/images/new1.jpeg')}}" style="width:100%;min-height:200px">
+</div>
+<div class="w3-twothird w3-container">
+  <h2>Monterosso</h2>
+  <p>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+  </p>
+</div>
+
+</div>
+<div class="w3-row w3-margin">
+
+<div class="w3-third">
+  <img src="{{asset('welcome_assets/images/new1.jpeg')}}" style="width:100%;min-height:200px">
+</div>
+<div class="w3-twothird w3-container">
+  <h2>Vernazza</h2>
+  <p>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+  </p>
+</div>
+
+</div>
+<div class="w3-row w3-margin">
+
+<div class="w3-third">
+  <img src="{{asset('welcome_assets/images/new1.jpeg')}}" style="width:100%;min-height:200px">
+</div>
+<div class="w3-twothird w3-container">
+  <h2>Manarola</h2>
+  <p>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+  </p>
+</div>
+
+</div>
+<div class="w3-row w3-margin">
+
+<div class="w3-third">
+  <img src="{{asset('welcome_assets/images/new1.jpeg')}}" style="width:100%;min-height:200px">
+</div>
+<div class="w3-twothird w3-container">
+  <h2>Corniglia</h2>
+  <p>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+  </p>
+</div>
+
+</div>
+<div class="w3-row w3-margin">
+
+<div class="w3-third">
+  <img src="{{asset('welcome_assets/images/new1.jpeg')}}" style="width:100%;min-height:200px">
+</div>
+<div class="w3-twothird w3-container">
+  <h2>Riomaggiore</h2>
+  <p>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+  </p>
+</div>
+
+</div>
+</div>
 
 <footer class="u-clearfix u-footer u-grey-dark-2">
     <div class="container">

@@ -49,11 +49,15 @@
                                 
                                 </li>
                                 <li>
-                                    <a href="{{route('welcome.about')}}">Circulars - Notices</a>
+                                    <a href="{{route('welcome.about')}}">About us</a>
                                 
                                 </li>
                                 <li>
-                                    <a href="{{route('welcome.home')}}">Minutes of Meetings</a>
+                                    <a href="{{route('welcome.circular-notice')}}">Circulars - Notices</a>
+                                
+                                </li>
+                                <li>
+                                    <a href="{{route('welcome.minutes-of-meeting')}}">Minutes of Meetings</a>
                             
             
                                 </li>
@@ -62,9 +66,10 @@
                             
                                 </li>
                                 <li>
-                                    <a href="{{route('welcome.about')}}">About us</a>
-                                
+                                    <a href="{{route('welcome.contact')}}">Contact Us</a>
+                            
                                 </li>
+                               
                         
                             </ul>
                         <div class="secondlevelmenu"> </div>
