@@ -30,6 +30,8 @@ use App\Http\Controllers\Home\HomeController;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('welcome.home');
+Route::get('/about', [HomeController::class, 'about'])->name('welcome.about');
+Route::get('/gallery', [HomeController::class, 'gallery'])->name('welcome.gallery');
 
 Route::redirect('admin','admin/login');
 

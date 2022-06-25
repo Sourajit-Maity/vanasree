@@ -18,6 +18,16 @@ class HomeController extends Controller
         return view('Welcome.home');
     }
 
+    public function about(Request $request)
+    { 
+        return view('Welcome.about');
+    }
+
+    public function gallery(Request $request)
+    { 
+        return view('Welcome.gallery');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
