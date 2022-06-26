@@ -21,8 +21,8 @@
                         <x-admin.input-error for="phone" />
                     </x-admin.form-group>
                     <x-admin.form-group>
-                        <x-admin.lable value="Tower Number" required />
-                        <x-admin.input type="text" wire:model.defer="tower_number" placeholder="Tower Number"  class="{{ $errors->has('tower_number') ? 'is-invalid' :'' }}" />
+                        <x-admin.lable value="Wing Number" required />
+                        <x-admin.input type="text" wire:model.defer="tower_number" placeholder="Wing Number"  class="{{ $errors->has('tower_number') ? 'is-invalid' :'' }}" />
                         <x-admin.input-error for="tower_number" />
                     </x-admin.form-group>
                     <x-admin.form-group>

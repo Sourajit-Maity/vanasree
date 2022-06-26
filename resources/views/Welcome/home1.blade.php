@@ -7,6 +7,7 @@
                 <p> The Central Bank Employees’ Co-op. Hsg. Soc. Ltd.<br>
                     (Regd.No. BOM/HSG/1908/19-11-68) </p>
             </div>
+            @guest
             <div class="col-sm-7">
                 <div class="form-outer">
                 <div class="u-container-layout u-container-layout-2"><span class="u-custom-color-1 u-icon u-icon-circle u-text-white u-icon-1">                   
@@ -24,30 +25,50 @@
                     C49.513,45.874,51,48.28,51,50.957V54z"></path>
                 </svg>
                 </span>
+
                             <h3 class="u-custom-font u-font-montserrat u-text u-text-default u-text-3">Welcome</h3>
-                            <div class="u-form u-login-control u-white u-form-1">
-                            <form action="#" method="POST" class="u-clearfix u-form-custom-backend u-form-spacing-20 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 30px;">
-                                <div class="u-form-group u-form-name">
+                            
+                            <div class="u-form u-login-control u-white u-form-1 form-input">
+                            <form action="{{ route('welcome.login-client') }}" method="POST"  style="padding: 30px;">
+                            @csrf
+                             <div class="u-form-group u-form-name">
                                 <label for="username-a30d" class="u-label">Username *</label>
-                                <input type="text" placeholder="Enter your Username" id="username-a30d" name="username" class="u-grey-5 u-input u-input-rectangle u-input-1" required="">
-                                </div>
-                                <div class="u-form-group u-form-password">
+                                <input type="email" placeholder="Enter your email"  name="email" class="u-grey-5 u-input u-input-rectangle u-input-1 form-control @error('email') is-invalid @enderror" required="">
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="u-form-group u-form-password form-input">
                                 <label for="password-a30d" class="u-label">Password *</label>
-                                <input type="text" placeholder="Enter your Password" id="password-a30d" name="password" class="u-grey-5 u-input u-input-rectangle u-input-2" required="">
-                                </div>
+                                <input type="password" placeholder="Enter your Password" id="password-a30d" name="password" class="u-grey-5 u-input u-input-rectangle u-input-2form-control @error('password') is-invalid @enderror"  required="">
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
                                 <div class="u-form-checkbox u-form-group">
-                                <input type="checkbox" id="checkbox-a30d" name="remember" value="On">
-                                <label for="checkbox-a30d" class="u-label">Remember me</label>
+                                <!-- <input type="checkbox" id="checkbox-a30d" name="remember" value="On"> -->
+                                <!-- <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}> -->
+                                <!-- <label for="checkbox-a30d" class="u-label">Remember me</label> -->
                                 </div>
                                 <div class="u-align-right u-form-group u-form-submit">
-                                <a href="#" class="u-border-none u-btn u-btn-submit u-button-style u-custom-color-1 u-radius-26 u-btn-1">Login</a>
-                                <input type="submit" value="submit" class="u-form-control-hidden">
+                                <!-- <a href="#" class="u-border-none u-btn u-btn-submit u-button-style u-custom-color-1 u-radius-26 u-btn-1">Login</a> -->
+                                <input type="submit" value="Login"  class="u-border-none u-btn u-btn-submit u-button-style u-custom-color-1 u-radius-26 u-btn-1">
                                 </div>
-                                <input type="hidden" value="" name="recaptchaResponse">
+                                <!-- <input type="hidden" value="" name="recaptchaResponse"> -->
                             </form>
                             </div>
-                            <a href="#" class="u-border-active-palette-2-base u-border-hover-palette-1-base u-border-none u-btn u-button-style u-login-control u-login-forgot-password u-none u-text-grey-40 u-text-hover-palette-4-base u-btn-2">Forgot password?</a>
+                             <!-- <a href="#" class="u-border-active-palette-2-base u-border-hover-palette-1-base u-border-none u-btn u-button-style u-login-control u-login-forgot-password u-none u-text-grey-40 u-text-hover-palette-4-base u-btn-2">Forgot password?</a> -->
+                            
                         </div>
+                        @else
+                        <p>Hi! {{ Auth::user()->first_name }} &#160; <a href="#">Profile</a></p>
+                         &nbsp;&nbsp;&nbsp;
+                        <p><a href="{{route('welcome.logout-client')}}">Logout</a></p>
+                        @endguest
                         </div>
             </div>
         </div>

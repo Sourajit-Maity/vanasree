@@ -12,6 +12,9 @@ use App\Models\Mom;
 use App\Models\Homepage;
 use App\Models\ContactUsForm;
 use App\Models\Contactuspage;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
 {
@@ -77,6 +80,38 @@ class HomeController extends Controller
         return redirect()->back()
             ->with('success', 'Message Submitted successfully.');
     }
+
+    public function loginClient(Request $request)
+    {
+
+        request()->validate([
+            "email" =>  "required|email",
+            "password" =>  "required",
+        ]);
+
+
+        $user = User::where("email", $request->email)->role('USER')->first();
+
+        if (is_null($user)) {
+            return redirect()->back()->with('success', 'Email Not Found.');
+        }
+
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+            $user  =  Auth::user();
+            return Redirect::to('/')->with('success', 'User Login Successfully!');
+        } else {
+            return redirect()->back()->with('success', '"Whoops! invalid password.');
+        }
+    }
+
+    public function logoutClient()
+    {
+        Session::flush();
+        Auth::logout();
+
+        return Redirect::to('/');
+    }
+
     public function create()
     {
         

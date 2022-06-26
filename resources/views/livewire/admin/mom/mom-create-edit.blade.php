@@ -21,14 +21,14 @@
        
         <x-admin.form-group>
             <x-admin.lable value="File" required />
-            <x-admin.input type="file" wire:model.defer="mom_photo_path"   class="{{ $errors->has('mom_photo_path') ? 'is-invalid' :'' }}" accept="image/*" />
+            <x-admin.input type="file" wire:model.defer="mom_photo_path"   class="{{ $errors->has('mom_photo_path') ? 'is-invalid' :'' }}" accept="pdf/*" />
             <x-admin.input-error for="mom_photo_path" />
         </x-admin.form-group>
-        @if($isEdit)
+        <!-- @if($isEdit)
         <div class="form-group col-lg-3 d-flex justify-content-end">
             <img src="{{Storage::disk('public')->exists($mom->mom_photo_path) ? Storage::url($mom->mom_photo_path) : asset($mom->mom_image)}}" width="200px" height="150px">
         </div>
-        @endif
+        @endif -->
 
         <x-admin.form-group class="col-lg-12" >
         <x-admin.lable value="Details" required/>
