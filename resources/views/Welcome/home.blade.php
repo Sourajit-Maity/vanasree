@@ -101,7 +101,7 @@
                     C49.513,45.874,51,48.28,51,50.957V54z"></path>
                 </svg>
                 </span>
-                            <h3 class="u-custom-font u-font-montserrat u-text u-text-default u-text-3">Welcome Back</h3>
+                            <h3 class="u-custom-font u-font-montserrat u-text u-text-default u-text-3">Welcome</h3>
                             <div class="u-form u-login-control u-white u-form-1">
                             <form action="#" method="POST" class="u-clearfix u-form-custom-backend u-form-spacing-20 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 30px;">
                                 <div class="u-form-group u-form-name">
