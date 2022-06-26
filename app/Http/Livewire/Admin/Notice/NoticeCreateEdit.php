@@ -51,7 +51,7 @@ class NoticeCreateEdit extends Component
             'notice_name' => 'required',
             'notice_description' => 'required',
             'notice_date' => 'required',
-            'notice_time' => 'required',
+            //'notice_time' => 'required',
             'active' => 'required',
         ]);
         if(!$this->isEdit){

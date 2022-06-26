@@ -16,11 +16,7 @@
             <x-admin.input-error for="notice_date" />
         </x-admin.form-group>
         
-        <x-admin.form-group>
-            <x-admin.lable value="Circular/Notice Time"  required />
-            <x-admin.input type="text" wire:model.defer="notice_time"  placeholder="Circular/Notice Time" autocomplete="off"  id="notice_time"   class="{{ $errors->has('notice_time') ? 'is-invalid' :'' }}" />
-            <x-admin.input-error for="notice_time" />
-        </x-admin.form-group>
+        
         <x-admin.form-group>
             <x-admin.lable value="File" required />
             <x-admin.input type="file" wire:model.defer="notice_photo_path"   class="{{ $errors->has('notice_photo_path') ? 'is-invalid' :'' }}" accept="image/*" />

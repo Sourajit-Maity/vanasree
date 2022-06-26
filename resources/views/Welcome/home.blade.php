@@ -208,25 +208,7 @@
         </div>
     </div>
 </section>
-<section class="u-clearfix u-custom-color-1 u-section-6">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-4"><img src="{{$homedetails->content2_option_image2}}"/></div>
-            <div class="col-sm-4"><img src="{{$homedetails->content2_option_image3}}"/></div>
-            <div class="col-sm-4"><img src="{{$homedetails->content2_option_image4}}"/></div>
-        </div>
-        <div class="row">
-            <div class="col-sm-4"><img src="{{$homedetails->content2_option_image5}}"/></div>
-            <div class="col-sm-4"><img src="{{$homedetails->content2_option_image6}}"/></div>
-            <div class="col-sm-4"><img src="{{$homedetails->content2_option_image7}}"/></div>
-        </div>
-        <div class="row">
-            <div class="col-sm-4"><img src="{{$homedetails->content2_option_image22}}"/></div>
-            <div class="col-sm-4"><img src="{{$homedetails->content2_option_image1}}"/></div>
-            <div class="col-sm-4"><img src="{{$homedetails->content2_option_image2}}"/></div>
-        </div>
-    </div>
-</section>
+
 
 <footer class="u-clearfix u-footer u-grey-dark-2">
     <div class="container">

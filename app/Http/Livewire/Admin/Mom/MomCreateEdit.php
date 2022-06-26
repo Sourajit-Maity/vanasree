@@ -49,7 +49,6 @@ class MomCreateEdit extends Component
             'mom_photo_path' => 'required',
             'mom_name' => 'required',
             'mom_date' => 'required',
-            'mom_time' => 'required',
             'mom_description' => 'required',
             'active' => 'required',
         ]);

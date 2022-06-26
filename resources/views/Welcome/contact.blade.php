@@ -27,32 +27,58 @@
                 </span>
                             <h3 class="u-custom-font u-font-montserrat u-text u-text-default u-text-3">Welcome Back</h3>
                             <div class="u-form u-login-control u-white u-form-1">
-                            <form action="#" method="POST" class="u-clearfix u-form-custom-backend u-form-spacing-20 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 30px;">
+                            <form action="{{ route('welcome.contact-submit') }}" method="POST" class="u-clearfix u-form-custom-backend u-form-spacing-20 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 30px;">
+                                @csrf 
                                 <div class="u-form-group u-form-name">
-                                <label for="username-a30d" class="u-label">Name *</label>
-                                <input type="text" placeholder="Enter your Name" id="username-a30d" name="username" class="u-grey-5 u-input u-input-rectangle u-input-1" required="">
+                                    <label for="username-a30d" class="u-label">Name *</label>
+                                    <input type="text" placeholder="Enter your Name" id="username-a30d" name="full_name" class="u-grey-5 u-input u-input-rectangle u-input-1" required="">
+                                    @error('full_name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
+                                
                                 <div class="u-form-group u-form-password">
-                                <label for="password-a30d" class="u-label">Email *</label>
-                                <input type="text" placeholder="Enter your Email" id="password-a30d" name="email" class="u-grey-5 u-input u-input-rectangle u-input-2" required="">
+                                    <label for="password-a30d" class="u-label">Email *</label>
+                                    <input type="text" placeholder="Enter your Email" id="password-a30d" name="email" class="u-grey-5 u-input u-input-rectangle u-input-2" required="">
+                                    @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                     @enderror
                                 </div>
+                                
                                 <div class="u-form-group u-form-name">
-                                <label for="username-a30d" class="u-label">Phone Number*</label>
-                                <input type="text" placeholder="Enter your Phone Number" id="username-a30d" name="phone" class="u-grey-5 u-input u-input-rectangle u-input-1" required="">
+                                    <label for="username-a30d" class="u-label">Phone Number*</label>
+                                    <input type="text" placeholder="Enter your Phone Number" id="phone-a30d" name="phone" class="u-grey-5 u-input u-input-rectangle u-input-1" required="">
+                                    @error('phone')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
-                                <div class="u-form-group u-form-password">
-                                <label for="password-a30d" class="u-label">Message *</label>
-                                <textarea name="message" id="message" class="u-grey-5 u-input u-input-rectangle u-input-2" required="" placeholder="Enter your Message" cols="30" rows="10"></textarea>
+
+                                <div class="u-form-group u-form-message">
+                                    <label for="message-a30d" class="u-label">Message *</label>
+                                    <input type="text" placeholder="Enter your message" id="phone-a30d" name="message" class="u-grey-5 u-input u-input-rectangle u-input-1" required="">
+
+                                    <!-- <textarea name="message" id="message" class="u-grey-5 u-input u-input-rectangle u-input-2" required="" placeholder="Enter your Message" cols="30" rows="10"></textarea> -->
+                                    @error('message')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                                 
                                 <div class="u-align-right u-form-group u-form-submit">
-                                <a href="#" class="u-border-none u-btn u-btn-submit u-button-style u-custom-color-1 u-radius-26 u-btn-1">Submit</a>
-                                <input type="submit" value="submit" class="u-form-control-hidden">
+                                <input type="submit" name="submit" value="submit" class="u-border-none u-btn u-btn-submit u-button-style u-custom-color-1 u-radius-26 u-btn-1">
                                 </div>
-                                <input type="hidden" value="" name="recaptchaResponse">
+                                <!-- <div class="form-input">
+                                    <input type="submit" name="submit" class="submit"/>
+                                </div> -->
                             </form>
                             </div>
-                            <a href="#" class="u-border-active-palette-2-base u-border-hover-palette-1-base u-border-none u-btn u-button-style u-login-control u-login-forgot-password u-none u-text-grey-40 u-text-hover-palette-4-base u-btn-2">Forgot password?</a>
                         </div>
                         </div>
             </div>

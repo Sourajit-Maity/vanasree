@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Home;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Models\Faqpage;
+use App\Models\Design;
 use App\Models\Aboutpage;
 use App\Models\Notice;
 use App\Models\Mom;
@@ -34,7 +34,8 @@ class HomeController extends Controller
 
     public function gallery(Request $request)
     { 
-        return view('Welcome.gallery');
+        $images = Design::where('active',1)->get();
+        return view('Welcome.gallery',compact('images'));
     }
 
     public function contact(Request $request)
@@ -45,12 +46,14 @@ class HomeController extends Controller
 
     public function minutes_of_meeting(Request $request)
     { 
-        return view('Welcome.mom');
+        $moms = Mom::where('active',1)->get();
+        return view('Welcome.mom',compact('moms'));
     }
 
     public function circular_notice(Request $request)
     { 
-        return view('Welcome.circular');
+        $notices = Notice::where('active',1)->get();
+        return view('Welcome.circular',compact('notices'));
     }
 
     /**
@@ -58,9 +61,25 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function contactUsSubmit(Request $request)
+    {
+        //dd($request->all()); 
+
+        request()->validate([
+            'full_name' => 'required',
+            'email' => 'required|email|max:255|regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix',
+            'phone' => 'required|regex:/^([0-9\s+\(\)]*)$/',
+            'message' => 'required',
+        ]);
+        $inputs = $request->all();
+        $contact = ContactUsForm::create($inputs);
+
+        return redirect()->back()
+            ->with('success', 'Message Submitted successfully.');
+    }
     public function create()
     {
-        //
+        
     }
 
     /**

@@ -6,84 +6,19 @@
 
 <div class="w3-content">
 
-<div class="w3-row w3-margin">
-
-<div class="w3-third">
-  <img src="{{asset('welcome_assets/images/new1.jpeg')}}" style="width:100%;min-height:200px">
-</div>
-<div class="w3-twothird w3-container">
-  <h2>5 Terre</h2>
-  <p>
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-  </p>
-</div>
-
-</div>
-<div class="w3-row w3-margin">
-
-<div class="w3-third">
-  <img src="{{asset('welcome_assets/images/new1.jpeg')}}" style="width:100%;min-height:200px">
-</div>
-<div class="w3-twothird w3-container">
-  <h2>Monterosso</h2>
-  <p>
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-  </p>
-</div>
-
-</div>
-<div class="w3-row w3-margin">
-
-<div class="w3-third">
-  <img src="{{asset('welcome_assets/images/new1.jpeg')}}" style="width:100%;min-height:200px">
-</div>
-<div class="w3-twothird w3-container">
-  <h2>Vernazza</h2>
-  <p>
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-  </p>
-</div>
-
-</div>
-<div class="w3-row w3-margin">
-
-<div class="w3-third">
-  <img src="{{asset('welcome_assets/images/new1.jpeg')}}" style="width:100%;min-height:200px">
-</div>
-<div class="w3-twothird w3-container">
-  <h2>Manarola</h2>
-  <p>
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-  </p>
-</div>
-
-</div>
-<div class="w3-row w3-margin">
-
-<div class="w3-third">
-  <img src="{{asset('welcome_assets/images/new1.jpeg')}}" style="width:100%;min-height:200px">
-</div>
-<div class="w3-twothird w3-container">
-  <h2>Corniglia</h2>
-  <p>
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-  </p>
-</div>
-
-</div>
-<div class="w3-row w3-margin">
-
-<div class="w3-third">
-  <img src="{{asset('welcome_assets/images/new1.jpeg')}}" style="width:100%;min-height:200px">
-</div>
-<div class="w3-twothird w3-container">
-  <h2>Riomaggiore</h2>
-  <p>
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-  </p>
-</div>
-
-</div>
+  @foreach($moms as $mom)
+    <div class="w3-row w3-margin">
+      <div class="w3-third">
+        <img src="{{Storage::disk('public')->exists($mom->mom_photo_path) ? Storage::url($mom->mom_photo_path) : asset($mom->mom_image)}}" style="width:100%;min-height:200px">
+      </div>
+      <div class="w3-twothird w3-container">
+          <h2>{{$mom->mom_name}}</h2>
+          <h4>{{$mom->mom_date}}</h4>
+          <p>
+          {{$mom->mom_description}}  </p>
+      </div>
+    </div>
+  @endforeach
 </div>
 
 </x-layouts.welcome-layout>

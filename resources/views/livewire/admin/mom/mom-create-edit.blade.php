@@ -17,11 +17,7 @@
             <x-admin.input-error for="mom_date" />
         </x-admin.form-group>
         
-        <x-admin.form-group>
-            <x-admin.lable value="Minutes of the Meeting Time"  required />
-            <x-admin.input type="text" wire:model.defer="mom_time"  placeholder="Minutes of the Meeting Time" autocomplete="off"  id="mom_time"   class="{{ $errors->has('mom_time') ? 'is-invalid' :'' }}" />
-            <x-admin.input-error for="mom_time" />
-        </x-admin.form-group>
+ 
        
         <x-admin.form-group>
             <x-admin.lable value="File" required />
@@ -58,21 +54,3 @@
         <x-admin.link :href="route('moms.index')" color="secondary">Cancel</x-admin.link>
     </x-slot>
 </x-form-section>
-@push('js')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script>
-
-  $(document).ready(function() {
-
-    $('#event_year').on('change', function(e) {
-      //console.log(e.target.value)
-      @this.set('event_year', e.target.value);
-    });
-
-    $('#p_date').on('change', function(e) {
-      //console.log(e.target.value)
-      @this.set('event_date', e.target.value);
-    });
-});
-    </script>
-@endpush

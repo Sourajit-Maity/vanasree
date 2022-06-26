@@ -9,8 +9,6 @@ class ContactUsForm extends Model
 {
     use HasFactory;
     protected $fillable = [ 
-        'full_name', 'email','active','phone',
-        'address', 'city','state','zip',
-        'subject', 'message'
+        'full_name', 'email','active','phone','message'
     ];
 }

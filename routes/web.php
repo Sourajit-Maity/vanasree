@@ -19,6 +19,8 @@ use App\Http\Controllers\Admin\HomepageController;
 use App\Http\Controllers\Admin\FaqpageController;
 use App\Http\Controllers\Admin\ContactuspageController;
 use App\Http\Controllers\Admin\AboutpageController;
+use App\Http\Controllers\Admin\ContactController;
+
 
  
 
@@ -39,6 +41,7 @@ Route::get('/gallery', [HomeController::class, 'gallery'])->name('welcome.galler
 Route::get('/contact', [HomeController::class, 'contact'])->name('welcome.contact');
 Route::get('/minutes-of-meeting', [HomeController::class, 'minutes_of_meeting'])->name('welcome.minutes-of-meeting');
 Route::get('/circular-notice', [HomeController::class, 'circular_notice'])->name('welcome.circular-notice');
+Route::post('contact-submit', [HomeController::class, 'contactUsSubmit'])->name('welcome.contact-submit');
 
 Route::redirect('admin','admin/login');
 
@@ -65,6 +68,7 @@ Route::group(['prefix' => 'admin', 'middleware'=> 'auth:sanctum'], function(){
         'contactuspage' => ContactuspageController::class,
         'aboutpage' => AboutpageController::class,
         'pages' => CmsController::class,
+        'contact-form' => ContactController::class,
 
     ]);
 });
