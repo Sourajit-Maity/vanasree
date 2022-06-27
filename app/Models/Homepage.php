@@ -10,6 +10,7 @@ class Homepage extends Model
     use HasFactory;
     protected $fillable = [
         'cms_id',
+        'main_banner_heading',
         'banner_background_image',
         'banner_badge_image',
         'banner_heading',
@@ -35,7 +36,15 @@ class Homepage extends Model
         'content2_option_image5',
         'content2_option_image6',
         'content2_option_image7',
+        'content2_option_image8',
+        'content2_option_image9',
+        'content2_option_image10',
         'logo',
+
+        'banner_main_image',
+        'banner_setup_image',
+        'setup_image',
+
         'active',
     ];
 

@@ -17,6 +17,9 @@ class HomePageTableSeeder extends Seeder
         $cms = Pages::whereSlug('home_page')->first();
         $datas = [
             "pages_id" => $cms->id,
+            "main_banner_heading" => "<h1>“VANASHRI” </h1>
+            <p> The Central Bank Employees’ Co-op. Hsg. Soc. Ltd.<br>
+                (Regd.No. BOM/HSG/1908/19-11-68) </p>",
 
             "banner_background_image" => "welcome_assets/images/banner-image.jpg",
             "banner_badge_image" => "welcome_assets/images/banner-image3.png", 
@@ -59,7 +62,13 @@ class HomePageTableSeeder extends Seeder
 			"content2_option_image5" => "welcome_assets/images/benefits-icon03.svg",
 			"content2_option_image6" => "welcome_assets/images/benefits-icon03.svg",
 			"content2_option_image7" => "welcome_assets/images/benefits-icon03.svg",
+			"content2_option_image8" => "welcome_assets/images/benefits-icon03.svg",
+			"content2_option_image9" => "welcome_assets/images/benefits-icon03.svg",
+			"content2_option_image10" => "welcome_assets/images/benefits-icon03.svg",
 			"logo" => "welcome_assets/images/logo.png",
+			"banner_main_image" => "welcome_assets/images/logo.png",
+			"banner_setup_image" => "welcome_assets/images/logo.png",
+			"setup_image" => "welcome_assets/images/logo.png",
 			
 
 

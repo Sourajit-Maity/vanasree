@@ -73,10 +73,21 @@
                                     <a href="{{route('welcome.contact')}}">Contact Us</a>
                             
                                 </li-->
-                               
+                              
                         
                             </ul>
                             <div class="secondlevelmenu"> </div>
+                        </div>
+                        <div class="welcome-section">
+                            <ul class="">
+                                 @guest
+                                    <li>Hi! User &#160;</li>
+                                @else
+                                    <li>Hi! {{ Auth::user()->first_name }} &#160; <a href="{{route('welcome.my-account')}}">Profile</a></li>
+                                    &nbsp;&nbsp;&nbsp;
+                                    <li><a href="{{route('welcome.logout-client')}}">Logout</a></li>
+                                @endguest
+                            </ul>
                         </div>
                         <!-- /.navbar-collapse -->
                         </div>

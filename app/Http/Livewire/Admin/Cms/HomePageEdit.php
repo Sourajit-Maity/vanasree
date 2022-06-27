@@ -14,7 +14,7 @@ class HomePageEdit extends Component
 {
     use AlertMessage;
     use WithFileUploads;
-    public $banner_background_image,$content3_heading,$active=true,$banner_badge_image,$banner_heading,$banner_sub_heading,$banner_content,$content2_heading,$content1_subheading,$content2_option_image3,
+    public $banner_background_image,$main_banner_heading,$content3_heading,$active=true,$banner_badge_image,$banner_heading,$banner_sub_heading,$banner_content,$content2_heading,$content1_subheading,$content2_option_image3,
     $content1_heading,$content3_text,$content2_option_text1,$content1_text,$content2_option_heading1,$content2_option_heading3,
     $content2_text,$content2_option_text2,$content2_option_heading2,$content1_image = "",$content2_option_text3,
     $content2_option_image1 = "",$content2_option_image2 = "",$content3_image = "",$content2_image = "",$details,
@@ -23,7 +23,14 @@ class HomePageEdit extends Component
     $content2_option_image6 = "",
     $content2_option_image7 = "",
     $logo = "",
-    $content2_option_image22 = "";
+    $content2_option_image22 = "",
+    $content2_option_image8 = "",
+    $content2_option_image9= "",
+    $content2_option_image10 = "",
+    $banner_main_image = "",
+    $setup_image= "",
+    $banner_setup_image = "";
+
     public $statusList=[];
     public function mount($details = null){
         if($details) {
@@ -54,7 +61,8 @@ class HomePageEdit extends Component
                 'content2_option_heading1' => ['required'],
                 'content2_option_text1' => ['required', 'max:255'],
                 'content2_option_text2' => ['required'], 
-                'active'=>['required'],                      
+                'main_banner_heading'=>['required'],                      
+                'content2_option_heading2'=>['required'],                      
 
             ];
     }
@@ -216,7 +224,79 @@ class HomePageEdit extends Component
                 $this->logo->storeAs("cms_images", $name, "public");
                 // $this->cms->home->update(['logo' => "cms_images/" . $name]);
                 $validatedData['logo'] = "storage/cms_images/" . $name;
+            }  
+            
+
+            if (!is_string($this->content2_option_image8)) {
+                $this->validate([
+                    'content2_option_image8' => ['mimes:jpg,jpeg,png', 'max:20000']
+                ]);
+                File::delete(public_path() . '/storage/' . $this->content2_option_image8);
+                $name = md5($this->content2_option_image8 . microtime()) . '.' . $this->content2_option_image8->extension();
+                $this->content2_option_image8->storeAs("cms_images", $name, "public");
+                // $this->cms->home->update(['content2_option_image8' => "cms_images/" . $name]);
+                $validatedData['content2_option_image8'] = "storage/cms_images/" . $name;
             }   
+
+
+            if (!is_string($this->content2_option_image9)) {
+                $this->validate([
+                    'content2_option_image9' => ['mimes:jpg,jpeg,png', 'max:20000']
+                ]);
+                File::delete(public_path() . '/storage/' . $this->content2_option_image9);
+                $name = md5($this->content2_option_image9 . microtime()) . '.' . $this->content2_option_image9->extension();
+                $this->content2_option_image9->storeAs("cms_images", $name, "public");
+                // $this->cms->home->update(['content2_option_image9' => "cms_images/" . $name]);
+                $validatedData['content2_option_image9'] = "storage/cms_images/" . $name;
+            }   
+
+            if (!is_string($this->content2_option_image10)) {
+                $this->validate([
+                    'content2_option_image10' => ['mimes:jpg,jpeg,png', 'max:20000']
+                ]);
+                File::delete(public_path() . '/storage/' . $this->content2_option_image10);
+                $name = md5($this->content2_option_image10 . microtime()) . '.' . $this->content2_option_image10->extension();
+                $this->content2_option_image10->storeAs("cms_images", $name, "public");
+                // $this->cms->home->update(['content2_option_image10' => "cms_images/" . $name]);
+                $validatedData['content2_option_image10'] = "storage/cms_images/" . $name;
+            } 
+
+
+            //
+
+            if (!is_string($this->banner_main_image)) {
+                $this->validate([
+                    'banner_main_image' => ['mimes:jpg,jpeg,png', 'max:20000']
+                ]);
+                File::delete(public_path() . '/storage/' . $this->banner_main_image);
+                $name = md5($this->banner_main_image . microtime()) . '.' . $this->banner_main_image->extension();
+                $this->banner_main_image->storeAs("cms_images", $name, "public");
+                // $this->cms->home->update(['banner_main_image' => "cms_images/" . $name]);
+                $validatedData['banner_main_image'] = "storage/cms_images/" . $name;
+            }   
+
+
+            if (!is_string($this->banner_setup_image)) {
+                $this->validate([
+                    'banner_setup_image' => ['mimes:jpg,jpeg,png', 'max:20000']
+                ]);
+                File::delete(public_path() . '/storage/' . $this->banner_setup_image);
+                $name = md5($this->banner_setup_image . microtime()) . '.' . $this->banner_setup_image->extension();
+                $this->banner_setup_image->storeAs("cms_images", $name, "public");
+                // $this->cms->home->update(['banner_setup_image' => "cms_images/" . $name]);
+                $validatedData['banner_setup_image'] = "storage/cms_images/" . $name;
+            }   
+
+            if (!is_string($this->setup_image)) {
+                $this->validate([
+                    'setup_image' => ['mimes:jpg,jpeg,png', 'max:20000']
+                ]);
+                File::delete(public_path() . '/storage/' . $this->setup_image);
+                $name = md5($this->setup_image . microtime()) . '.' . $this->setup_image->extension();
+                $this->setup_image->storeAs("cms_images", $name, "public");
+                // $this->cms->home->update(['setup_image' => "cms_images/" . $name]);
+                $validatedData['setup_image'] = "storage/cms_images/" . $name;
+            } 
 
 
             

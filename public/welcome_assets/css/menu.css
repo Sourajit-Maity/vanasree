@@ -405,15 +405,17 @@ body {
 }
 .sidenav li {
   display: block;
-  padding: 5px 15px;
+  padding: 5px 7px;
 }
 .sidenav li a {
- color: green;
- font-size: 12px;
+ color: #000 !important;
+ font-size: 16px;
  line-height: 1.7;
 }
 .sidenav ul {
   list-style: none;
+  margin: 0px;
+  padding: 0px;
 
 }
 
@@ -538,7 +540,7 @@ ul>li {
   padding: 10px 20px;
 }
 .sidenav li a:hover {
-  padding: 10px 10px;
+  padding: 10px 20px;
     border-radius: 50px !important;
     border: 2px solid #80f26c !important;
     color: #666666 !important;
@@ -592,3 +594,12 @@ font-size: 14px;}
 
 
 }
+
+
+.welcome-section{
+  float: right;
+    width: 100%;
+    text-align: right;
+    margin-right: 59px;
+}
+.welcome-section ul li{color: green;}

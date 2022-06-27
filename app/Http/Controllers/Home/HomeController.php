@@ -85,22 +85,25 @@ class HomeController extends Controller
     {
 
         request()->validate([
-            "email" =>  "required|email",
+            "username" =>  "required",
             "password" =>  "required",
         ]);
+        $input = $request->all();
+        $useremail = User::where("email", $request->email)->role('USER')->first();
+        $username = User::where("username", $request->user_name)->role('USER')->first();
+        $fieldType = filter_var($request->username, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
 
+        //$user = User::where("email", $request->email)->role('USER')->first();
 
-        $user = User::where("email", $request->email)->role('USER')->first();
-
-        if (is_null($user)) {
-            return redirect()->back()->with('success', 'Email Not Found.');
+        if (is_null($useremail || $username)) {
+            return redirect()->back()->with('success', 'User Not Found.');
         }
 
-        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-            $user  =  Auth::user();
+        if(Auth::attempt(array($fieldType => $input['username'], 'password' => $input['password']))) {            $user  =  Auth::user();
             return Redirect::to('/')->with('success', 'User Login Successfully!');
-        } else {
-            return redirect()->back()->with('success', '"Whoops! invalid password.');
+        } 
+        else {
+            return redirect()->back()->with('success', '"Whoops! invalid credential.');
         }
     }
 
@@ -110,6 +113,53 @@ class HomeController extends Controller
         Auth::logout();
 
         return Redirect::to('/');
+    }
+    public function myAccount()
+    {
+        return view('Welcome.my-account');
+    }
+
+    public function editAccount()
+    {
+        $currentuserid = Auth::user()->id;
+        $users = User::findOrFail($currentuserid);
+        return view('Welcome.edit-account', compact('users'));
+    }
+
+    public function updateAccount(Request $request)
+    {
+        $currentuserid = Auth::user()->id;
+        
+        $messages = [
+            'state.regex' => 'State field is required.',
+        ];
+        $this->validate($request, [
+            'first_name' => 'required|regex:/^[a-zA-Z]+$/u',
+            'last_name' => 'required|regex:/^[a-zA-Z]+$/u',
+            'email' => ['required', 'email', 'max:255', Rule::unique('users')->ignore($currentuserid), 'regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix'],       
+            'phone' => 'required|regex:/^([0-9\s+\(\)]*)$/',
+            'flat_number' => 'required',
+            'tower_number' => 'required',
+        ], $messages);
+
+    
+    //dd(1);
+        $user = User::findOrFail($currentuserid);
+
+        $inputs = $request->all();
+       
+
+        if ($request->hasFile('profile_photo_path')) {
+            $fileName = time().'.'.$request->profile_photo_path->extension();  
+            $request->profile_photo_path->move(public_path('/assets/images/'), $fileName);
+            $user->profile_photo_path= $fileName;
+          }
+
+        $user->update($inputs);
+
+
+        return redirect()->back()
+            ->with('success', 'Updated successfully.');
     }
 
     public function create()

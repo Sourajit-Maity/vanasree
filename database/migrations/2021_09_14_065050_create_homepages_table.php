@@ -16,8 +16,10 @@ class CreateHomepagesTable extends Migration
         Schema::create('homepages', function (Blueprint $table) {
             $table->id();
             $table->foreignId('pages_id')->nullable()->constrained();
+
             $table->string('banner_background_image')->nullable();
             $table->string('banner_badge_image')->nullable();
+            $table->string('main_banner_heading')->nullable();
             $table->string('banner_heading')->nullable();
             $table->string('banner_sub_heading')->nullable();
             $table->string('content1_heading')->nullable();
@@ -42,6 +44,13 @@ class CreateHomepagesTable extends Migration
             $table->string('content2_option_image6')->nullable();
             $table->string('content2_option_image7')->nullable();
             $table->string('logo')->nullable();
+
+            $table->string('content2_option_image8')->nullable();
+            $table->string('content2_option_image9')->nullable();
+            $table->string('content2_option_image10')->nullable();
+            $table->string('banner_main_image')->nullable();
+            $table->string('banner_setup_image')->nullable();
+            $table->string('setup_image')->nullable();
             $table->boolean('active')->default(true);
             $table->timestamps();
         });

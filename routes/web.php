@@ -45,9 +45,11 @@ Route::post("login-client", [HomeController::class, 'loginClient'])->name('welco
 Route::get('logout-client', [HomeController::class, 'logoutClient'])->name('welcome.logout-client');
 Route::redirect('admin','admin/login');
 
-
-  Route::get('/minutes-of-meeting', [HomeController::class, 'minutes_of_meeting'])->name('welcome.minutes-of-meeting');
-  Route::get('/circular-notice', [HomeController::class, 'circular_notice'])->name('welcome.circular-notice');
+Route::get('my-account', [HomeController::class, 'myAccount'])->name('welcome.my-account');
+Route::get('edit-account', [HomeController::class, 'editAccount'])->name('welcome.edit-account');
+Route::post('update-account', [HomeController::class, 'updateAccount'])->name('welcome.update-account');
+Route::get('/minutes-of-meeting', [HomeController::class, 'minutes_of_meeting'])->name('welcome.minutes-of-meeting');
+Route::get('/circular-notice', [HomeController::class, 'circular_notice'])->name('welcome.circular-notice');
 
 
 Route::group(['prefix' => 'admin', 'middleware'=> 'auth:sanctum'], function(){
