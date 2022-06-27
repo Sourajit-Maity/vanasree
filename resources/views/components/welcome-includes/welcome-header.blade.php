@@ -45,7 +45,15 @@
                                 
                                 </li>
                                 @guest
-
+                                <li>
+                                    <a href="{{route('welcome.home')}}">Circulars - Notices</a>
+                                
+                                </li>
+                                <li>
+                                    <a href="{{route('welcome.home')}}">Minutes of Meetings</a>
+                            
+            
+                                </li>
                                 @else
                                 <li>
                                     <a href="{{route('welcome.circular-notice')}}">Circulars - Notices</a>
@@ -61,10 +69,10 @@
                                     <a href="{{route('welcome.gallery')}}">Photo Gallery</a>
                             
                                 </li>
-                                <li>
+                                <!--li>
                                     <a href="{{route('welcome.contact')}}">Contact Us</a>
                             
-                                </li>
+                                </li-->
                                
                         
                             </ul>

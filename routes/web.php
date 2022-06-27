@@ -39,12 +39,16 @@ Route::get('/', [HomeController::class, 'index'])->name('welcome.home');
 Route::get('/about', [HomeController::class, 'about'])->name('welcome.about');
 Route::get('/gallery', [HomeController::class, 'gallery'])->name('welcome.gallery');
 Route::get('/contact', [HomeController::class, 'contact'])->name('welcome.contact');
-Route::get('/minutes-of-meeting', [HomeController::class, 'minutes_of_meeting'])->name('welcome.minutes-of-meeting');
-Route::get('/circular-notice', [HomeController::class, 'circular_notice'])->name('welcome.circular-notice');
+
 Route::post('contact-submit', [HomeController::class, 'contactUsSubmit'])->name('welcome.contact-submit');
 Route::post("login-client", [HomeController::class, 'loginClient'])->name('welcome.login-client');
 Route::get('logout-client', [HomeController::class, 'logoutClient'])->name('welcome.logout-client');
 Route::redirect('admin','admin/login');
+
+
+  Route::get('/minutes-of-meeting', [HomeController::class, 'minutes_of_meeting'])->name('welcome.minutes-of-meeting');
+  Route::get('/circular-notice', [HomeController::class, 'circular_notice'])->name('welcome.circular-notice');
+
 
 Route::group(['prefix' => 'admin', 'middleware'=> 'auth:sanctum'], function(){
     Route::get('profile',[ProfileController::class,'getProfile'])->name('admin.profile');
