@@ -45,7 +45,7 @@
                     @else
                     <x-admin.form-group>
                         <x-admin.lable value="UserName"  required />
-                        <x-admin.input type="username" wire:model.defer="username" placeholder="Username" autocomplete="off" class="{{ $errors->has('username') ? 'is-invalid' :'' }}" readonly/>
+                        <x-admin.input type="username" wire:model.defer="nick_name" placeholder="Username" autocomplete="off" class="{{ $errors->has('username') ? 'is-invalid' :'' }}" readonly/>
                         <x-admin.input-error for="username" />
                     </x-admin.form-group>
                     @endif

@@ -48,6 +48,7 @@ class User extends Authenticatable implements HasMedia
         'last_name',
         'company_name',
         'email',
+        'nick_name',
         'username',
         'phone',
         'password',
@@ -99,7 +100,7 @@ class User extends Authenticatable implements HasMedia
     {
         return [
             'username' => [
-                'source' => 'last_name'.'flat_number'.'tower_number'
+                'source' => 'last_name'.'flat_number'
             ]
         ];
     }

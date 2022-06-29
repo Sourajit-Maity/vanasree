@@ -91,8 +91,8 @@ class HomeController extends Controller
         ]);
         $input = $request->all();
         $useremail = User::where("email", $request->email)->role('USER')->first();
-        $username = User::where("username", $request->user_name)->role('USER')->first();
-        $fieldType = filter_var($request->username, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+        $username = User::where("nick_name", $request->username)->role('USER')->first();
+        $fieldType = filter_var($request->username, FILTER_VALIDATE_EMAIL) ? 'email' : 'nick_name';
 
         //$user = User::where("email", $request->email)->role('USER')->first();
 
@@ -141,10 +141,13 @@ class HomeController extends Controller
         ]);
 
         $user = User::findOrFail($currentuserid);
+        
+   
 
         $inputs = $request->all();
+        $inputs['nick_name'] = $request->last_name.$request->flat_number.$request->tower_number;
        
-
+        //dd( $inputs['nick_name']);
         if ($request->hasFile('profile_photo_path')) {
             $fileName = time().'.'.$request->profile_photo_path->extension();  
             $request->profile_photo_path->move(public_path('/assets/images/'), $fileName);

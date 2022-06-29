@@ -99,7 +99,7 @@
                     </div>
                 </td>
                 <td><a class="kt-link" href="mailto:adingate15@furl.net">{{ $user->email }}</a></td>
-                <td>{{ $user->username }}</td>
+                <td>{{ $user->nick_name }}</td>
                 <td>{{ $user->phone }}</td>
                 <td class="align-center"><span
                         class="kt-badge  kt-badge--{{ $user->active == 1 ? 'success' : 'warning' }} kt-badge--inline kt-badge--pill cursor-pointer"
@@ -118,21 +118,6 @@
             </tr>
         @endforelse
 
-        {{-- <tr>
-                    <td>{{$user->full_name}}</td>
-                    <td>{{$user->email}}</td>
-                    <td>{{$user->phone}}</td>
-                    <td class="align-center"><span class="kt-badge kt-badge--{{$user->active==1 ? 'success' : 'warning'}} kt-badge--inline cursor-pointer" wire:click="changeStatusConfirm({{$user->id}})">{{$user->active==1 ? 'Active' : 'Inactive'}}</span></td>
-                    <x-admin.td-action>
-                        <a class="dropdown-item" href="{{route('users.edit', ['user' => $user->id])}}" ><i class="la la-edit"></i> Edit</a>
-                        <button href="#" class="dropdown-item" wire:click="deleteAttempt({{ $user->id }})"><i class="fa fa-trash" ></i> Delete</button>
-                    </x-admin.td-action>
-                </tr>
-                @empty
-                <tr>
-                    <td colspan="5" class="align-center">No records available</td>
-                </tr>
-                @endforelse --}}
     </x-slot>
     <x-slot name="pagination">
         {{ $users->links() }}

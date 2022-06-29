@@ -75,7 +75,7 @@ background-attachment: fixed;
                                 </div>
                                 <div class="u-form-group u-form-name">
                                     <label for="username-a30d" class="u-label">Username *</label>
-                                    <input type="text" readonly value = "{{ Auth::user()->username }}" name="username" class="u-grey-5 u-input u-input-rectangle u-input-1 form-control @error('email') is-invalid @enderror" required="">
+                                    <input type="text" readonly value = "{{ Auth::user()->nick_name }}" name="username" class="u-grey-5 u-input u-input-rectangle u-input-1 form-control @error('email') is-invalid @enderror" required="">
                                     
                                 </div>
                                 <div class="u-form-group u-form-password form-input">

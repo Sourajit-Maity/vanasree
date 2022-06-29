@@ -13,7 +13,7 @@ class UserCreateEdit extends Component
 {
     use WithFileUploads;
     use AlertMessage;
-    public $first_name, $last_name, $email,$username, $password, $phone, $active, $password_confirmation,$flat_number,$tower_number, $user, $model_id;
+    public $first_name, $last_name, $email,$nick_name,$username, $password, $phone, $active, $password_confirmation,$flat_number,$tower_number, $user, $model_id;
     public $address;
     public $isEdit = false;
     public $statusList = [];
@@ -78,6 +78,11 @@ class UserCreateEdit extends Component
 
     public function saveOrUpdate()
     {
+        $this->nick_name = $this->last_name.$this->flat_number.$this->tower_number;
+        // dd($this->username);
+
+        $this->isEdit ? $this->user->nick_name = $this->nick_name : $this->user->nick_name = $this->nick_name;
+
         $this->user->fill($this->validate($this->isEdit ? $this->validationRuleForUpdate() : $this->validationRuleForSave()))->save();
         if ($this->photo) {
             if ($this->imgId) {
