@@ -9,7 +9,7 @@ use App\View\Components\AdminIncludes\AdminMobileHeader;
 use App\View\Components\Layouts\AdminLayout;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
-
+use Illuminate\Pagination\Paginator;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -34,5 +34,6 @@ class AppServiceProvider extends ServiceProvider
         Blade::component('admin-mobile-header', AdminMobileHeader::class);
         Blade::component('admin-left-bar', AdminLeftBar::class);
         Blade::component('admin-footer', AdminFooter::class);
+        Paginator::useBootstrap();
     }
 }

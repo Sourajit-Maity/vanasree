@@ -15,7 +15,8 @@ use App\Models\Contactuspage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
-
+use Illuminate\Support\Facades\Log;
+use Illuminate\Validation\Rule;
 class HomeController extends Controller
 {
     /**
@@ -49,13 +50,13 @@ class HomeController extends Controller
 
     public function minutes_of_meeting(Request $request)
     { 
-        $moms = Mom::where('active',1)->get();
+        $moms = Mom::where('active',1)->orderBy('mom_date', 'DESC')->paginate(15);
         return view('Welcome.mom',compact('moms'));
     }
 
     public function circular_notice(Request $request)
     { 
-        $notices = Notice::where('active',1)->get();
+        $notices = Notice::where('active',1)->orderBy('notice_date', 'DESC')->paginate(15);
         return view('Welcome.circular',compact('notices'));
     }
 
@@ -130,9 +131,6 @@ class HomeController extends Controller
     {
         $currentuserid = Auth::user()->id;
         
-        $messages = [
-            'state.regex' => 'State field is required.',
-        ];
         $this->validate($request, [
             'first_name' => 'required|regex:/^[a-zA-Z]+$/u',
             'last_name' => 'required|regex:/^[a-zA-Z]+$/u',
@@ -140,10 +138,8 @@ class HomeController extends Controller
             'phone' => 'required|regex:/^([0-9\s+\(\)]*)$/',
             'flat_number' => 'required',
             'tower_number' => 'required',
-        ], $messages);
+        ]);
 
-    
-    //dd(1);
         $user = User::findOrFail($currentuserid);
 
         $inputs = $request->all();

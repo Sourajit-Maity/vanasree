@@ -73,13 +73,15 @@
                 class="{{ $errors->has('banner_heading') ? 'is-invalid' :'' }}"/>
             <x-admin.input-error for="banner_heading" />
         </x-admin.form-group>
-
-        <x-admin.form-group>
-            <x-admin.lable value="Sub Heading" required />
-            <x-admin.input type="text" wire:model.defer="banner_sub_heading" placeholder="Enter Sub Heading"
-                class="{{ $errors->has('banner_sub_heading') ? 'is-invalid' :'' }}" />
-            <x-admin.input-error for="banner_sub_heading" />
+        <x-admin.form-group class="col-lg-12" wire:ignore>
+                    <x-admin.lable value="Sub Heading" required/>
+                    <textarea
+                    x-data x-init="editor = CKEDITOR.replace('banner_sub_heading');
+                    editor.on('change', function(event){
+                        @this.set('banner_sub_heading', event.editor.getData());
+                    })" wire:model.defer="banner_sub_heading" id="banner_sub_heading" class="form-control {{ $errors->has('banner_sub_heading') ? 'is-invalid' :'' }}"></textarea>
         </x-admin.form-group>
+
        
         <hr style="border-top: 3px solid #128ac0 !important;">  
         <!-- content1 page -->

@@ -12,6 +12,7 @@ use Storage;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 class MomCreateEdit extends Component
 {
     use AlertMessage;
@@ -44,14 +45,19 @@ class MomCreateEdit extends Component
 
     public function saveOrUpdate(Request $request)
     {
-        $validatedData = $this->validate([
-            'mom_number' => 'required',
-            'mom_photo_path' => 'required',
-            'mom_name' => 'required',
-            'mom_date' => 'required',
-            'mom_description' => 'required',
-            'active' => 'required',
-        ]);
+
+        $validatedData = $this->validate(
+            [
+                'mom_number' => ['required', 'max:255'],
+                'mom_photo_path' => ['required'],
+                'mom_name' => ['required'],
+                'mom_date' => ['required', 'date','after:' . Carbon::now()],
+                'mom_description' => ['required'],
+                'active' => ['required'],
+            ]);
+           
+        
+       
         if(!$this->isEdit){
             $validatedData['mom_photo_path'] = $this->mom_photo_path->store('files', 'public'); 
         }

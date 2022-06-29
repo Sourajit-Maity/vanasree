@@ -36,11 +36,11 @@
                         </div>        
                         <div class="sidenav">
                             <ul class="">
-                                <li>
+                                <li class="{{ Request::is('/') ? 'current-menu-item' : '' }}">
                                     <a href="{{route('welcome.home')}}">Home</a>
                                 
                                 </li>
-                                <li>
+                                <li class="{{ Request::is('/about') ? 'current-menu-item' : '' }}">
                                     <a href="{{route('welcome.about')}}">About us</a>
                                 
                                 </li>
@@ -50,22 +50,21 @@
                                 
                                 </li>
                                 <li>
-                                    <a href="{{route('welcome.home')}}">Minutes of Meetings</a>
-                            
+                                    <a href="{{route('welcome.home')}}" >Minutes of Meetings</a>               
             
                                 </li>
                                 @else
-                                <li>
+                                <li class="{{ Request::is('/circular-notice') ? 'current-menu-item' : '' }}">
                                     <a href="{{route('welcome.circular-notice')}}">Circulars - Notices</a>
                                 
                                 </li>
-                                <li>
+                                <li class="{{ Request::is('/minutes-of-meeting') ? 'current-menu-item' : '' }}">
                                     <a href="{{route('welcome.minutes-of-meeting')}}">Minutes of Meetings</a>
                             
             
                                 </li>
                                 @endguest
-                                <li>
+                                <li class="{{ Request::is('/gallery') ? 'current-menu-item' : '' }}">
                                     <a href="{{route('welcome.gallery')}}">Photo Gallery</a>
                             
                                 </li>
@@ -83,7 +82,7 @@
                                  @guest
                                     <li>Hi! User &#160;</li>
                                 @else
-                                    <li>Hi! {{ Auth::user()->first_name }} &#160; <a href="{{route('welcome.my-account')}}">Profile</a></li>
+                                    <li>Hi! {{ Auth::user()->first_name }} &#160; <a href="{{route('welcome.home')}}">Profile</a></li>
                                     &nbsp;&nbsp;&nbsp;
                                     <li><a href="{{route('welcome.logout-client')}}">Logout</a></li>
                                 @endguest
@@ -105,3 +104,4 @@
     </div>
 </header>
 <body>
+

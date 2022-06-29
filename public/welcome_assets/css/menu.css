@@ -603,3 +603,9 @@ font-size: 14px;}
     margin-right: 59px;
 }
 .welcome-section ul li{color: green;}
+
+
+.user-nav > ul > li.current-menu-item > a,
+.user-nav > ul > li > a:hover {
+    background: green;
+}

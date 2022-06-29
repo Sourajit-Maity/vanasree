@@ -10,12 +10,12 @@
             <x-admin.input type="text" wire:model.defer="notice_name" placeholder="Circular/Notice Head"  class="{{ $errors->has('notice_name') ? 'is-invalid' :'' }}" />
             <x-admin.input-error for="notice_name" />
         </x-admin.form-group>
+      
         <x-admin.form-group>
             <x-admin.lable value="Circular/Notice Date" required />
-            <x-admin.input type="text" wire:model.defer="notice_date" placeholder="Circular/Notice Date" autocomplete="off"   class="{{ $errors->has('notice_date') ? 'is-invalid' :'' }}" />
-            <x-admin.input-error for="notice_date" />
+            <x-admin.input type="date" name="notice_date" id="notice_date" placeholder="Circular/Notice Date" autocomplete="off"   class="{{ $errors->has('notice_date') ? 'is-invalid' :'' }}" />
+            <x-admin.input-error for="notice_date" />           
         </x-admin.form-group>
-        
         
         <x-admin.form-group>
             <x-admin.lable value="File" required />
@@ -27,14 +27,10 @@
             <img src="{{Storage::disk('public')->exists($notice->notice_photo_path) ? Storage::url($notice->notice_photo_path) : asset($notice->notice_image)}}" width="200px" height="150px">
         </div>
         @endif -->
-
-        <x-admin.form-group class="col-lg-12" >
-        <x-admin.lable value="Details" required/>
-        <textarea
-        wire:model.defer="notice_description" id="notice_description" class="form-control {{ $errors->has('notice_description') ? 'is-invalid' :'' }}"></textarea>
-        <x-admin.input-error for="notice_description" />
-        </x-admin.form-group>
-
+        <x-admin.form-group class="col-lg-12">
+            <x-admin.lable value="Description" required />
+            <x-admin.textarea type="text" wire:model.defer="notice_description" placeholder="Description..."  class="{{ $errors->has('notice_description') ? 'is-invalid' :'' }}" rows='4' />
+            <x-admin.input-error for="notice_description" />        </x-admin.form-group>
         <x-admin.form-group>
             <x-admin.lable value="Status" required/>
             <x-admin.dropdown  wire:model.defer="active" placeHolderText="Please select one" autocomplete="off" class="{{ $errors->has('active') ? 'is-invalid' :'' }}">
@@ -52,3 +48,16 @@
         <x-admin.link :href="route('notice.index')" color="secondary">Cancel</x-admin.link>
     </x-slot>
 </x-form-section>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script type="text/javascript">
+
+  $(document).ready(function() {
+  
+    $('#notice_date').on('change', function(e) {
+      console.log(e.target.value)
+      @this.set('notice_date', e.target.value);
+    });
+
+    
+});
+</script>

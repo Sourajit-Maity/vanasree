@@ -27,5 +27,9 @@ class Notice extends Model implements HasMedia
     public function user(){
         return $this->belongsTo(User::class);
     }
+    protected $casts = [
+        'notice_date' => 'datetime:d/m/Y',
+
+    ];
    
 }

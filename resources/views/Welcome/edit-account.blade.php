@@ -63,8 +63,8 @@
 
                                     <div class="col-md-6 acound-form-col">
                                         <div class="form-group">
-                                            <label>Tower Number<span style="color:red"> *</span></label>
-                                            <input type="text" value = "{{ Auth::user()->tower_number }}"  placeholder="Tower Number" class="form-control @error('tower_number') is-invalid @enderror" name="tower_number">
+                                            <label>Wing Number<span style="color:red"> *</span></label>
+                                            <input type="text" value = "{{ Auth::user()->tower_number }}"  placeholder="Wing Number" class="form-control @error('tower_number') is-invalid @enderror" name="tower_number">
                                             @error('tower_number')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>

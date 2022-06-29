@@ -12,7 +12,7 @@ use Storage;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
 use Illuminate\Http\Request;
-
+use Carbon\Carbon;
 class NoticeCreateEdit extends Component
 {
     use AlertMessage;
@@ -45,15 +45,15 @@ class NoticeCreateEdit extends Component
 
     public function saveOrUpdate(Request $request)
     {
-        $validatedData = $this->validate([
-            'notice_number' => 'required',
-            'notice_photo_path' => 'required',
-            'notice_name' => 'required',
-            'notice_description' => 'required',
-            'notice_date' => 'required',
-            //'notice_time' => 'required',
-            'active' => 'required',
-        ]);
+        $validatedData = $this->validate(
+            [
+                'notice_number' => ['required', 'max:255'],
+                'notice_photo_path' => ['required'],
+                'notice_name' => ['required'],
+                'notice_date' => ['required', 'date','after:' . Carbon::now()],
+                'notice_description' => ['required'],
+                'active' => ['required'],
+            ]);
         if(!$this->isEdit){
             $validatedData['notice_photo_path'] = $this->notice_photo_path->store('files', 'public');
         }

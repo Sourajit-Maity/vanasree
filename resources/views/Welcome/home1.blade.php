@@ -57,7 +57,42 @@ background-attachment: fixed;
                             </form>
                             </div>
                             <a href="#" class="u-border-active-palette-2-base u-border-hover-palette-1-base u-border-none u-btn u-button-style u-login-control u-login-forgot-password u-none u-text-grey-40 u-text-hover-palette-4-base u-btn-2">Forgot password?</a>
-                        </div>                     
+                        </div> 
+                        @else
+                        <div class="col-sm-7">
+                <div class="form-outer">
+                <div class="u-container-layout u-container-layout-2"><span class="u-custom-color-1 u-icon u-icon-circle u-text-white u-icon-1">                   
+                   <!-- <img src="{{$homedetails->banner_badge_image}}" class="u-align-left u-image u-image-default u-image-1" width="180" height="100"/> -->
+                </span>
+                            <h3 class="u-custom-font u-font-montserrat u-text u-text-default u-text-3">Welcome</h3>
+                            <div class="u-form u-login-control u-white u-form-1">
+                            <form action="#" method="POST"  style="padding: 30px;">
+                                @csrf
+                                <div class="u-form-group u-form-name">
+                                    <label for="username-a30d" class="u-label">Full Name *</label>
+                                    <input type="text" readonly value = "{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}" name="username" class="u-grey-5 u-input u-input-rectangle u-input-1 form-control @error('email') is-invalid @enderror" required="">
+                                    
+                                </div>
+                                <div class="u-form-group u-form-name">
+                                    <label for="username-a30d" class="u-label">Username *</label>
+                                    <input type="text" readonly value = "{{ Auth::user()->username }}" name="username" class="u-grey-5 u-input u-input-rectangle u-input-1 form-control @error('email') is-invalid @enderror" required="">
+                                    
+                                </div>
+                                <div class="u-form-group u-form-password form-input">
+                                    <label for="password-a30d" class="u-label">Wing Number *</label>
+                                    <input type="text" readonly value = "{{ Auth::user()->tower_number }}" id="password-a30d" name="password" class="u-grey-5 u-input u-input-rectangle u-input-2form-control @error('password') is-invalid @enderror"  required="">
+                                   
+                                </div>
+                                <div class="u-form-group u-form-password form-input">
+                                    <label for="password-a30d" class="u-label">Flat Number *</label>
+                                    <input type="text" readonly value = "{{ Auth::user()->flat_number }}" id="password-a30d" name="password" class="u-grey-5 u-input u-input-rectangle u-input-2form-control @error('password') is-invalid @enderror"  required="">
+                                  
+                                </div>
+                                <div class="u-align-right u-form-group u-form-submit">
+                                    <a href="{{ route('welcome.edit-account') }}" class="u-border-none u-btn u-btn-submit u-button-style u-custom-color-1 u-radius-26 u-btn-1">Edit</a>
+                                </div>
+                            </form>
+                            </div>              
                         @endguest
                         </div>
             </div>

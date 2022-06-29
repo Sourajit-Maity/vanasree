@@ -23,10 +23,13 @@ class Mom extends Model implements HasMedia
             ]
         ];
     }
-    // protected $casts = [
-    //     'mom_date' => 'date:d-m-Y'
-    // ];
+  
     public function user(){
         return $this->belongsTo(User::class,'user_id');
     }
+
+    protected $casts = [
+        'mom_date' => 'datetime:d/m/Y',
+
+    ];
 }
