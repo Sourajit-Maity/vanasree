@@ -145,7 +145,7 @@ class HomeController extends Controller
    
 
         $inputs = $request->all();
-        $inputs['nick_name'] = $request->last_name.$request->flat_number.$request->tower_number;
+        $inputs['nick_name'] = $request->tower_number.$request->flat_number.$request->last_name;
        
         //dd( $inputs['nick_name']);
         if ($request->hasFile('profile_photo_path')) {

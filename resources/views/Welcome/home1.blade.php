@@ -62,7 +62,7 @@ background-attachment: fixed;
                         <div class="col-sm-7">
                 <div class="form-outer">
                 <div class="u-container-layout u-container-layout-2"><span class="u-custom-color-1 u-icon u-icon-circle u-text-white u-icon-1">                   
-                   <!-- <img src="{{$homedetails->banner_badge_image}}" class="u-align-left u-image u-image-default u-image-1" width="180" height="100"/> -->
+                   <img src="{{$homedetails->logo}}" class="u-align-left u-image u-image-default u-image-1 userimg" width="180" height="100"/>
                 </span>
                             <h3 class="u-custom-font u-font-montserrat u-text u-text-default u-text-3">Welcome</h3>
                             <div class="u-form u-login-control u-white u-form-1">

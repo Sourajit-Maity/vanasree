@@ -21,10 +21,10 @@ $(document).ready(function() {
                     $(".secondlevelmenu").children(".navbar-secondary").css("opacity", "1");
 
                 });
-                $(".infolink").attr("href", "introduction.html");
-                 $(".premiumlink").attr("href", "festival.html");
-                 $(".roomlink").attr("href", "26mroom.html");
-                 $(".businesslink").attr("href", "brand.html");
-                 $(".communitylink").attr("href", "gallery.html");
+                // $(".infolink").attr("href", "introduction.html");
+                //  $(".premiumlink").attr("href", "festival.html");
+                //  $(".roomlink").attr("href", "26mroom.html");
+                //  $(".businesslink").attr("href", "brand.html");
+                //  $(".communitylink").attr("href", "gallery.html");
             } 
         });

@@ -8,11 +8,7 @@
                 <h3>Edit Account info</h3>
 
                 <div class="row account-row">
-                    <div class="col-md-2 accout-col-left">
-                        <div class="profile-image">
-                            <img src="{{asset('welcome_assets/images/user-profile.png')}}" alt="">
-                        </div>
-                    </div>
+                   
                     @if (Session::has('success'))
                         <div class="alert alert-success text-center">
                         <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>

@@ -78,7 +78,7 @@ class UserCreateEdit extends Component
 
     public function saveOrUpdate()
     {
-        $this->nick_name = $this->last_name.$this->flat_number.$this->tower_number;
+        $this->nick_name = $this->tower_number.$this->flat_number.$this->last_name;
         // dd($this->username);
 
         $this->isEdit ? $this->user->nick_name = $this->nick_name : $this->user->nick_name = $this->nick_name;

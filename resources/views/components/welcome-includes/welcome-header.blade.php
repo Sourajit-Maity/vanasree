@@ -16,11 +16,12 @@
   <link rel="stylesheet" href="{{asset('welcome_assets/css/style.css')}}">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
+
 <header>
     <div class="container">
         <div class="row">
-        <div class="col-sm-3"><img src="{{asset('welcome_assets/images/logo.png')}}" width="100px"/></div>
-            <div class="col-sm-9">
+        <div class="col-sm-2"><img src="{{asset('welcome_assets/images/logo.png')}}" width="100px"/></div>
+            <div class="col-sm-10">
                 <nav class="navigation">
                     <div class="container-fluid">
                     <div class="row">
@@ -33,15 +34,25 @@
                                     <span></span>
                                 </div>
                             </button>                              
-                        </div>        
+                        </div>     
+                        <div class="welcome-section">
+                            <ul class="">
+                                 @guest
+                                    <li>Hi! User &#160;</li>
+                                @else
+                                    <li>Hi! {{ Auth::user()->first_name }} &#160; <a href="{{route('welcome.home')}}">Profile</a></li>
+                                    &nbsp;&nbsp;&nbsp;
+                                    <li><a href="{{route('welcome.logout-client')}}">Logout</a></li>
+                                @endguest
+                            </ul>
+                        </div>   
                         <div class="sidenav">
                             <ul class="">
-                                <li class="{{ Request::is('/') ? 'current-menu-item' : '' }}">
-                                    <a href="{{route('welcome.home')}}">Home</a>
-                                
+                               <li class="nav-item {{ (\Request::segment(1) == '') ? 'active' : '' }}">
+                                    <a href="{{route('welcome.home')}}" >Home</a>                               
                                 </li>
-                                <li class="{{ Request::is('/about') ? 'current-menu-item' : '' }}">
-                                    <a href="{{route('welcome.about')}}">About us</a>
+                                <li class="nav-item {{ (\Request::segment(1) == 'about') ? 'active' : '' }}">
+                                    <a href="{{route('welcome.about')}}" class="{{ Request::is('/about') ? 'infoabtlink' : '' }}">About us</a>
                                 
                                 </li>
                                 @guest
@@ -54,17 +65,17 @@
             
                                 </li>
                                 @else
-                                <li class="{{ Request::is('/circular-notice') ? 'current-menu-item' : '' }}">
+                                <li class="nav-item {{ (\Request::segment(1) == 'circular-notice') ? 'active' : '' }}">
                                     <a href="{{route('welcome.circular-notice')}}">Circulars - Notices</a>
                                 
                                 </li>
-                                <li class="{{ Request::is('/minutes-of-meeting') ? 'current-menu-item' : '' }}">
+                                <li class="nav-item {{ (\Request::segment(1) == 'minutes-of-meeting') ? 'active' : '' }}">
                                     <a href="{{route('welcome.minutes-of-meeting')}}">Minutes of Meetings</a>
                             
             
                                 </li>
                                 @endguest
-                                <li class="{{ Request::is('/gallery') ? 'current-menu-item' : '' }}">
+                                <li class="nav-item {{ (\Request::segment(1) == 'gallery') ? 'active' : '' }}">
                                     <a href="{{route('welcome.gallery')}}">Photo Gallery</a>
                             
                                 </li>
@@ -72,22 +83,13 @@
                                     <a href="{{route('welcome.contact')}}">Contact Us</a>
                             
                                 </li-->
+                                
                               
                         
                             </ul>
                             <div class="secondlevelmenu"> </div>
                         </div>
-                        <div class="welcome-section">
-                            <ul class="">
-                                 @guest
-                                    <li>Hi! User &#160;</li>
-                                @else
-                                    <li>Hi! {{ Auth::user()->first_name }} &#160; <a href="{{route('welcome.home')}}">Profile</a></li>
-                                    &nbsp;&nbsp;&nbsp;
-                                    <li><a href="{{route('welcome.logout-client')}}">Logout</a></li>
-                                @endguest
-                            </ul>
-                        </div>
+                     
                         <!-- /.navbar-collapse -->
                         </div>
                     </div>

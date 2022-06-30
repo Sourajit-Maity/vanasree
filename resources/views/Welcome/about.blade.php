@@ -14,7 +14,7 @@
 <div class="w3-twothird w3-container">
   <h2>{{$about->content_heading}}</h2>
   <p>
-  {{$about->content_sub_heading}} 
+  {!!$about->content_sub_heading!!} 
  </p>
 </div>
 
@@ -25,9 +25,9 @@
   <img src="{{$about->banner_image}}" style="width:100%;min-height:200px">
 </div>
 <div class="w3-twothird w3-container">
-  <h2>{{$about->content_text}}</h2>
+  <h2>{{$about->content_heading1}}</h2>
   <p>
-  {{$about->content_heading1}}  
+  {!!$about->content_text!!}  
 </p>
 </div>
 
