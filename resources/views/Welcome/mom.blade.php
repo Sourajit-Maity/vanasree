@@ -38,16 +38,25 @@
                     <tbody>
                         @if (count($moms) > 0)
                             @foreach ($moms as $index => $mom)
-                                <tr data-entry-id="h">
-                                    <td>{{ $index+1 }}</td>
-                                   
+                            @if($index % 2 == 0  )
+                                <tr data-entry-id="h" class="eventr">
+                                    <td>{{ $index+1 }}</td>                               
                                     <td>{{ $mom->mom_number }}</td>
                                     <td>{{ $mom->mom_name }}</td>
                                     <td>{!! \Carbon\Carbon::parse($mom->mom_date)->format('d M Y') !!}</td>
                                     <td>{{ $mom->mom_description }}</td>
-                                    <td><a href="{{Storage::disk('public')->exists($mom->mom_photo_path) ? Storage::url($mom->mom_photo_path) : asset($mom->mom_image)}}" target="_blank">Read more</a></td>
-                                   
+                                    <td><a href="{{Storage::disk('public')->exists($mom->mom_photo_path) ? Storage::url($mom->mom_photo_path) : asset($mom->mom_image)}}" target="_blank">Read more</a></td>                                  
                                 </tr>
+                                @else
+                                <tr data-entry-id="h" class="oddtr">
+                                    <td>{{ $index+1 }}</td>                               
+                                    <td>{{ $mom->mom_number }}</td>
+                                    <td>{{ $mom->mom_name }}</td>
+                                    <td>{!! \Carbon\Carbon::parse($mom->mom_date)->format('d M Y') !!}</td>
+                                    <td>{{ $mom->mom_description }}</td>
+                                    <td><a href="{{Storage::disk('public')->exists($mom->mom_photo_path) ? Storage::url($mom->mom_photo_path) : asset($mom->mom_image)}}" target="_blank">Read more</a></td>                                  
+                                </tr>
+                                @endif
                             @endforeach
                         @else
                             <tr>

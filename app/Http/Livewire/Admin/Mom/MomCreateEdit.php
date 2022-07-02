@@ -51,7 +51,7 @@ class MomCreateEdit extends Component
                 'mom_number' => ['required', 'max:255'],
                 'mom_photo_path' => ['required'],
                 'mom_name' => ['required'],
-                'mom_date' => ['required', 'date','after:' . Carbon::now()],
+                'mom_date' => ['required', 'date'],
                 'mom_description' => ['required'],
                 'active' => ['required'],
             ]);

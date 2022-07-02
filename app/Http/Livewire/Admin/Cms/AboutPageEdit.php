@@ -36,7 +36,7 @@ class AboutPageEdit extends Component
                 'content_heading' => ['required', 'max:255'],
                 'content_text' => ['required'],
                 'content_sub_heading' => ['required'],
-                'title' => ['required', 'max:30'], 
+                // 'title' => ['required', 'max:30'], 
                 'content_heading1' => ['required', 'max:30'], 
             ];
     }

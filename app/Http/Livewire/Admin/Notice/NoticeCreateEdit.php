@@ -50,7 +50,7 @@ class NoticeCreateEdit extends Component
                 'notice_number' => ['required', 'max:255'],
                 'notice_photo_path' => ['required'],
                 'notice_name' => ['required'],
-                'notice_date' => ['required', 'date','after:' . Carbon::now()],
+                'notice_date' => ['required', 'date'],
                 'notice_description' => ['required'],
                 'active' => ['required'],
             ]);

@@ -51,12 +51,22 @@ class ServiceEdit extends Component
             'design_description' => 'required',
             'active' => 'required',
         ]);
+
+        if($this->isEdit){
+            if($validatedData['design_photo_path'] == $this->gallery->design_photo_path){
+                
+                $validatedData['design_photo_path'] = $this->gallery->design_photo_path;
+            }
+           else{
+                $validatedData['design_photo_path'] = $this->design_photo_path->store('photo', 'public');
+            }
+        }
         
-        $validatedData['design_photo_path'] = $this->design_photo_path->store('photo', 'public');
+        // $validatedData['design_photo_path'] = $this->design_photo_path->store('photo', 'public');
         $validatedData['user_id'] = auth()->user()->id;
 
         if(!$this->isEdit)
-        $this->gallery = Design::create($validatedData);
+        $this->gallery = Design::create($validatedData); 
         if($this->isEdit)
         $this->gallery->update($validatedData);
      

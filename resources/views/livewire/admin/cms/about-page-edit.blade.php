@@ -13,12 +13,12 @@
                 </div>
             </div>
         </div>
-        <x-admin.form-group>
+        <!-- <x-admin.form-group>
             <x-admin.lable value="Title" required />
             <x-admin.input type="text"  wire:model.defer="title" placeholder="Enter title"
                 class="{{ $errors->has('title') ? 'is-invalid' :'' }}"/>
             <x-admin.input-error for="title" />
-        </x-admin.form-group>
+        </x-admin.form-group> -->
         
         <x-admin.form-group>
             <x-admin.lable value="Content Heading One" required />

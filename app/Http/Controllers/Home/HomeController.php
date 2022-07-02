@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\Rule;
+use Spatie\MediaLibrary\Models\Media;
 class HomeController extends Controller
 {
     /**
@@ -27,13 +28,19 @@ class HomeController extends Controller
     public function index(Request $request)
     { 
         $homedetails = Homepage::first(); 
+
+        // $model_image = Media::where(['model_id' => Auth::user()->id, 'collection_name' => 'images', 'model_type' => 'App\Models\User'])->first();
+        // $subdata = array(                       
+        //     'image' => isset($model_image) ? url('/') . $model_image->getUrl() : null,
+           
+        // );
         return view('Welcome.home1', compact('homedetails'));
     }
 
     public function about(Request $request)
     { 
         $about = Aboutpage::first();
-        return view('Welcome.about', compact('about'));
+        return view('Welcome.about-us', compact('about'));
     }
 
     public function gallery(Request $request)
@@ -152,8 +159,8 @@ class HomeController extends Controller
             $fileName = time().'.'.$request->profile_photo_path->extension();  
             $request->profile_photo_path->move(public_path('/assets/images/'), $fileName);
             $user->profile_photo_path= $fileName;
+            $inputs['profile_photo_path'] = $user->profile_photo_path;
           }
-
         $user->update($inputs);
 
 

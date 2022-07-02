@@ -38,16 +38,25 @@
                     <tbody>
                         @if (count($notices) > 0)
                             @foreach ($notices as $index => $notice)
-                                <tr data-entry-id="h">
+                            @if($index % 2 == 0  )
+                                <tr data-entry-id="h" class="eventr">
                                     <td>{{ $index+1 }}</td>
-                                   
                                     <td>{{ $notice->notice_number }}</td>
                                     <td>{{ $notice->notice_name }}</td>
                                     <td>{!! \Carbon\Carbon::parse($notice->notice_date)->format('d M Y') !!}</td>
                                     <td>{{ $notice->notice_description }}</td>
-                                    <td><a href="{{Storage::disk('public')->exists($notice->notice_photo_path) ? Storage::url($notice->notice_photo_path) : asset($notice->notice_image)}}" target="_blank">Read more</a></td>
-                                   
+                                    <td><a href="{{Storage::disk('public')->exists($notice->notice_photo_path) ? Storage::url($notice->notice_photo_path) : asset($notice->notice_image)}}" target="_blank">Read more</a></td>                                   
                                 </tr>
+                                @else
+                                <tr data-entry-id="h" class="oddtr">
+                                    <td>{{ $index+1 }}</td>
+                                    <td>{{ $notice->notice_number }}</td>
+                                    <td>{{ $notice->notice_name }}</td>
+                                    <td>{!! \Carbon\Carbon::parse($notice->notice_date)->format('d M Y') !!}</td>
+                                    <td>{{ $notice->notice_description }}</td>
+                                    <td><a href="{{Storage::disk('public')->exists($notice->notice_photo_path) ? Storage::url($notice->notice_photo_path) : asset($notice->notice_image)}}" target="_blank">Read more</a></td>                                   
+                                </tr>
+                                @endif
                             @endforeach
                         @else
                             <tr>

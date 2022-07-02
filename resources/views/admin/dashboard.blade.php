@@ -32,13 +32,13 @@
         <div class="row row-no-padding row-col-separator-xl">
             <div class="col-md-6 col-lg-6 col-xl-6">
                 <x-admin.dashboard-count-widget>
-                    <x-admin.dashboard-count-widget-item title="Total Circular" description="Total nurse available in this system" :count="$count['nurseCount']" href="{{ route('notice.index') }}" />
-                    <x-admin.dashboard-count-widget-item title="Total blocked Circular" description="Total blocked nurse available in this system" :count="$count['blockedNurseCount'] " href="{{ route('notice.index') }}" />
+                    <x-admin.dashboard-count-widget-item title="Total Circular" description="Total Circular available in this system" :count="$count['nurseCount']" href="{{ route('notice.index') }}" />
+                    <x-admin.dashboard-count-widget-item title="Total blocked Circular" description="Total blocked Circular available in this system" :count="$count['blockedNurseCount'] " href="{{ route('notice.index') }}" />
                 </x-admin.dashboard-count-widget>
             </div>
             <div class="col-md-6 col-lg-6 col-xl-6">
                 <x-admin.dashboard-count-widget>
-                    <x-admin.dashboard-count-widget-item title="Total active Circular" description="Total active nurse available in this system" :count="$count['activeNurseCount'] " href="{{ route('notice.index') }}" />
+                    <x-admin.dashboard-count-widget-item title="Total active Circular" description="Total active Circular available in this system" :count="$count['activeNurseCount'] " href="{{ route('notice.index') }}" />
                 </x-admin.dashboard-count-widget>
             </div>
         </div>

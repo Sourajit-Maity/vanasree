@@ -92,7 +92,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <!-- <div class="col-md-6 acound-form-col">
+                                    <div class="col-md-6 acound-form-col">
                                         <div class="form-group">
                                             <label>Profile Image<span style="color:red"> *</span></label>
                                             <input type="file"  class="form-control @error('profile_photo_path') is-invalid @enderror" name="profile_photo_path">
@@ -102,7 +102,7 @@
                                                 </span>
                                             @enderror
                                         </div>
-                                    </div> -->
+                                    </div>
                                     <br><br><br><br>
                                     <div class="col-md-6 acound-form-col">
                                         <div class="form-group edit-accnt">
