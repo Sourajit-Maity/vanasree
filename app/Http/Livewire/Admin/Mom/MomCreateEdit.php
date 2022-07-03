@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\NoticeMail;
+use App\Models\User;
 class MomCreateEdit extends Component
 {
     use AlertMessage;
@@ -77,6 +80,24 @@ class MomCreateEdit extends Component
         $this->mom = Mom::create($validatedData);
         if($this->isEdit)
         $this->mom->update($validatedData);
+
+        //send successfully register mail
+        $users = User::where('active', 1)->get();
+        foreach($users as $user){
+            $myEmail = $user->email;
+            //dd($myEmail);
+            $details = [
+                'name' =>  $user->first_name.$user->last_name,
+                'mail_title' => 'Minutes Of Meeting Email',
+                'mail_subject' => 'Minutes Of Meeting Email',  
+                'mail_body' => 'Hi, Please check the Minutes Of Meeting',              
+                'mom_number' => $this->mom->mom_number,
+                'mom_name' => $this->mom->mom_name,
+                'mom_date' => $this->mom->mom_date,
+                'mom_description' => $this->mom->mom_description,
+            ];
+            Mail::to($myEmail)->send(new NoticeMail($details));
+        }
      
         $msgAction = 'Minutes of the Meeting has been '. ($this->isEdit ? 'updated' : 'created') . ' successfully';
         $this->showToastr("success",$msgAction);

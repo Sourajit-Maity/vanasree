@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\NoticeMail;
+use App\Models\User;
+
 class NoticeCreateEdit extends Component
 {
     use AlertMessage;
@@ -73,6 +77,26 @@ class NoticeCreateEdit extends Component
         if($this->isEdit)
         $this->notice->update($validatedData);
      
+
+        //send successfully register mail
+        $users = User::where('active', 1)->get();
+        foreach($users as $user){
+            $myEmail = $user->email;
+            //dd($myEmail);
+            $details = [
+                'name' =>  $user->first_name.$user->last_name,
+                'mail_title' => 'Notice/Circular Email',
+                'mail_subject' => 'Notice/Circular Email',
+                'mail_body' => 'Hi, Please check the Notice',               
+                'notice_number' => $this->notice->notice_number,
+                'notice_name' => $this->notice->notice_name,
+                'notice_date' => $this->notice->notice_date,
+                'notice_description' => $this->notice->notice_description,
+            ];
+            Mail::to($myEmail)->send(new NoticeMail($details));
+        }
+       
+
         $msgAction = 'Circular/Notice has been '. ($this->isEdit ? 'updated' : 'created') . ' successfully';
         $this->showToastr("success",$msgAction);
 
