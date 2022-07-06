@@ -56,7 +56,7 @@ class UserCreateEdit extends Component
                 'password' => ['required', 'max:255', 'min:6', 'confirmed'],
                 'password_confirmation' => ['required', 'max:255', 'min:6'],
                 'active' => ['required'],
-                // 'photo' => ['required'],
+                'photo' => ['nullable'],
                 'tower_number' => ['required'],
                 'flat_number' => ['required'],
                 'address' => ['nullable'],

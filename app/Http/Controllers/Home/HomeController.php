@@ -29,12 +29,21 @@ class HomeController extends Controller
     { 
         $homedetails = Homepage::first(); 
 
-        // $model_image = Media::where(['model_id' => Auth::user()->id, 'collection_name' => 'images', 'model_type' => 'App\Models\User'])->first();
-        // $subdata = array(                       
-        //     'image' => isset($model_image) ? url('/') . $model_image->getUrl() : null,
-           
-        // );
-        return view('Welcome.home1', compact('homedetails'));
+        $user  = Auth::user();
+        if($user){
+            $model_image = Media::where(['model_id' => Auth::user()->id, 'collection_name' => 'images', 'model_type' => 'App\Models\User'])->first();
+            
+             $subdata = array(                       
+                 'image' => isset($model_image) ? url('/') . $model_image->getUrl() : null,
+                
+             );
+        }
+        else{
+            $subdata = null;
+        }
+
+        
+        return view('Welcome.home1', compact('homedetails','subdata'));
     }
 
     public function about(Request $request)

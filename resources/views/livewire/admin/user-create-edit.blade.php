@@ -58,12 +58,9 @@
                         </x-admin.dropdown>
                         <x-admin.input-error for="active" />
                     </x-admin.form-group>
-                    <!-- <x-admin.form-group class="col-lg-6" >
-                    <x-admin.lable value="Profile Image" /> -->
-                    <!-- @if($model_image)
-                    <img src="{{ $model_image->getUrl() }}" style="width: 100px; height:100px;" /><br/>
-                    @endif -->
-                    <!-- <x-admin.filepond wire:model="photo" class="{{ $errors->has('photo') ? 'is-invalid' :'' }}"
+                    <x-admin.form-group class="col-lg-6" >
+                    <x-admin.lable value="Profile Image" />                     
+                     <x-admin.filepond wire:model="photo" class="{{ $errors->has('photo') ? 'is-invalid' :'' }}"
                     allowImagePreview
                     imagePreviewMaxHeight="50"
                     allowFileTypeValidation
@@ -71,7 +68,7 @@
                     allowFileSizeValidation
                     maxFileSize="4mb"/>
                     <x-admin.input-error for="photo" />
-                    </x-admin.form-group> -->
+                    </x-admin.form-group>
                     </div>
                     <br/>
     </x-slot>

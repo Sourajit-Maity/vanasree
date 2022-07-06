@@ -40,7 +40,7 @@
                                  @guest
                                     <li>Hi! User &#160;</li>
                                 @else
-                                    <li>Hi! {{ Auth::user()->first_name }} &#160; <a href="{{route('welcome.home')}}">Profile</a></li>
+                                    <li>Hi! {{ Auth::user()->first_name }} &#160; <a href="{{route('welcome.edit-account')}}">Profile</a></li>
                                     &nbsp;&nbsp;&nbsp;
                                     <li><a href="{{route('welcome.logout-client')}}">Logout</a></li>
                                 @endguest
