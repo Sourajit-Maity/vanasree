@@ -10,6 +10,7 @@ use Livewire\WithFileUploads;
 use App\Http\Livewire\Field;
 use Illuminate\Http\Request;
 use App\Models\Design;
+use App\Models\Gallery;
 use Storage;
 use Str;
 use Intervention\Image\ImageManagerStatic as Image;
@@ -19,7 +20,7 @@ class ServiceMasterCreateEdit extends Component
 
     use AlertMessage;
     use WithFileUploads;
-    public $design_name,$gallery, $design_description,$blankArr;
+    public $design_name,$gallery,$design_order,$gallery_name, $design_description,$blankArr;
     public $isEdit = false;
     public $statusList = [];
     public $services = [];
@@ -70,6 +71,7 @@ class ServiceMasterCreateEdit extends Component
             }
 
             $normalrules = [
+                'gallery_name' => 'required',
                 'design_name.0' => 'required',
                 'design_description.0' => 'required',
                 'photos.0' => 'required|mimes:jpg,jpeg,png'
@@ -104,7 +106,11 @@ class ServiceMasterCreateEdit extends Component
             ]);
         }
        
-    
+        $service =  Gallery::create([
+            'gallery_name' => $this->gallery_name,  
+          
+        ]);
+
      foreach ($this->design_name as $key => $value) 
      {
 
@@ -113,7 +119,9 @@ class ServiceMasterCreateEdit extends Component
 
         $insert = Design::create(['design_name' => $this->design_name[$key], 
         'design_description' => $this->design_description[$key], 
-        'design_photo_path' => $design_photo_path]);
+        'design_photo_path' => $design_photo_path,
+        'design_order' => $key == 0 ? 0 : 1,
+        'gallery_id' => $service->id]);
     
     }
 

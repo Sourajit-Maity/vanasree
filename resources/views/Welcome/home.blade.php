@@ -1,12 +1,17 @@
 <x-layouts.welcome-layout>
-<section class="u-section-1">
+<section class="u-section-1" style="background-image: linear-gradient(0deg, rgba(102,136,59,0.6), rgba(102,136,59,0.6)), url('{{asset($homedetails->banner_main_image)}}');
+background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top:50px;
+">
     <div class="container">
         <div class="row">
             <div class="col-sm-5">
-                <h1>“VANASHRI” </h1>
-                <p> The Central Bank Employees’ Co-op. Hsg. Soc. Ltd.<br>
-                    (Regd.No. BOM/HSG/1908/19-11-68) </p>
+              {!!$homedetails->main_banner_heading!!}
             </div>
+            @guest
             <div class="col-sm-7">
                 <div class="form-outer">
                 <div class="u-container-layout u-container-layout-2"><span class="u-custom-color-1 u-icon u-icon-circle u-text-white u-icon-1">                   
@@ -24,47 +29,75 @@
                     C49.513,45.874,51,48.28,51,50.957V54z"></path>
                 </svg>
                 </span>
-
                             <h3 class="u-custom-font u-font-montserrat u-text u-text-default u-text-3">Welcome</h3>
-                            @guest
-                            <div class="u-form u-login-control u-white u-form-1 form-input">
+                            <div class="u-form u-login-control u-white u-form-1">
                             <form action="{{ route('welcome.login-client') }}" method="POST"  style="padding: 30px;">
-                            @csrf
-                             <div class="u-form-group u-form-name">
-                                <label for="username-a30d" class="u-label">Username *</label>
-                                <input type="email" placeholder="Enter your email"  name="email" class="u-grey-5 u-input u-input-rectangle u-input-1 form-control @error('email') is-invalid @enderror" required="">
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            <div class="u-form-group u-form-password form-input">
-                                <label for="password-a30d" class="u-label">Password *</label>
-                                <input type="password" placeholder="Enter your Password" id="password-a30d" name="password" class="u-grey-5 u-input u-input-rectangle u-input-2form-control @error('password') is-invalid @enderror"  required="">
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                                <div class="u-form-checkbox u-form-group">
-                                <!-- <input type="checkbox" id="checkbox-a30d" name="remember" value="On"> -->
-                                <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                                <label for="checkbox-a30d" class="u-label">Remember me</label>
+                                @csrf
+                                <div class="u-form-group u-form-name">
+                                    <label for="username-a30d" class="u-label">Username *</label>
+                                    <input type="text" placeholder="Enter your username or email"  name="username" class="u-grey-5 u-input u-input-rectangle u-input-1 form-control @error('email') is-invalid @enderror" required="">
+                                    @error('email')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                                <div class="u-form-group u-form-password form-input">
+                                    <label for="password-a30d" class="u-label">Password *</label>
+                                    <input type="password" placeholder="Enter your Password" id="password-a30d" name="password" class="u-grey-5 u-input u-input-rectangle u-input-2form-control @error('password') is-invalid @enderror"  required="">
+                                    @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                                 <div class="u-align-right u-form-group u-form-submit">
-                                <!-- <a href="#" class="u-border-none u-btn u-btn-submit u-button-style u-custom-color-1 u-radius-26 u-btn-1">Login</a> -->
-                                <input type="submit" value="Login"  class="u-border-none u-btn u-btn-submit u-button-style u-custom-color-1 u-radius-26 u-btn-1">
+                                    <input type="submit" value="Login"  class="u-border-none u-btn u-btn-submit u-button-style u-custom-color-1 u-radius-26 u-btn-1">
                                 </div>
-                                <!-- <input type="hidden" value="" name="recaptchaResponse"> -->
                             </form>
                             </div>
-                             <!-- <a href="#" class="u-border-active-palette-2-base u-border-hover-palette-1-base u-border-none u-btn u-button-style u-login-control u-login-forgot-password u-none u-text-grey-40 u-text-hover-palette-4-base u-btn-2">Forgot password?</a> -->
-                            
-                        </div>
+                            <a href="#" class="u-border-active-palette-2-base u-border-hover-palette-1-base u-border-none u-btn u-button-style u-login-control u-login-forgot-password u-none u-text-grey-40 u-text-hover-palette-4-base u-btn-2">Forgot password?</a>
+                        </div> 
                         @else
-                        <p>Hi! {{ Auth::user()->first_name }} &#160; <a href="#">Profile</a></p>
+                        <div class="col-sm-7">
+                <div class="form-outer">
+                <div class="u-container-layout u-container-layout-2"><span class="u-custom-color-1 u-icon u-icon-circle u-text-white u-icon-1">                   
+                    @if(Auth::user()->profile_photo_path != null)
+                        <img src="{{url('assets/images')}}/{{ Auth::user()->profile_photo_path}}" class="u-align-left u-image u-image-default u-image-1 userimg" width="180" height="100"/>
+                    @else
+                    <img src="{{$subdata['image']}}" class="u-align-left u-image u-image-default u-image-1 userimg" width="180" height="100"/>
+
+                    @endif
+                </span>
+                            <h3 class="u-custom-font u-font-montserrat u-text u-text-default u-text-3">Welcome</h3>
+                            <div class="u-form u-login-control u-white u-form-1">
+                            <form action="#" method="POST"  style="padding: 30px;">
+                                @csrf
+                                <div class="u-form-group u-form-name">
+                                    <input type="text" readonly value = "Full Name :: {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}" name="username" class="u-grey-5 u-input u-input-rectangle u-input-1 form-control @error('email') is-invalid @enderror" required="">
+                                    
+                                </div>
+                                <div class="u-form-group u-form-name">
+                                    <input type="text" readonly value = "Email :: {{ Auth::user()->email }}" name="username" class="u-grey-5 u-input u-input-rectangle u-input-1 form-control @error('email') is-invalid @enderror" required="">
+                                    
+                                </div>
+                                <div class="u-form-group u-form-name">
+                                    <input type="text" readonly value = "Username :: {{ Auth::user()->nick_name }}" name="username" class="u-grey-5 u-input u-input-rectangle u-input-1 form-control @error('email') is-invalid @enderror" required="">
+                                    
+                                </div>
+                                <div class="u-form-group u-form-password form-input">
+                                    <input type="text" readonly value = "Wing Number :: {{ Auth::user()->tower_number }}" id="password-a30d" name="password" class="u-grey-5 u-input u-input-rectangle u-input-2form-control @error('password') is-invalid @enderror"  required="">
+                                   
+                                </div>
+                                <div class="u-form-group u-form-password form-input">
+                                    <input type="text" readonly value = "Flat Number :: {{ Auth::user()->flat_number }}" id="password-a30d" name="password" class="u-grey-5 u-input u-input-rectangle u-input-2form-control @error('password') is-invalid @enderror"  required="">
+                                  
+                                </div>
+                                <!-- <div class="u-align-right u-form-group u-form-submit">
+                                    <a href="{{ route('welcome.edit-account') }}" class="u-border-none u-btn u-btn-submit u-button-style u-custom-color-1 u-radius-26 u-btn-1">Edit</a>
+                                </div> -->
+                            </form>
+                            </div>              
                         @endguest
                         </div>
             </div>
@@ -81,7 +114,7 @@
             </div>
             <div class="col-sm-4">
                 <h2>{{$homedetails->banner_heading}}</h2>
-                <p>{{$homedetails->banner_sub_heading}}.</p>
+                <p>{{$homedetails->banner_sub_heading}}</p>
                 <a href="{{route('welcome.about')}}">view more</a>
             </div>
         </div>
@@ -95,7 +128,7 @@
      <img src="{{$homedetails->content1_image}}"/>
              <h3 class="u-text u-text-1">{{$homedetails->content1_heading}}</h3>
              <div class="u-align-left u-border-3 u-border-white u-line u-line-horizontal u-line-1"></div>
-             <p class="u-text u-text-2">{{$homedetails->content1_text}}.</p>
+             <p class="u-text u-text-2">{!!$homedetails->content1_text!!}</p>
             </div>
 
             <div class="col-sm-4">
@@ -103,28 +136,35 @@
                 <img src="{{$homedetails->content2_image}}"/>
                  <h3 class="u-text u-text-1">{{$homedetails->content2_heading}}</h3>
                  <div class="u-align-left u-border-3 u-border-white u-line u-line-horizontal u-line-1"></div>
-                 <p class="u-text u-text-2">{{$homedetails->content2_text}}.</p>                     
+                 <p class="u-text u-text-2">{!!$homedetails->content2_text!!}</p>                     
                 </div>
                 <div class="col-sm-4">
                     <img src="{{$homedetails->content3_image}}"/>
                      <h3 class="u-text u-text-1">{{$homedetails->content3_heading}}</h3>
                      <div class="u-align-left u-border-3 u-border-white u-line u-line-horizontal u-line-1"></div>
-                     <p class="u-text u-text-2">{{$homedetails->content3_text}}.</p>                    
+                     <p class="u-text u-text-2">{!!$homedetails->content3_text!!}</p>                    
         
                     </div>
     </div>
 </section>
 
-<section class="u-section-4">
+
+<section class="u-section-4" style="background-image:linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('{{asset($homedetails->banner_setup_image)}}');
+background-attachment: fixed;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover; 
+padding: 50px 0;
+">
 <div class="container">
     <div class="row">
         <div class="col-sm-6">
-            <div class="u-image u-image-circle u-image-1" alt="" data-image-width="1280" data-image-height="960" data-pswp-item-id="0" data-gallery-uid="2"></div>
+        <div class="u-image u-image-circle u-image-1" alt="" data-image-width="1280" data-image-height="960" data-pswp-item-id="0" data-gallery-uid="2"><img src="{{asset($homedetails->setup_image)}}"/></div>
         </div>
         <div class="col-sm-6">
             <h2>{{$homedetails->content2_option_heading1}}</h2>
-            <p class="u-text u-text-white u-text-2"> {{$homedetails->content2_option_text1}}.</p>
-            <a href="#" class="u-border-2 u-border-custom-color-1 u-btn u-btn-round u-button-style u-custom u-radius-50 u-text-white u-btn-1">view more</a>
+            <p class="u-text u-text-white u-text-2"> {!!$homedetails->content2_option_text1!!}</p>
+            <a href="{{route('welcome.about')}}" class="u-border-2 u-border-custom-color-1 u-btn u-btn-round u-button-style u-custom u-radius-50 u-text-white u-btn-1">view more</a>
         </div>
     </div>
 </div>
@@ -139,10 +179,10 @@
             <div class="col-sm-7">
                <div class="text-center"> <img src="{{$homedetails->logo}}" class="u-image-1"/></div>
                 <h5>{{$homedetails->content2_option_heading2}}</h5>
-                <p class="u-text u-text-2"> {{$homedetails->content2_option_text2}}.</p>
+                <p class="u-text u-text-2"> {!!$homedetails->content2_option_text2!!}</p>
             </div>
             <div class="col-sm-5">
-                <div class="u-custom-color-1 u-shape u-shape-rectangle u-shape-1"></div>
+                <div class=""></div>
                 <img src="{{$homedetails->content2_option_image1}}" alt="" class="u-align-left u-image u-image-default u-opacity u-opacity-45 u-image-2" data-image-width="1280" data-image-height="853">
                 <img src="{{$homedetails->content2_option_image2}}" alt="" class="u-align-left u-image u-image-default u-image-3" data-image-width="1280" data-image-height="853">
             </div>
@@ -152,7 +192,7 @@
 <section class="u-clearfix u-custom-color-1 u-section-6">
     <div class="container">
         <div class="row">
-            <div class="col-sm-4"><img src="{{$homedetails->content2_option_image2}}"/></div>
+            <div class="col-sm-4"><img src="{{$homedetails->content2_option_image22}}"/></div>
             <div class="col-sm-4"><img src="{{$homedetails->content2_option_image3}}"/></div>
             <div class="col-sm-4"><img src="{{$homedetails->content2_option_image4}}"/></div>
         </div>
@@ -162,9 +202,9 @@
             <div class="col-sm-4"><img src="{{$homedetails->content2_option_image7}}"/></div>
         </div>
         <div class="row">
-            <div class="col-sm-4"><img src="{{$homedetails->content2_option_image22}}"/></div>
-            <div class="col-sm-4"><img src="{{$homedetails->content2_option_image1}}"/></div>
-            <div class="col-sm-4"><img src="{{$homedetails->content2_option_image2}}"/></div>
+            <div class="col-sm-4"><img src="{{$homedetails->content2_option_image8}}"/></div>
+            <div class="col-sm-4"><img src="{{$homedetails->content2_option_image9}}"/></div>
+            <div class="col-sm-4"><img src="{{$homedetails->content2_option_image10}}"/></div>
         </div>
     </div>
 </section>

@@ -13,7 +13,7 @@ class Design extends Model implements HasMedia
     use HasFactory;
     use Sluggable;
     use HasMediaTrait;
-    protected $fillable = ['design_name','design_name_slug','design_photo_path','design_description','user_id','active'];
+    protected $fillable = ['design_name','gallery_id','design_name_slug','design_photo_path','design_order','design_description','user_id','active'];
     
    
 
@@ -31,5 +31,8 @@ class Design extends Model implements HasMedia
 
     public function getImagePathAttribute(){
         return !empty("{$this->design_photo_path}") ? URL::to('storage/' . "{$this->design_photo_path}") : '';
+    }
+    public function gallery(){
+        return $this->belongsTo(Gallery::class,'gallery_id');
     }
 }

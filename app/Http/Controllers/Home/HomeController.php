@@ -49,13 +49,15 @@ class HomeController extends Controller
     public function about(Request $request)
     { 
         $about = Aboutpage::first();
-        return view('Welcome.about-us', compact('about'));
+        $homedetails = Homepage::first(); 
+        return view('Welcome.about-us', compact('homedetails','about'));
     }
 
     public function gallery(Request $request)
     { 
         $images = Design::where('active',1)->get();
-        return view('Welcome.gallery',compact('images'));
+        $homedetails = Homepage::first(); 
+        return view('Welcome.gallery',compact('homedetails','images'));
     }
 
     public function contact(Request $request)
@@ -67,13 +69,15 @@ class HomeController extends Controller
     public function minutes_of_meeting(Request $request)
     { 
         $moms = Mom::where('active',1)->orderBy('mom_date', 'DESC')->paginate(15);
-        return view('Welcome.mom',compact('moms'));
+        $homedetails = Homepage::first(); 
+        return view('Welcome.mom',compact('homedetails','moms'));
     }
 
     public function circular_notice(Request $request)
     { 
         $notices = Notice::where('active',1)->orderBy('notice_date', 'DESC')->paginate(15);
-        return view('Welcome.circular',compact('notices'));
+        $homedetails = Homepage::first(); 
+        return view('Welcome.circular',compact('homedetails','notices'));
     }
 
     /**
