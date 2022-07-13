@@ -20,6 +20,7 @@ use App\Http\Controllers\Admin\FaqpageController;
 use App\Http\Controllers\Admin\ContactuspageController;
 use App\Http\Controllers\Admin\AboutpageController;
 use App\Http\Controllers\Admin\ContactController;
+use App\Http\Controllers\ForgotPasswordController;
 
 
  
@@ -38,7 +39,14 @@ use App\Http\Controllers\Admin\ContactController;
 Route::get('/', [HomeController::class, 'index'])->name('welcome.home');
 Route::get('/about', [HomeController::class, 'about'])->name('welcome.about');
 Route::get('/gallery', [HomeController::class, 'gallery'])->name('welcome.gallery');
+Route::get('/gallery-details/{gallery_name_slug}', [HomeController::class, 'gallery_details'])->name('welcome.gallery-details');
 Route::get('/contact', [HomeController::class, 'contact'])->name('welcome.contact');
+
+
+Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
+Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post'); 
+Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
+Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
 Route::post('contact-submit', [HomeController::class, 'contactUsSubmit'])->name('welcome.contact-submit');
 Route::post("login-client", [HomeController::class, 'loginClient'])->name('welcome.login-client');

@@ -5,7 +5,6 @@
 <section class="my-account cmn-gap2">
         <div class="container">
             <div class="account-info edit-account">
-
                 <h3>Edit Account info</h3>
 
                 <div class="row account-row">
@@ -103,38 +102,60 @@
                                                 </span>
                                             @enderror
                                         </div>
-                                    </div>
+                                    </div> 
                                     <br><br><br><br>
-                                </div>
-                            </div>
-                            <div class="col-md-12 acound-form-col btn-bottom">
-                                        
-             
-                                        <div class="col-md-6 acound-form-col" style="display:flex;    justify-content: flex-end;
-    margin-top: 31px;">
+                                    <div class="col-md-6 acound-form-col">
                                         <div class="form-group edit-accnt">
                                             <input type="submit" class="btn btn-success" value="Update account">
                                         </div>
-                                        <a href="{{ route('welcome.home') }}" class="btn btn-primary">Back</a>
+                                        <div class="col-md-6 acound-form-col">
+                                        <a href="{{ route('welcome.my-account') }}" class="btn btn-primary">Back</a>
                                         </div>
                                     </div>
+
+
+                                </div>
+                            </div>
                         </form>
                     </div>
 
                 </div>
 
              </div>
-       
-       
-
-          
-
-       
-       
-            </div>
-        
-
-
-
+        </div>
     </section>
 </x-layouts.welcome-layout>
+<script>
+    $(document).ready(function(){
+        $("#country").change(function(){
+            var val = $(this).val();
+            $("#state").html('');
+            var op='<option>Select State</option>';
+            $("#state").append(op);
+            jQuery.ajax({ 
+                url : '/getstate/' +val,
+                type : "GET",
+                dataType : "json",
+                success:function(data)
+                {
+                    
+                    for(var i=0;i<data.length;i++){
+                        op='<option value="'+data[i].id+'">'+data[i].state_name+'</option>';
+                        $("#state").append(op);
+                    }
+                }
+            });
+            
+        });
+        $(".only-numeric").bind("keypress", function (e) {
+          var keyCode = e.which ? e.which : e.keyCode
+               
+          if (!(keyCode >= 48 && keyCode <= 57)) {
+            $(".error").css("display", "inline");
+            return false;
+          }else{
+            $(".error").css("display", "none");
+          }
+      });
+    });
+</script>

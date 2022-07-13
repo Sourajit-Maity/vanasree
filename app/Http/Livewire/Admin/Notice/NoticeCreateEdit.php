@@ -87,7 +87,7 @@ class NoticeCreateEdit extends Component
                 'name' =>  $user->first_name.$user->last_name,
                 'mail_title' => 'Notice/Circular Email',
                 'mail_subject' => 'Notice/Circular Email',
-                'mail_body' => 'Hi, Please check the Notice',               
+                'mail_body' => 'Hi, Please check the Notice',                
                 'notice_number' => $this->notice->notice_number,
                 'notice_name' => $this->notice->notice_name,
                 'notice_date' => $this->notice->notice_date,

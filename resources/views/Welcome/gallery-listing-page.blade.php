@@ -20,7 +20,7 @@
 <header>
     <div class="container">
         <div class="row">
-        <div class="col-sm-2"><img src="{{url('/')}}/{{$homedetails->logo}}" width="100px"/></div>
+        <div class="col-sm-2"><img src="{{$homedetails->logo}}" width="100px"/></div>
             <div class="col-sm-10">
                 <nav class="navigation">
                     <div class="container-fluid">
@@ -96,38 +96,34 @@
                     <!-- /.container-fluid -->
                 </nav>
             </div>
+            @if (Session::has('success'))
+                    <div class="alert alert-success text-center">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>
+                    <p>{{ Session::get('success') }}</p>
+                    </div>
+            @endif
         </div>
     </div>
 </header>
 <body>
 
-<section id="gallery">
+<section class="gallery-listing-page">
     <div class="container">
-      <div id="image-gallery">
-        <div class="row">
+    <ul>
         @foreach($images as $image)
-          <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 image">
-            <div class="img-wrapper">
-              <a href="{{Storage::disk('public')->exists($image->design_photo_path) ? Storage::url($image->design_photo_path) : asset($image->design_photo_path)}}"><img src="{{Storage::disk('public')->exists($image->design_photo_path) ? Storage::url($image->design_photo_path) : asset($image->design_photo_path)}}" class="img-responsive"></a>
-              <div class="img-overlay">
-                <i class="fa fa-plus-circle" aria-hidden="true"></i>
-                <p style="color:#fff;"> {{$image->design_description}}</p> 
-              </div>
-            </div>
-          </div>
+            <li>
+                <img src="{{Storage::disk('public')->exists($image->design[0]->design_photo_path) ? Storage::url($image->design[0]->design_photo_path) : asset($image->design[0]->design_photo_path)}}">
+                <h3>{{$image->gallery_name}}</h3>
+                <a href="{{route('welcome.gallery-details',['gallery_name_slug'=>$image->gallery_name_slug])}}">Details</a>
+            </li>
         @endforeach
-        </div><!-- End row -->
-      </div><!-- End image gallery -->
-    </div><!-- End container --> 
-  </section>
-
-
-
-
-  <footer class="u-clearfix u-footer u-grey-dark-2">
+    </ul>
+</div>
+</section>
+<footer class="u-clearfix u-footer u-grey-dark-2">
     <div class="container">
         <div class="row">
-        <div class="col-sm-4"><img src="{{url('/')}}/{{$homedetails->logo}}" class="u-image-circle"/></div>
+        <div class="col-sm-4"><img src="{{$homedetails->logo}}" class="u-image-circle"/></div>
             <div class="col-sm-4">
                 <h5>VANASHRI</h5>
                 <p>The Central Bank Employees’ Co-op. Hsg. Soc. Ltd.</p>
@@ -165,3 +161,5 @@ $("#toTop").click(function () {
 
 </body>
 </html>
+
+

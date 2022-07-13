@@ -91,10 +91,10 @@ class MomCreateEdit extends Component
                 'mail_title' => 'Minutes Of Meeting Email',
                 'mail_subject' => 'Minutes Of Meeting Email',  
                 'mail_body' => 'Hi, Please check the Minutes Of Meeting',              
-                'mom_number' => $this->mom->mom_number,
-                'mom_name' => $this->mom->mom_name,
-                'mom_date' => $this->mom->mom_date,
-                'mom_description' => $this->mom->mom_description,
+                'notice_number' => $this->mom->mom_number,
+                'notice_name' => $this->mom->mom_name,
+                'notice_date' => $this->mom->mom_date,
+                'notice_description' => $this->mom->mom_description,
             ];
             Mail::to($myEmail)->send(new NoticeMail($details));
         }

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Design;
+use App\Models\Gallery;
 use App\Models\Aboutpage;
 use App\Models\Notice;
 use App\Models\Mom;
@@ -55,8 +56,16 @@ class HomeController extends Controller
 
     public function gallery(Request $request)
     { 
-        $images = Design::where('active',1)->get();
+        $images = Gallery::where('active',1)->with('design')->get();
         $homedetails = Homepage::first(); 
+        return view('Welcome.gallery-listing-page',compact('homedetails','images'));
+    }
+    public function gallery_details(Request $request,$gallery_name_slug)
+    { 
+        $gallery_id = Gallery::where('gallery_name_slug',$gallery_name_slug)->value('id');
+        $images = Design::where('gallery_id',$gallery_id)->where('active',1)->get();
+        $homedetails = Homepage::first(); 
+        
         return view('Welcome.gallery',compact('homedetails','images'));
     }
 
@@ -149,6 +158,7 @@ class HomeController extends Controller
 
     public function updateAccount(Request $request)
     {
+        
         $currentuserid = Auth::user()->id;
         
         $this->validate($request, [

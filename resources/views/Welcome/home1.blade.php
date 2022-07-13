@@ -165,7 +165,7 @@ background-attachment: fixed;
                                 </div>
                             </form>
                             </div>
-                            <a href="#" class="u-border-active-palette-2-base u-border-hover-palette-1-base u-border-none u-btn u-button-style u-login-control u-login-forgot-password u-none u-text-grey-40 u-text-hover-palette-4-base u-btn-2">Forgot password?</a>
+                            <a href="{{ route('forget.password.get') }}" class="u-border-active-palette-2-base u-border-hover-palette-1-base u-border-none u-btn u-button-style u-login-control u-login-forgot-password u-none u-text-grey-40 u-text-hover-palette-4-base u-btn-2">Forgot password?</a>
                         </div> 
                         @else
                         <div class="col-sm-7">
