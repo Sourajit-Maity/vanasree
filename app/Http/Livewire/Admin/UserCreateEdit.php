@@ -114,11 +114,11 @@ class UserCreateEdit extends Component
         //dd($myEmail);
         $details = [
             'name' =>  $this->user->first_name.$this->user->last_name,
-            'mail_title' => 'Register Succesfull Email',
-            'mail_subject' => 'Register Succesfull Email',               
+            'mail_title' => 'Registered email succesfully',
+            'mail_subject' => 'Registered email succesfully',               
             'mail_body' => 'Hi',
             'nick_name' => $this->nick_name,
-            'password' => 12345678,
+            'password' =>  $this->password,
         ];
         Mail::to($myEmail)->send(new RegisterMail($details));
         $msgAction = 'User has been ' . ($this->isEdit ? 'updated' : 'added') . ' successfully';

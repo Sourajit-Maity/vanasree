@@ -1,6 +1,7 @@
 @component('mail::message')
-{{$details['mail_subject']}}
+<b>{{$details['mail_subject']}}</b>
 <br>
+Hi,
 {{$details['mail_body']}}
 <br>
  Number -- {{$details['notice_number']}}

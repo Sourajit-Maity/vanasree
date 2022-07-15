@@ -88,9 +88,9 @@ class MomCreateEdit extends Component
             //dd($myEmail);
             $details = [
                 'name' =>  $user->first_name.$user->last_name,
-                'mail_title' => 'Minutes Of Meeting Email',
-                'mail_subject' => 'Minutes Of Meeting Email',  
-                'mail_body' => 'Hi, Please check the Minutes Of Meeting',              
+                'mail_title' => 'Minutes Of Meeting',
+                'mail_subject' => 'Minutes Of Meeting',  
+                'mail_body' => 'Please check the Minutes Of Meeting',              
                 'notice_number' => $this->mom->mom_number,
                 'notice_name' => $this->mom->mom_name,
                 'notice_date' => $this->mom->mom_date,

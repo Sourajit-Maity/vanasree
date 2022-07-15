@@ -1,10 +1,12 @@
 @component('mail::message')
-# Introduction
+
+<!-- {{$details['mail_subject']}} -->
+<br>
+Hi,
+<br>
 {{$details['mail_subject']}}
 <br>
-{{$details['mail_body']}}
-<br>
-Your Nick Name will be {{$details['nick_name']}}
+Your User Name will be {{$details['nick_name']}}
 <br>
 Your password will be {{$details['password']}}
 <br>

@@ -6,7 +6,7 @@
                  <div class="row">
                     <div class="col-lg-6">
                         <x-admin.form-group class="col-lg-12">
-                                <x-admin.input type="text" wire:model.defer="gallery_name" placeholder="Service Name"   class="{{ $errors->has('gallery_name') ? 'is-invalid' :'' }} single-add-stage" />
+                                <x-admin.input type="text" wire:model.defer="gallery_name" placeholder="Gallery Name"   class="{{ $errors->has('gallery_name') ? 'is-invalid' :'' }} single-add-stage" />
                                 <x-admin.input-error for="gallery_name" />
                         </x-admin.form-group>
                     </div>
