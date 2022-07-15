@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin\Master\Service;
 
 use Livewire\Component;
 use App\Http\Livewire\Traits\AlertMessage;
+use App\Models\Gallery;
 use App\Models\Design;
 use Illuminate\Validation\Rule;
 use Livewire\WithFileUploads;
@@ -12,68 +13,92 @@ use Storage;
 use App\Http\Livewire\Field;
 use Illuminate\Http\Request;
 use Str;
+use App\Models\EventCategory;
 class ServiceEdit extends Component
 {
 
     use AlertMessage;
     use WithFileUploads;
-    public $design_name,$active, $gallery, $design_photo_path, $user_id;
-    public $design_description, $blankArr;
+    public $gallery_name, $service,$service_order_id = [], $design_photo_path;
+    public $design_name = [],$service_id, $design_id = [], $design_description=[],$design_price = [],$blankArr,$service_design;
     public $isEdit = false;
     public $statusList = [];
-    public $photos = [];
-    public $model_image, $imgId, $model_documents;
+    public $inputs = [];
+    public $i = 1;
+    public $photo = [];
+    public $eventtypes = [];
     protected $listeners = ['refreshProducts' => '$refresh'];
 
     public function mount($gallery = null)
     {
         if ($gallery) {
             $this->gallery = $gallery;
+             //dd($gallery);
             $this->fill($this->gallery);
+            $event_arr = [];
+          
+            // dump($event_arr);
+            // dd($event_arr);
             $this->isEdit = true;
-        }
-         else
-        $this->gallery = new Design;
-        $this->statusList = [
-            ['value' => 0, 'text' => "Choose Status"],
-            ['value' => 1, 'text' => "Active"],
-            ['value' => 0, 'text' => "Inactive"]
-        ];
-        
+            $this->service_design = $gallery->design;
+            //  dd($this->service_design);
+            //$this->design_name = 123;
+            foreach( $this->service_design as $key => $value) {
+                $this->design_name[] = $value->design_name;
+                $this->design_price[] = $value->design_price;
+                $this->design_description[] = $value->design_description;
+                $this->design_id [] = $value->id;
+                //dd($this->design_name.$key);
+            }
+
+        } 
+            
+            
     }
 
-
-    public function saveOrUpdate(Request $request)
+    public function saveOrUpdate()
     {
-        $validatedData = $this->validate([
-            'design_name' => 'required',
-            'design_photo_path' => 'required',
-            'design_description' => 'required',
-            'active' => 'required',
+
+        $validatedDate = $this->validate([
+            'gallery_name' => 'required',
+            'design_name.*' => 'required',
+            'design_description.*' => 'required',
+                       
+        ], 
+        [
+            'gallery_name.required' => 'Gallery name field is required',
+            'design_name.*.required' => 'Design name field is required',
+            'design_description.*.required' => 'Description field is required',
+          
+           
+
         ]);
 
-        if($this->isEdit){
-            if($validatedData['design_photo_path'] == $this->gallery->design_photo_path){
-                
-                $validatedData['design_photo_path'] = $this->gallery->design_photo_path;
-            }
-           else{
-                $validatedData['design_photo_path'] = $this->design_photo_path->store('photo', 'public');
-            }
-        }
-        
-        // $validatedData['design_photo_path'] = $this->design_photo_path->store('photo', 'public');
-        $validatedData['user_id'] = auth()->user()->id;
+        $validatedData['gallery_name'] = $this->gallery_name;        
+        $this->gallery->update($validatedData);       
+                   
+        //dd($this->design_id)   ;   
+        foreach($this->design_id as $key => $design_id){
 
-        if(!$this->isEdit)
-        $this->gallery = Design::create($validatedData); 
-        if($this->isEdit)
-        $this->gallery->update($validatedData);
-     
-        $msgAction = 'Image has been '. ($this->isEdit ? 'updated' : 'created') . ' successfully';
-        $this->showToastr("success",$msgAction);
+            $design = Design::where('id',$design_id)->first();
+            $design->design_name = $this->design_name[$key];
+            $design->design_description = $this->design_description[$key];
+
+            if(isset($this->photo[$key])){
+                $photo = $this->photo[$key];
+                $design_photo_path = $photo->store('photo', 'public');
+                $design->design_photo_path = $design_photo_path;
+            }
+
+            $design->update();
+          
+        }
+   
+        $msgAction = 'Gallery was ' . ($this->isEdit ? 'updated' : 'added') . ' successfully';
+        $this->showToastr("success", $msgAction);
 
         return redirect()->route('gallery.index');
+    
     }
     public function render()
     {

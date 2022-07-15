@@ -4,5 +4,7 @@
 Your confirmation code is: {{$cnf_code}}
 
 Thanks,<br>
-{{ config('app.name') }}
+VANASHRI Managing Committee
+<br>
+https://vanashricbechs.com/
 @endcomponent

@@ -13,7 +13,9 @@ Your password will be {{$details['password']}}
 
 
 Thanks,<br>
-{{ config('app.name') }}
+VANASHRI Managing Committee
+<br>
+https://vanashricbechs.com/
 @endcomponent
 
 

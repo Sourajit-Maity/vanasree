@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Master;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Design;
+use App\Models\Gallery;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use Spatie\MediaLibrary\Models\Media;
@@ -66,7 +67,7 @@ class ServiceMasterController extends Controller
     //     $gallery = Design::where('id',$id)->get();
     //     return view('admin.gallery.edit',compact('gallery'));
     // }
-    public function edit(Design $gallery)
+    public function edit(Gallery $gallery)
     {
         return view('admin.gallery.edit',['gallery'=>$gallery]);
     }

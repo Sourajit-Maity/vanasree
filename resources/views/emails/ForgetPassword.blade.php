@@ -15,6 +15,8 @@ This password reset link will expire in 60 minutes.
 
 If you did not request a password reset, no further action is required.
 
-Regards,<br>
-{{ config('app.name') }}
+Thanks,<br>
+VANASHRI Managing Committee
+<br>
+https://vanashricbechs.com/
 @endcomponent

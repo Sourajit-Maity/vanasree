@@ -56,11 +56,11 @@
                                 
                                 </li>
                                 @guest
-                                <li>
+                                <li id="alrt">
                                     <a href="{{route('welcome.home')}}">Circulars - Notices</a>
                                 
                                 </li>
-                                <li>
+                                <li id="alrt1">
                                     <a href="{{route('welcome.home')}}" >Minutes of Meetings</a>               
             
                                 </li>
@@ -342,6 +342,20 @@ padding: 50px 0;
 </footer>
 <div id='toTop'><img src="{{asset('welcome_assets/images/icons.jpg')}}"/></div>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script type="text/javascript">
+
+  $(document).ready(function() {
+  
+    $('#alrt').on('click', function(e) {
+      alert('Please Login First')
+    });
+    $('#alrt1').on('click', function(e) {
+      alert('Please Login First')
+    });
+
+    
+});
+</script>
 <script src="{{asset('welcome_assets/js/new-script.js')}}"></script>
 <script>
     $(window).scroll(function() {

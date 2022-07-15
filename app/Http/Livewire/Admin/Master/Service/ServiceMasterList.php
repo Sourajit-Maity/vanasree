@@ -7,6 +7,8 @@ use App\Http\Livewire\Traits\AlertMessage;
 use Livewire\WithPagination;
 use App\Http\Livewire\Traits\WithSorting;
 use App\Models\Design;
+use App\Models\Gallery;
+
 
 class ServiceMasterList extends Component
 {
@@ -57,10 +59,10 @@ class ServiceMasterList extends Component
 
     public function render()
     {
-        $queryData = Design::query();
+        $queryData = Gallery::query()->with('design');
 
         if ($this->searchName)
-            $queryData->Where('design_name', 'like', '%' . $this->searchName . '%');
+            $queryData->Where('gallery_name', 'like', '%' . $this->searchName . '%');
 
         if ($this->searchStatus >= 0)
             $queryData->where('active', $this->searchStatus);
@@ -74,12 +76,12 @@ class ServiceMasterList extends Component
     
     public function deleteConfirm($id)
     {
-        Design::destroy($id);
-        $this->showModal('success', 'Success', 'Design has been deleted successfully');
+        Gallery::destroy($id);
+        $this->showModal('success', 'Success', 'Gallery has been deleted successfully');
     }
     public function deleteAttempt($id)
     {
-        $this->showConfirmation("warning", 'Are you sure?', "You won't be able to recover this Design!", 'Yes, delete!', 'deleteConfirm', ['id' => $id]); //($type,$title,$text,$confirmText,$method)
+        $this->showConfirmation("warning", 'Are you sure?', "You won't be able to recover this Gallery!", 'Yes, delete!', 'deleteConfirm', ['id' => $id]); //($type,$title,$text,$confirmText,$method)
     }
 
     public function changeStatusConfirm($id)
@@ -87,11 +89,11 @@ class ServiceMasterList extends Component
         $this->showConfirmation("warning", 'Are you sure?', "Do you want to change this status?", 'Yes, Change!', 'changeStatus', ['id' => $id]); //($type,$title,$text,$confirmText,$method)
     }
 
-    public function changeStatus(Design $data)
+    public function changeStatus(Gallery $data)
     {
         $data->active = ($data->active==1)?0:1;
         $data->update();
-        $this->showModal('success', 'Success', 'Design status has been changed successfully');
+        $this->showModal('success', 'Success', 'Gallery status has been changed successfully');
     }
 
 

@@ -15,7 +15,9 @@ Hi,
 
 
 Thanks,<br>
-{{ config('app.name') }}
+VANASHRI Managing Committee
+<br>
+https://vanashricbechs.com/
 @endcomponent
 
 

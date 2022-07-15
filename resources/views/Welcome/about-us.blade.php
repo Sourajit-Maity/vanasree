@@ -56,14 +56,14 @@
                                 
                                 </li>
                                 @guest
-                                <li>
-                                    <a href="{{route('welcome.home')}}">Circulars - Notices</a>
-                                
-                                </li>
-                                <li>
-                                    <a href="{{route('welcome.home')}}" >Minutes of Meetings</a>               
-            
-                                </li>
+                                    <li id="alrt">
+                                        <a href="{{route('welcome.home')}}">Circulars - Notices</a>
+                                    
+                                    </li>
+                                    <li id="alrt1">
+                                        <a href="{{route('welcome.home')}}" >Minutes of Meetings</a>               
+                
+                                    </li>
                                 @else
                                 <li class="nav-item {{ (\Request::segment(1) == 'circular-notice') ? 'active' : '' }}">
                                     <a href="{{route('welcome.circular-notice')}}">Circulars - Notices</a>
@@ -172,6 +172,20 @@ $("#toTop").click(function () {
    $("html, body").animate({scrollTop: 0}, 1000);
 });
     </script>
+    <script type="text/javascript">
+
+$(document).ready(function() {
+
+  $('#alrt').on('click', function(e) {
+    alert('Please Login First')
+  });
+  $('#alrt1').on('click', function(e) {
+    alert('Please Login First')
+  });
+
+  
+});
+</script>
 
 </body>
 </html>

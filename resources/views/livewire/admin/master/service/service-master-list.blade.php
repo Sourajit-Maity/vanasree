@@ -13,12 +13,9 @@
     <x-slot name="thead">
         <tr role="row">
             <th tabindex="0" aria-controls="kt_table_1" rowspan="1" colspan="1" style="width: 22%;"
-                aria-sort="ascending" aria-label="Agent: activate to sort column descending">Image Name<i
+                aria-sort="ascending" aria-label="Agent: activate to sort column descending">Gallery Name<i
                     class="fa fa-fw fa-sort pull-right" style="cursor: pointer;" wire:click="sortBy('design_name')"></i>
             </th>
-            <th tabindex="0" aria-controls="kt_table_1" rowspan="1" colspan="1" style="width: 23%;"
-                aria-label="Company Email: activate to sort column ascending">Image<i
-                    class="fa fa-fw fa-sort pull-right" style="cursor: pointer;" wire:click="sortBy('design_photo_path')"></i></th>
 
             <th class="align-center" tabindex="0" aria-controls="kt_table_1" rowspan="1" colspan="1" style="width: 15%;"
                 aria-label="Status: activate to sort column ascending">Status</th>
@@ -31,9 +28,7 @@
                 <x-admin.input type="search" wire:model.defer="searchName" placeholder="" autocomplete="off"
                     class="form-control-sm form-filter" />
             </th>
-            <th>
-                
-            </th>
+            
             <th>
                 <select class="form-control form-control-sm form-filter kt-input" wire:model.defer="searchStatus"
                     title="Select" data-col-index="2">
@@ -68,10 +63,8 @@
     <x-slot name="tbody">
         @forelse($datas as $data)
             <tr role="row" class="odd">
-                <td>{{ $data->design_name }}</td>
-                <td>
-                    <img src="{{Storage::disk('public')->exists($data->design_photo_path) ? Storage::url($data->design_photo_path) : asset($data->gallery-image)}}" width="150px" height="150px">
-                </td>
+                <td>{{ $data->gallery_name }}</td>
+                
                
                 <td class="align-center"><span
                         class="kt-badge  kt-badge--{{ $data->active == 1 ? 'success' : 'warning' }} kt-badge--inline kt-badge--pill cursor-pointer"
