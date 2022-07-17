@@ -71,12 +71,8 @@
                         wire:click="changeStatusConfirm({{ $data->id }})">{{ $data->active == 1 ? 'Active' : 'Inactive' }}</span>
                 </td>
                 <x-admin.td-action>
-                <a class="dropdown-item" href="{{ route('gallery.create-design', ['gallery' => $data->id]) }}"><i
-                            class="la la-edit"></i> Add New Image</a>
                     <a class="dropdown-item" href="{{ route('gallery.edit', ['gallery' => $data->id]) }}"><i
                             class="la la-edit"></i> Edit</a>
-                    <a class="dropdown-item" href="{{ route('gallery.show', ['gallery' => $data->id]) }}"><i
-                            class="la la-edit"></i> Show</a>
                     <button href="#" class="dropdown-item" wire:click="deleteAttempt({{ $data->id }})"><i
                             class="fa fa-trash"></i> Delete</button>
                 </x-admin.td-action>

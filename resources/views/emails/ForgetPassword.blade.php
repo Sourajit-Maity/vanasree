@@ -6,10 +6,11 @@
 # Hello!
 
 You are receiving this email because we received a password reset request for your account.
+<br>
+click the link below.
+<br>
 
-@component('mail::button', ['url' => 'reset-password/{{$token}}'])
-Reset Password
-@endcomponent
+<a href="{{ route('reset.password.get', $token) }}">Reset Password</a>
 
 This password reset link will expire in 60 minutes.
 

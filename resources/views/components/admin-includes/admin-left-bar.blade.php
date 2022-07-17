@@ -65,12 +65,12 @@
 					<!-- <li class="kt-menu__item  {{ Request::is('admin/cms*') ? 'kt-menu__item--active' : '' }}" aria-haspopup="true"><a href="{{route('cms.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon flaticon-list-1"></i><span class="kt-menu__link-text">CMS</span></a></li> -->
 					<li class="kt-menu__item {{ Request::is('admin/master/gallery*') ? 'kt-menu__item--active' : '' }}" aria-haspopup="true"><a href="{{route('gallery.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon fas fa-tags"><span></span></i><span class="kt-menu__link-text">Gallery</span></a></li>
 
-					<!-- <li class="kt-menu__section ">
+					<li class="kt-menu__section ">
 						<h4 class="kt-menu__section-text">Contact/Review Management</h4>
 						<i class="kt-menu__section-icon flaticon-more-v2"></i>
 					</li>
 							
-					<li class="kt-menu__item  {{ Request::is('admin/contact-form*') ? 'kt-menu__item--active' : '' }}" aria-haspopup="true"><a href="{{route('contact-form.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon fas fa-file-signature"></i><span class="kt-menu__link-text">Contact us Form</span></a></li> -->
+					<li class="kt-menu__item  {{ Request::is('admin/contact-form*') ? 'kt-menu__item--active' : '' }}" aria-haspopup="true"><a href="{{route('contact-form.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon fas fa-file-signature"></i><span class="kt-menu__link-text">Contact us Form</span></a></li>
 
 					
 				</ul>

@@ -56,11 +56,11 @@
                                 
                                 </li>
                                 @guest
-                                <li>
+                                <li id="alrt">
                                     <a href="{{route('welcome.home')}}">Circulars - Notices</a>
                                 
                                 </li>
-                                <li>
+                                <li id="alrt1">
                                     <a href="{{route('welcome.home')}}" >Minutes of Meetings</a>               
             
                                 </li>
@@ -79,10 +79,10 @@
                                     <a href="{{route('welcome.gallery')}}">Photo Gallery</a>
                             
                                 </li>
-                                <li>
+                                <!-- <li>
                                     <a href="{{route('welcome.contact')}}">Contact Us</a>
                             
-                                </li>
+                                </li> -->
                                 
                               
                         
@@ -106,71 +106,50 @@
     </div>
 </header>
 <body>
-
-<div class="w3-container w3-teal">
-<h1>Minutes of Meeting</h1>
-</div>
-
-<div class="card card-default">
-        <div class="card-body">
-            <div class="row">
-                <div class="col-lg-12 margin-tb">
-                    
-                </div>
-            </div>
-           
-            
-            <div class="table-responsive">
-               <br>
-        <table id="myTable" class="table table-bordered {{ count($moms) > 0 ? 'datatable' : '' }} pointer">
-                    <thead>
-                        <tr>
-                            <th>SL.No</th>
-                            <th>Meeting Of Minutes Number</th>
-                            <th>Meeting Of Minutes Name</th>
-                            <th>Meeting Of Minutes Date</th>
-                            <th>Meeting Of Minutes Description</th>
-                            <th>View Details</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        @if (count($moms) > 0)
-                            @foreach ($moms as $index => $mom)
-                            @if($index % 2 == 0  )
-                                <tr data-entry-id="h" class="eventr">
-                                    <td>{{ $index+1 }}</td>                               
-                                    <td>{{ $mom->mom_number }}</td>
-                                    <td>{{ $mom->mom_name }}</td>
-                                    <td>{!! \Carbon\Carbon::parse($mom->mom_date)->format('d M Y') !!}</td>
-                                    <td>{{ $mom->mom_description }}</td>
-                                    <td><a href="{{Storage::disk('public')->exists($mom->mom_photo_path) ? Storage::url($mom->mom_photo_path) : asset($mom->mom_image)}}" target="_blank">Read more</a></td>                                  
-                                </tr>
-                                @else
-                                <tr data-entry-id="h" class="oddtr">
-                                    <td>{{ $index+1 }}</td>                               
-                                    <td>{{ $mom->mom_number }}</td>
-                                    <td>{{ $mom->mom_name }}</td>
-                                    <td>{!! \Carbon\Carbon::parse($mom->mom_date)->format('d M Y') !!}</td>
-                                    <td>{{ $mom->mom_description }}</td>
-                                    <td><a href="{{Storage::disk('public')->exists($mom->mom_photo_path) ? Storage::url($mom->mom_photo_path) : asset($mom->mom_image)}}" target="_blank">Read more</a></td>                                  
-                                </tr>
-                                @endif
-                            @endforeach
-                        @else
-                            <tr>
-                                <td colspan="7">No entries in table</td>
-                            </tr>
-                        @endif
-                    </tbody>
-        </table>
-            <div class="d-flex justify-content-center">
-                 {!! $moms->links() !!}
-            </div>
-            </div>
+<section>
+<div class="container">
+      <div class="main-container">
+        <div class="main-container-content">
+          <div class="change-password">
+              <h4>Change Password</h4>         
+                <form method="POST" action="{{ route('update-password') }}">
+                        @csrf                  
+                    <div class="form-group eye-pos">
+                      <input id="password" type="password" placeholder="Old Password" class="form-control input-sm {{ $errors->has('current_password') ? 'is-invalid' :'' }}" name="current_password" autocomplete="current-password" value="{{ old('current_password') }}">
+                      <i class="eye-icon fa fa-eye shownewpass" value="0"></i>
+                      @error('current_password')
+                          <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                          </span>
+                      @enderror
+                    </div>
+                    <div class="form-group eye-pos"> 
+                      <input id="new_password" type="password" placeholder="New Password" class="form-control input-sm {{ $errors->has('new_password') ? 'is-invalid' :'' }}" name="new_password" autocomplete="current-password" {{ old('new_password') }}>
+                      <i class="eye-icon fa fa-eye shownewpass" value="0"></i>
+                      @error('new_password')
+                        <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                        </span>
+                      @enderror
+                    </div>
+                    <div class="form-group eye-pos">
+                      <input id="new_confirm_password" placeholder="Confirm Password" type="password" class="form-control input-sm {{ $errors->has('new_confirm_password') ? 'is-invalid' :'' }}" name="new_confirm_password" autocomplete="current-password">
+                      <i class="eye-icon fa fa-eye shownewpass" value="0"></i>
+                      @error('new_confirm_password')
+                        <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                        </span>
+                      @enderror
+                    </div>
+                    <button class="btn btn-success" type="submit"><span>Change Password</span></button>
+                </form>
+          </div>
+          <!-- body header -->
         </div>
+        
+      </div>
     </div>
-
+    </section>
     <footer class="u-clearfix u-footer u-grey-dark-2">
     <div class="container">
         <div class="row">
@@ -193,23 +172,32 @@
         </div>
     </div>
 </footer>
-<div id='toTop'><img src="{{asset('welcome_assets/images/icons.jpg')}}"/></div>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-<script src="{{asset('welcome_assets/js/new-script.js')}}"></script>
-<script>
-    $(window).scroll(function() {
-    if ($(this).scrollTop()) {
-        $('#toTop').fadeIn();
-    } else {
-        $('#toTop').fadeOut();
-    }
-});
-
-$("#toTop").click(function () {
-   $("html, body").animate({scrollTop: 0}, 1000);
-});
-    </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+        $(document).ready(function(){
+            $('.shownewpass').on('click', function(){
+             
+              var stat = $(this).attr('value');
+              // alert(stat);  
+              if(stat == '0'){ 
+                $(this).siblings('input').prop('type', 'text');
+                $(this).attr('value', '1');
+                $(this).removeClass('fa-eye').addClass('fa-eye-slash');
+              } else {
+                $(this).siblings('input').prop('type', 'password');
+                $(this).attr('value', '0');
+                $(this).removeClass('fa-eye-slash').addClass('fa-eye');
+              }
+                // $('#new_password').attr('type',$('#checkbox').prop('checked')==true?"text":"password"); 
+            });
+            // $('#checkbox1').on('click', function(){
+            //     $('#password').attr('type',$('#checkbox1').prop('checked')==true?"text":"password"); 
+            // });
+            // $('#checkbox2').on('click', function(){
+            //     $('#new_confirm_password').attr('type',$('#checkbox2').prop('checked')==true?"text":"password"); 
+            // });
+        });
+  </script>
 
 </body>
 </html>
-

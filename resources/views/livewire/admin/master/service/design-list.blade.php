@@ -13,7 +13,11 @@
     <x-slot name="thead">
         <tr role="row">
             <th tabindex="0" aria-controls="kt_table_1" rowspan="1" colspan="1" style="width: 22%;"
-                aria-sort="ascending" aria-label="Agent: activate to sort column descending">Gallery Name<i
+                aria-sort="ascending" aria-label="Agent: activate to sort column descending">Image Name<i
+                    class="fa fa-fw fa-sort pull-right" style="cursor: pointer;" wire:click="sortBy('design_name')"></i>
+            </th>
+            <th tabindex="0" aria-controls="kt_table_1" rowspan="1" colspan="1" style="width: 22%;"
+                aria-sort="ascending" aria-label="Agent: activate to sort column descending">Image<i
                     class="fa fa-fw fa-sort pull-right" style="cursor: pointer;" wire:click="sortBy('design_name')"></i>
             </th>
 
@@ -25,35 +29,39 @@
         <tr class="filter">
             
             <th>
-                <x-admin.input type="search" wire:model.defer="searchName" placeholder="" autocomplete="off"
-                    class="form-control-sm form-filter" />
+                <!-- <x-admin.input type="search" wire:model.defer="searchName" placeholder="" autocomplete="off"
+                    class="form-control-sm form-filter" /> -->
+            </th>
+            <th>
+                <!-- <x-admin.input type="search" wire:model.defer="searchName" placeholder="" autocomplete="off"
+                    class="form-control-sm form-filter" /> -->
             </th>
             
             <th>
-                <select class="form-control form-control-sm form-filter kt-input" wire:model.defer="searchStatus"
+                <!-- <select class="form-control form-control-sm form-filter kt-input" wire:model.defer="searchStatus"
                     title="Select" data-col-index="2">
                     <option value="-1">Select One</option>
                     <option value="1">Active</option>
                     <option value="0">Inactive</option>
-                </select>
+                </select> -->
             </th>
             <th>
                 <div class="row">
                     <div class="col-md-6">
-                        <button class="btn btn-brand kt-btn btn-sm kt-btn--icon" wire:click="search">
+                        <!-- <button class="btn btn-brand kt-btn btn-sm kt-btn--icon" wire:click="search">
                             <span>
                                 <i class="la la-search"></i>
                                 <span>Search</span>
                             </span>
-                        </button>
+                        </button> -->
                     </div>
                     <div class="col-md-6">
-                        <button class="btn btn-secondary kt-btn btn-sm kt-btn--icon" wire:click="resetSearch">
+                        <!-- <button class="btn btn-secondary kt-btn btn-sm kt-btn--icon" wire:click="resetSearch">
                             <span>
                                 <i class="la la-close"></i>
                                 <span>Reset</span>
                             </span>
-                        </button>
+                        </button> -->
                     </div>
                 </div>
             </th>
@@ -63,7 +71,10 @@
     <x-slot name="tbody">
         @forelse($datas as $data)
             <tr role="row" class="odd">
-                <td>{{ $data->gallery_name }}</td>
+                <td>{{ $data->design_name }}</td>
+                <td class="sorting_1" tabindex="0">
+                    <img src="{{Storage::disk('public')->exists($data->design_photo_path) ? Storage::url($data->design_photo_path) : asset($data->design_photo_path)}}" class="img-responsive" alt="">
+                </td>
                 
                
                 <td class="align-center"><span
@@ -71,12 +82,6 @@
                         wire:click="changeStatusConfirm({{ $data->id }})">{{ $data->active == 1 ? 'Active' : 'Inactive' }}</span>
                 </td>
                 <x-admin.td-action>
-                <a class="dropdown-item" href="{{ route('gallery.create-design', ['gallery' => $data->id]) }}"><i
-                            class="la la-edit"></i> Add New Image</a>
-                    <a class="dropdown-item" href="{{ route('gallery.edit', ['gallery' => $data->id]) }}"><i
-                            class="la la-edit"></i> Edit</a>
-                    <a class="dropdown-item" href="{{ route('gallery.show', ['gallery' => $data->id]) }}"><i
-                            class="la la-edit"></i> Show</a>
                     <button href="#" class="dropdown-item" wire:click="deleteAttempt({{ $data->id }})"><i
                             class="fa fa-trash"></i> Delete</button>
                 </x-admin.td-action>

@@ -58,6 +58,8 @@ Route::get('edit-account', [HomeController::class, 'editAccount'])->name('welcom
 Route::post('update-account', [HomeController::class, 'updateAccount'])->name('welcome.update-account');
 Route::get('/minutes-of-meeting', [HomeController::class, 'minutes_of_meeting'])->name('welcome.minutes-of-meeting');
 Route::get('/circular-notice', [HomeController::class, 'circular_notice'])->name('welcome.circular-notice');
+Route::get('change-password', [HomeController::class, 'changePassword'])->name('welcome.change-password');
+Route::post('update-password', [HomeController::class,'updatePassword'])->name('update-password');
 
 
 Route::group(['prefix' => 'admin', 'middleware'=> 'auth:sanctum'], function(){
@@ -66,7 +68,8 @@ Route::group(['prefix' => 'admin', 'middleware'=> 'auth:sanctum'], function(){
 
     //Cms Management
     Route::resource('cms', CmsController::class)->only(['index', 'edit']);
-
+    Route::get('/create-design/{gallery}', [ServiceMasterController::class, 'createdesign'])->name('gallery.create-design');
+    
     Route::resources([
         'users' => UserController::class,
         'countries' => CountryController::class,

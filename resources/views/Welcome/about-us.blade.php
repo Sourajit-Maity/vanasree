@@ -79,10 +79,10 @@
                                     <a href="{{route('welcome.gallery')}}">Photo Gallery</a>
                             
                                 </li>
-                                <!--li>
+                                <li>
                                     <a href="{{route('welcome.contact')}}">Contact Us</a>
                             
-                                </li-->
+                                </li>
                                 
                               
                         

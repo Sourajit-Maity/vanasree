@@ -32,7 +32,7 @@
                     </x-admin.form-group>
                     
                     @if(!$isEdit)
-                    <x-admin.form-group>
+                    <!-- <x-admin.form-group>
                         <x-admin.lable value="Password"  required />
                         <x-admin.input type="password" wire:model.defer="password" placeholder="Password" autocomplete="off" class="{{ $errors->has('password') ? 'is-invalid' :'' }}"/>
                         <x-admin.input-error for="password" />
@@ -41,7 +41,7 @@
                         <x-admin.lable value="Confirm Password"  required />
                         <x-admin.input type="password" wire:model.defer="password_confirmation" placeholder="Reenter Password" autocomplete="off" class="{{ $errors->has('password_confirmation') ? 'is-invalid' :'' }}"/>
                         <x-admin.input-error for="password_confirmation" />
-                    </x-admin.form-group>
+                    </x-admin.form-group> -->
                     @else
                     <x-admin.form-group>
                         <x-admin.lable value="UserName"  required />

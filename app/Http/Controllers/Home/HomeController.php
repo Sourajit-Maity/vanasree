@@ -19,6 +19,11 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\Rule;
 use Spatie\MediaLibrary\Models\Media;
+use Illuminate\Support\Facades\Validator;
+use DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Arr;
+use App\Rules\MatchOldPassword;
 class HomeController extends Controller
 {
     /**
@@ -153,7 +158,8 @@ class HomeController extends Controller
     {
         $currentuserid = Auth::user()->id;
         $users = User::findOrFail($currentuserid);
-        return view('Welcome.edit-account', compact('users'));
+        $homedetails = Homepage::first(); 
+        return view('Welcome.edit-account', compact('users','homedetails'));
     }
 
     public function updateAccount(Request $request)
@@ -189,6 +195,27 @@ class HomeController extends Controller
 
         return redirect()->back()
             ->with('success', 'Updated successfully.');
+    }
+
+    public function changePassword()
+    {
+        $homedetails = Homepage::first(); 
+        return view('Welcome.change-password',compact('homedetails'));
+    }
+
+    
+
+    public function updatePassword(Request $request)
+    {
+        $request->validate([
+            'current_password' => ['required', new MatchOldPassword],
+            'new_password' => ['required'],
+            'new_confirm_password' => ['same:new_password'],
+        ]);
+        //dd($request->all());
+        User::find(auth()->user()->id)->update(['password'=> $request->new_password]);
+
+        return Redirect::back()->with('success','Password Updated Successfully!');
     }
 
     public function create()

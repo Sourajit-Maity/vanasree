@@ -32,6 +32,12 @@ class ServiceMasterController extends Controller
     {
         return view('admin.gallery.create-edit',['gallery'=>null]);
     }
+    public function createdesign($id)
+    {
+        $design = $id;
+       // dd($design);
+        return view('admin.gallery.create-design',['gallery'=>null,'design'=>$design]);
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -52,7 +58,9 @@ class ServiceMasterController extends Controller
      */
     public function show($id)
     {
-        //
+        // $design = Design::where('gallery_id',$id)->get();
+        $design = $id;
+        return view('admin.gallery.show',['design'=>$design]);
     }
 
     /**

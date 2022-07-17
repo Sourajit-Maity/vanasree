@@ -91,7 +91,7 @@ class NoticeCreateEdit extends Component
                 'notice_number' => $this->notice->notice_number,
                 'notice_name' => $this->notice->notice_name,
                 'notice_date' => $this->notice->notice_date,
-                'notice_description' => $this->notice->notice_description,
+                'notice_description' => $this->notice->notice_description, 
             ];
             Mail::to($myEmail)->send(new NoticeMail($details));
         }

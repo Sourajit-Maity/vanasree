@@ -1,10 +1,10 @@
 <x-admin-layout title="Gallery Management">
     <x-slot name="subHeader">
-            <x-admin.sub-header headerTitle="Gallery List">
+            <x-admin.sub-header headerTitle="Image List">
 				<x-admin.breadcrumbs>
 						<x-admin.breadcrumbs-item href="{{ route('admin.dashboard') }}" value="Dashboard" />
 						<x-admin.breadcrumbs-separator />
-						<x-admin.breadcrumbs-item href="{{ route('gallery.index') }}" value="Gallery List" />
+						<x-admin.breadcrumbs-item href="{{ route('gallery.index') }}" value="Image List" />
 				</x-admin.breadcrumbs>
 
 			    <x-slot name="toolbar" >
@@ -15,5 +15,5 @@
 				</x-slot>
 			</x-admin.sub-header>
     </x-slot>
-	<livewire:admin.master.service.service-master-list/>
+	<livewire:admin.master.service.design-list :design="$design"/>
 </x-admin-layout>

@@ -222,6 +222,9 @@
                     })" wire:model.defer="content2_option_text2" id="content2_option_text2" class="form-control {{ $errors->has('content2_option_text2') ? 'is-invalid' :'' }}"></textarea>
         </x-admin.form-group>
         <x-admin.form-group>
+            <a href="https://www.toptal.com/designers/htmlarrows/symbols/">Copy link for Bullets</a>        
+        </x-admin.form-group>
+        <x-admin.form-group>
                         <x-admin.lable value="Setup Below Image One" required />
                         <x-admin.input type="file" wire:model.defer="content2_option_image1"   class="{{ $errors->has('content2_option_image1') ? 'is-invalid' :'' }}" accept="image/*" />
                         <x-admin.input-error for="content2_option_image1" />
@@ -336,7 +339,7 @@
         <div class="form-group col-lg-3 d-flex justify-content-end">
             <img src="{{Storage::disk('public')->exists($details->home->content2_option_image10) ? Storage::url($details->home->content2_option_image10) : asset($details->home->content2_option_image10)}}" width="200px" height="150px">
         </div>
-    
+        
             </div>
             <br>
     </x-slot>

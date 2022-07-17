@@ -53,8 +53,8 @@ class UserCreateEdit extends Component
                 'last_name' => ['required', 'max:255'],
                 'email' => ['required', 'email', 'max:255', Rule::unique('users')],
                 'phone' => ['required', Rule::unique('users')],
-                'password' => ['required', 'max:255', 'min:6', 'confirmed'],
-                'password_confirmation' => ['required', 'max:255', 'min:6'],
+                // 'password' => ['required', 'max:255', 'min:6', 'confirmed'],
+                // 'password_confirmation' => ['required', 'max:255', 'min:6'],
                 'active' => ['required'],
                 'photo' => ['nullable'],
                 'tower_number' => ['required'],
@@ -81,7 +81,7 @@ class UserCreateEdit extends Component
     public function saveOrUpdate()
     {
         $this->nick_name = $this->tower_number.$this->flat_number.$this->last_name;
-        // dd($this->username);
+        $this->password = 123456;
 
         $this->isEdit ? $this->user->nick_name = $this->nick_name : $this->user->nick_name = $this->nick_name;
 
@@ -112,14 +112,28 @@ class UserCreateEdit extends Component
         //send successfully register mail
         $myEmail = $this->user->email;
         //dd($myEmail);
-        $details = [
-            'name' =>  $this->user->first_name.$this->user->last_name,
-            'mail_title' => 'Registered email succesfully',
-            'mail_subject' => 'Registered email succesfully',               
-            'mail_body' => 'Hi',
-            'nick_name' => $this->nick_name,
-            'password' =>  $this->password,
-        ];
+        if (!$this->isEdit){
+            $details = [
+                'name' =>  $this->user->first_name.$this->user->last_name,
+                'mail_title' => 'Registered email succesfully',
+                'mail_subject' => 'Registered email succesfully',               
+                'mail_body' => 'Hi',
+                'nick_name' => $this->nick_name,
+                'password' =>  $this->password,
+            ];
+        }
+        if ($this->isEdit){
+           
+            $details = [
+                'name' =>  $this->user->first_name.$this->user->last_name,
+                'mail_title' => 'Profile Updated succesfully',
+                'mail_subject' => 'Profile Updated succesfully',               
+                'mail_body' => 'Hi',
+                'nick_name' => $this->nick_name,
+                'password' =>  'If you want to change your password please go to this link - https://vanashricbechs.com/forget-password',
+            ];
+        }
+      
         Mail::to($myEmail)->send(new RegisterMail($details));
         $msgAction = 'User has been ' . ($this->isEdit ? 'updated' : 'added') . ' successfully';
         $this->showToastr("success", $msgAction);

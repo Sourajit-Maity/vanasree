@@ -2,6 +2,7 @@
 <b>{{$details['mail_subject']}}</b>
 <br>
 Hi,
+<br>
 {{$details['mail_body']}}
 <br>
  Number -- {{$details['notice_number']}}
@@ -12,7 +13,6 @@ Hi,
 <br>
  Description -- {{$details['notice_description']}}
 <br>
-
 
 Thanks,<br>
 VANASHRI Managing Committee
