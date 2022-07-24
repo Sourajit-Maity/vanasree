@@ -34,8 +34,12 @@
         <div class="form-group col-lg-3 d-flex justify-content-end">
             <img src="{{Storage::disk('public')->exists($details->home->banner_main_image) ? Storage::url($details->home->banner_main_image) : asset($details->home->banner_main_image)}}" width="200px" height="150px">
         </div>
+
         <x-admin.form-group class="col-lg-12" wire:ignore>
                     <x-admin.lable value="Main Banner Heading" required/>
+                    <br>
+                    <a href="https://www.toptal.com/designers/htmlarrows/symbols/">Copy link for Bullets</a>        
+
                     <textarea
                     x-data x-init="editor = CKEDITOR.replace('main_banner_heading');
                     editor.on('change', function(event){
@@ -222,7 +226,6 @@
                     })" wire:model.defer="content2_option_text2" id="content2_option_text2" class="form-control {{ $errors->has('content2_option_text2') ? 'is-invalid' :'' }}"></textarea>
         </x-admin.form-group>
         <x-admin.form-group>
-            <a href="https://www.toptal.com/designers/htmlarrows/symbols/">Copy link for Bullets</a>        
         </x-admin.form-group>
         <x-admin.form-group>
                         <x-admin.lable value="Setup Below Image One" required />

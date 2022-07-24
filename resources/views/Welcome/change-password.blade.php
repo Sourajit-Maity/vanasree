@@ -141,7 +141,7 @@
                         </span>
                       @enderror
                     </div>
-                    <button class="btn btn-success" type="submit"><span>Change Password</span></button>
+                    <button class="btn btn-primary u-border-none u-btn u-btn-submit u-button-style u-custom-color-1 u-radius-26 u-btn-1" type="submit"><span>Change Password</span></button>
                 </form>
           </div>
           <!-- body header -->

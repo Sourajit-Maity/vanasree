@@ -684,7 +684,7 @@ padding: 50px 0;
                 <p>The Central Bank Employees’ Co-op. Hsg. Soc. Ltd.</p>
 
                 <p>(Regd. No. BOM/HSG/1908/19-11-68)</p>
-
+                <a href="{{route('welcome.contact')}}">Contact Us</a>
 
 
             </div>
@@ -704,6 +704,7 @@ padding: 50px 0;
                     Mumbai – 400092<br>
 
                     Email: vanashri1968@gmail.com</p>
+                    
 
             </div>
 

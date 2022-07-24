@@ -47,6 +47,7 @@ class CreateUsersTable extends Migration
             $table->string('last_latitude')->nullable();
             $table->string('last_longitude')->nullable();
             $table->string('flat_number')->nullable();
+            $table->boolean('first_login')->default(false);
             $table->boolean('active')->default(false);
             $table->string('device_token')->nullable()->unique();
             $table->float('wallet_balance')->default(0);

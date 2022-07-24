@@ -77,7 +77,8 @@ class HomeController extends Controller
     public function contact(Request $request)
     { 
         $contactuspage = Contactuspage::first();
-        return view('Welcome.contact', compact('contactuspage'));
+        $homedetails = Homepage::first(); 
+        return view('Welcome.contact', compact('contactuspage','homedetails'));
     }
 
     public function minutes_of_meeting(Request $request)
@@ -134,8 +135,14 @@ class HomeController extends Controller
             return redirect()->back()->with('success', 'User Not Found.');
         }
 
-        if(Auth::attempt(array($fieldType => $input['username'], 'password' => $input['password']))) {            $user  =  Auth::user();
-            return Redirect::to('/')->with('success', 'User Login Successfully!');
+        if(Auth::attempt(array($fieldType => $input['username'], 'password' => $input['password']))) {  $user  =  Auth::user();
+            if( Auth::user()->first_login == 0){
+                return Redirect::to('/change-password')->with('success', 'Please Change Your Password!');
+            }
+            else{
+                return Redirect::to('/')->with('success', 'User Login Successfully!');
+            }
+            
         } 
         else {
             return redirect()->back()->with('success', '"Whoops! invalid credential.');
@@ -213,7 +220,7 @@ class HomeController extends Controller
             'new_confirm_password' => ['same:new_password'],
         ]);
         //dd($request->all());
-        User::find(auth()->user()->id)->update(['password'=> $request->new_password]);
+        User::find(auth()->user()->id)->update(['password'=> $request->new_password,'first_login'=> 1]);
 
         return Redirect::back()->with('success','Password Updated Successfully!');
     }

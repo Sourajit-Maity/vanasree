@@ -36,6 +36,7 @@
                                   @if ($errors->has('password'))
                                       <span class="text-danger">{{ $errors->first('password') }}</span>
                                   @endif
+                                  <span style="color:red">Password contains atleast six characters</span>
                               </div>
                           </div>
   
@@ -49,8 +50,8 @@
                               </div>
                           </div>
   
-                          <div class="form-input">
-                            <input type="submit" value="Reset Password">
+                          <div class="form-input col-md-6 offset-md-4">
+                            <input type="submit" class="btn btn-primary u-border-none u-btn u-btn-submit u-button-style u-custom-color-1 u-radius-26 u-btn-1" value="Reset Password">
                         </div>
                       </form>
                 </div>

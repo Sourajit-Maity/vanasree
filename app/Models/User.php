@@ -80,7 +80,8 @@ class User extends Authenticatable implements HasMedia
         'date_of_birth',
         'cover_photo_path',
         'tower_number',
-        'flat_number'
+        'flat_number',
+        'first_login'
 
 
     ];

@@ -39,6 +39,9 @@
       
         <x-admin.form-group class="col-lg-12" wire:ignore>
             <x-admin.lable value="Description" required/>
+            <br>
+            <a href="https://www.toptal.com/designers/htmlarrows/symbols/">Copy link for Bullets</a>        
+
                 <textarea
                     x-data x-init="editor = CKEDITOR.replace('content_sub_heading');
                     editor.on('change', function(event){

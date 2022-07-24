@@ -1,4 +1,15 @@
 <x-layouts.welcome-layout>
+    <style>
+        .thmbtn{
+             
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+    border: none;
+    border-radius: 300px;
+    font-weight: 700;
+    text-transform: uppercase;
+
+        }
+    </style>
     <section class="login-sec">
         <div class="container">
             <div class="login-form">
@@ -25,14 +36,14 @@
                                   @endif
                               </div>
                           </div>
-                          <!-- <div class="col-md-6 offset-md-4">
-                              <button type="submit" class="btn btn-primary">
+                          <div class="col-md-6 offset-md-4">
+                              <button type="submit" class="btn btn-primary u-border-none u-btn u-btn-submit u-button-style u-custom-color-1 u-radius-26 u-btn-1">
                                   Send Password Reset Link
                               </button>
-                          </div> -->
-                          <div class="form-input">
-                            <input type="submit" value="Send Password Reset Link">
-                        </div>
+                          </div>
+                          <!-- <div class="form-input">
+                            <input type="submit" value="Send Password Reset Link" class="btn btn-primary thmbtn">
+                        </div> -->
                       </form>
                 </div>
 
