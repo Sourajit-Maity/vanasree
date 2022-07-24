@@ -36,7 +36,7 @@
                                   @if ($errors->has('password'))
                                       <span class="text-danger">{{ $errors->first('password') }}</span>
                                   @endif
-                                  <span style="color:red">Password contains atleast six characters</span>
+                                  <span style="color:green">The Password must be atleast six characters</span>
                               </div>
                           </div>
   

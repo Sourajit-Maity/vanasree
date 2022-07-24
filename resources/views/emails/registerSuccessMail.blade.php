@@ -8,7 +8,9 @@ Hi,
 <br>
 Your User Name will be -- {{$details['nick_name']}}
 <br>
-Your password will be -- {{$details['password']}}
+Your password will be --
+<br>
+ {{$details['password']}}
 <br>
 
 

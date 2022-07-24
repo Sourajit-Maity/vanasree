@@ -117,6 +117,8 @@
                     <div class="form-group eye-pos">
                       <input id="password" type="password" placeholder="Old Password" class="form-control input-sm {{ $errors->has('current_password') ? 'is-invalid' :'' }}" name="current_password" autocomplete="current-password" value="{{ old('current_password') }}">
                       <i class="eye-icon fa fa-eye shownewpass" value="0"></i>
+                      <span style="color:green">The Password must be atleast six characters</span>
+
                       @error('current_password')
                           <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>

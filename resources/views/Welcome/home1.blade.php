@@ -685,6 +685,7 @@ padding: 50px 0;
 
                 <p>(Regd. No. BOM/HSG/1908/19-11-68)</p>
                 <a href="{{route('welcome.contact')}}">Contact Us</a>
+                <p>All rights reserved © Vanashri CBECHSL</p>
 
 
             </div>
