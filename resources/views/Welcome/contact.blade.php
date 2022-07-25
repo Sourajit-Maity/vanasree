@@ -203,16 +203,16 @@ background-attachment: fixed;
 
                                 <div class="u-form-group u-form-message">
                                     <label for="message-a30d" class="u-label">Message *</label>
-                                    <input type="text" placeholder="Enter your message" id="phone-a30d" name="message" class="u-grey-5 u-input u-input-rectangle u-input-1" required="">
+                                    <!-- <input type="text" placeholder="Enter your message" id="phone-a30d" name="message" class="u-grey-5 u-input u-input-rectangle u-input-1" required=""> -->
 
-                                    <!-- <textarea name="message" id="message" class="u-grey-5 u-input u-input-rectangle u-input-2" required="" placeholder="Enter your Message" cols="30" rows="10"></textarea> -->
+                                    <textarea name="message" id="message" class="u-grey-5 u-input u-input-rectangle u-input-2" required="" placeholder="Enter your Message" cols="30" rows="5"></textarea>
                                     @error('message')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                     @enderror
                                 </div>
-                                
+                                <br><br>
                                 <div class="u-align-right u-form-group u-form-submit">
                                 <input type="submit" name="submit" value="submit" class="u-border-none u-btn u-btn-submit u-button-style u-custom-color-1 u-radius-26 u-btn-1">
                                 </div>
@@ -232,7 +232,6 @@ background-attachment: fixed;
     </div>
 
 </section>
-<br><br>
 <section class="u-section-4" style="background-image:linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('{{asset($contactuspage->banner_background_image)}}');
 
 background-attachment: fixed;

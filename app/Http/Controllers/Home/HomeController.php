@@ -216,13 +216,13 @@ class HomeController extends Controller
     {
         $request->validate([
             'current_password' => ['required', new MatchOldPassword],
-            'new_password' => ['required'],
+            'new_password' => ['required','min:6'],
             'new_confirm_password' => ['same:new_password'],
         ]);
         //dd($request->all());
         User::find(auth()->user()->id)->update(['password'=> $request->new_password,'first_login'=> 1]);
 
-        return Redirect::back()->with('success','Password Updated Successfully!');
+        return Redirect::route('welcome.home')->with('success','Password Reset Successfully!');
     }
 
     public function create()
