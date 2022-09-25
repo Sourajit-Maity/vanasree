@@ -55,7 +55,12 @@
 					
 					<li class="kt-menu__item  {{ Request::is('admin/moms*') ? 'kt-menu__item--active' : '' }}" aria-haspopup="true"><a href="{{route('moms.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon fa fa-arrows-alt"></i><span class="kt-menu__link-text">Minutes of Meeting</span></a></li>
 					
-
+					<li class="kt-menu__section ">
+						<h4 class="kt-menu__section-text">Puja Collcetion Management</h4>
+						<i class="kt-menu__section-icon flaticon-more-v2"></i>
+					</li>
+					<li class="kt-menu__item  {{ Request::is('admin/puja-collection*') ? 'kt-menu__item--active' : '' }}" aria-haspopup="true"><a href="{{route('puja-collection.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon fas fa-file-alt"></i><span class="kt-menu__link-text">Puja Collection</span></a></li>
+					
 				
 					<li class="kt-menu__section ">
 						<h4 class="kt-menu__section-text">CMS Management</h4>

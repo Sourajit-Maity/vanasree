@@ -20,6 +20,7 @@ use App\Http\Controllers\Admin\FaqpageController;
 use App\Http\Controllers\Admin\ContactuspageController;
 use App\Http\Controllers\Admin\AboutpageController;
 use App\Http\Controllers\Admin\ContactController;
+use App\Http\Controllers\Admin\PujaCollectionController;
 use App\Http\Controllers\ForgotPasswordController;
 
 
@@ -87,6 +88,7 @@ Route::group(['prefix' => 'admin', 'middleware'=> 'auth:sanctum'], function(){
         'aboutpage' => AboutpageController::class,
         'pages' => CmsController::class,
         'contact-form' => ContactController::class,
+        'puja-collection' => PujaCollectionController::class,
 
     ]);
 });
