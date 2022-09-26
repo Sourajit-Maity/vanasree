@@ -128,7 +128,6 @@
                     <td>{{ $item->month }}</td>
                     <td>{!! \Carbon\Carbon::parse($item->created_at)->format('d M Y') !!}</td>
                     <td>{!! \Carbon\Carbon::parse($item->updated_at)->format('d M Y') !!}</td>
-                    <td>{{ $item->total_amount }}</td> 
                 <td class="align-center"><span
                         class="kt-badge  kt-badge--{{ $item->active  == 1 ? 'success' : 'warning' }} kt-badge--inline cursor-pointer"
                         wire:click="changeStatusConfirm({{ $item->id }})">{{ $item->active  == 1 ? 'Active' : 'Deactive' }}</span>

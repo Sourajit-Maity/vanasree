@@ -16,22 +16,7 @@
                                 <tr>
                                     <th><b>User Name  :</b></th>
                                     <th>{{isset($details->user->full_name)?$details->user->full_name:""}}</th>
-                                </tr>
-                               
-                               
-                            </thead>
-                        </table>
-                    </div>
-                </div>
-            </div>
-           
-
-        <div class="row">
-            <div class="col-md-6">
-                <div class="kt-section">
-                    <div class="kt-section__content">
-                        <table class="table">
-                            <thead>
+                                </tr>                             
                                 <tr>
                                     <th><b>Year:</b></th>
                                     <th>{{$details->year}}</th>
@@ -39,16 +24,22 @@
                                 <tr>
                                     <th><b>Month:</b></th>
                                     <th>{{$details->month}}</th>
-                                </tr>                               
+                                </tr>    
+                                <tr>
+                                    <th><b>Bill Number:</b></th>
+                                    <th>{{$details->bill_no}}</th>
+                                </tr> 
                             </thead>
                         </table>
                     </div>
                 </div>
-            </div>            
-        </div>
+            </div>
+           
+
+        
 
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <div class="kt-section">
                     <div class="kt-section__content">
                         <table class="table">
@@ -77,7 +68,7 @@
       
 
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <div class="kt-section">
                     <div class="kt-section__content">
                         <table class="table">
@@ -116,7 +107,17 @@
                                     @else
                                     <th>Not Paid</th>
                                     @endif
-                                </tr>                               
+                                </tr>   
+                                <tr>
+                                    <th><b>Payment Mode:</b></th>
+                                    @if ($details->payment_type == 1)
+                                    <th>Cash</th>
+                                    @elseif ($details->payment_type == 2)
+                                    <th>Cheque</th>
+                                    @else
+                                    <th>Online</th>
+                                    @endif
+                                </tr>                             
                             </thead>
                         </table>
                     </div>

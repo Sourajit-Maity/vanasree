@@ -5,6 +5,11 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\PujaCollection;
+use Illuminate\Support\Facades\Log;
+use Rap2hpoutre\FastExcel\FastExcel;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
+use App\Models\User;
 
 class PujaCollectionController extends Controller
 {
@@ -36,7 +41,26 @@ class PujaCollectionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        (new FastExcel)->import(request()->file('file'), function ($row) {
+            
+            PujaCollection::create([
+                'user_id' => $row['user_id'],
+                'additional_instructions' => $row['additional_instructions'],
+                'discount_amount' => $row['discount_amount'],
+                'total_amount' => $row['total_amount'],
+                'year' => $row['year'],
+                'month' => $row['month'],
+                'bill_no' => $row['bill_no'],
+                'payment_type' => 1,
+                'payment_status' => 2,
+                
+                
+
+            ]);
+        });
+
+        return redirect()->route('puja-collection.index')
+                        ->with('success','File uploaded successfully');
     }
 
     /**

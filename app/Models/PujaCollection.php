@@ -41,7 +41,9 @@ class PujaCollection extends Model
         'cancellation_charge',
         'total_amount',
         'year',
-        'month'
+        'month',
+        'bill_no',
+        'payment_type'
 
     ];
 

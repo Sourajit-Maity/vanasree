@@ -16,13 +16,16 @@ class PujaCollcetionCreateEdit extends Component
 {
     use WithFileUploads;
     use AlertMessage;
-    public $pujacollcetion, $user_id, $additional_instructions,  $blankArr, $employee_required, $skills, $active;
+    public $pujacollcetion,$bill_no,$payment_type, $user_id, $additional_instructions,  $blankArr, $employee_required, $skills, $active;
     public  $bill_post_date,$bill_payment_date, $promo_code, $discount_amount, $reward_discount_amount, $total_amount, $payment_status;
     public $year, $month;
     public $address;
     public $isEdit = false;
     public $userList = [];
     public $paymentList = [];
+    public $paymentType = [];
+    public $monthList = [];
+    public $yearList = [];
     public $statusList = [];
     public $photo;
     public $photos = [];
@@ -52,6 +55,34 @@ class PujaCollcetionCreateEdit extends Component
             ['value' => 2, 'text' => "Paid"],
             ['value' => 3, 'text' => "Not Given"]
         ];
+        $this->monthList = [
+            ['value' => 1, 'text' => "Choose Status"],
+            ['value' => "January", 'text' => "January"],
+            ['value' => "February", 'text' => "February"],
+            ['value' => "March", 'text' => "March"],
+            ['value' => "April", 'text' => "April"],
+            ['value' => "May", 'text' => "May"],
+            ['value' => "June", 'text' => "June"],
+            ['value' => "July", 'text' => "July"],
+            ['value' => "August", 'text' => "August"],
+            ['value' => "September", 'text' => "September"],
+            ['value' => "October", 'text' => "October"],
+            ['value' => "November", 'text' => "November"],
+            ['value' => "December", 'text' => "December"],
+        ];
+        $this->yearList = [
+            ['value' => 1, 'text' => "Choose Status"],
+            ['value' => 2022, 'text' => "2022"],
+            ['value' => 2023, 'text' => "2023"],
+            ['value' => 2024, 'text' => "2024"]
+        ];
+        $this->paymentType = [
+            ['value' => 1, 'text' => "Choose Status"],
+            ['value' => 1, 'text' => "Cash"],
+            ['value' => 2, 'text' => "Cheque"],
+            ['value' => 3, 'text' => "Online"]
+        ];
+        
         $this->blankArr = [
             "value" => "", "text" => "== Select One =="
         ];
@@ -65,14 +96,15 @@ class PujaCollcetionCreateEdit extends Component
         return
             [
                 'active' => ['required'],
-                'user_id' => ['nullable'],
+                'user_id' => ['required'],
                 'additional_instructions' => ['nullable'],
+                'bill_no' => ['required'],
                 'year' => ['required'],
                 'month' => ['required'],
-                'promo_code' => ['required'],
-                'discount_amount' => ['required', 'regex:/^([0-9\s+\(\)]*)$/', 'min:1', 'max:50'],
+                'discount_amount' => ['nullable', 'regex:/^([0-9\s+\(\)]*)$/', 'min:1', 'max:50'],
                 'total_amount' => ['required', 'regex:/^([0-9\s+\(\)]*)$/', 'min:1', 'max:50'],
                 'payment_status' => ['required'],
+                'payment_type' => ['required'],
 
             ];
     }
@@ -81,14 +113,15 @@ class PujaCollcetionCreateEdit extends Component
         return
             [
                 'active' => ['required'],
-                'user_id' => ['nullable'],
+                'user_id' => ['required'],
                 'additional_instructions' => ['nullable'],
                 'year' => ['required'],
-                'promo_code' => ['required'],
+                'bill_no' => ['required'],
                 'discount_amount' => ['required', 'regex:/^([0-9\s+\(\)]*)$/', 'min:1', 'max:50'],
                 'total_amount' => ['required', 'regex:/^([0-9\s+\(\)]*)$/', 'min:1', 'max:50'],
                 'month' => ['required'],
                 'payment_status' => ['required'],
+                'payment_type' => ['required'],
             ];
     }
 

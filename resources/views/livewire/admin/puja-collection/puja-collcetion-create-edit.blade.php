@@ -3,12 +3,12 @@
 
 
         <x-admin.form-group>
-            <x-admin.lable value="Employee"/>
+            <x-admin.lable value="Member"/>
             <x-admin.dropdown  wire:model.defer="user_id" placeHolderText="Please select user" autocomplete="off" class="{{ $errors->has('user_id') ? 'is-invalid' :'' }}">
             <x-admin.dropdown-item  :value="$blankArr['value']" :text="$blankArr['text']"/> 
                     @if(isset($userList))
                         @foreach($userList as $user)
-                        <x-admin.dropdown-item  :value="$user->id" :text="$user->first_name"/>
+                        <x-admin.dropdown-item  :value="$user->id" :text="$user->first_name .' '. $user->last_name"/>
                         @endforeach
                     @endif
             </x-admin.dropdown>
@@ -16,16 +16,26 @@
         </x-admin.form-group>
 
 
+
         <x-admin.form-group>
-            <x-admin.lable value="Year" required />
-            <x-admin.input type="text" wire:model.defer="year" placeholder="year"  class="{{ $errors->has('year') ? 'is-invalid' :'' }}" />
+            <x-admin.lable value="Year" required/>
+            <x-admin.dropdown  wire:model.defer="year" placeHolderText="Please select one" autocomplete="off" class="{{ $errors->has('year') ? 'is-invalid' :'' }}">
+                    @foreach ($yearList as $year)
+                        <x-admin.dropdown-item  :value="$year['value']" :text="$year['text']"/>
+                    @endforeach
+            </x-admin.dropdown>
             <x-admin.input-error for="year" />
         </x-admin.form-group>
         <x-admin.form-group>
-            <x-admin.lable value="Month" required />
-            <x-admin.input type="text" wire:model.defer="month" placeholder="month"  class="{{ $errors->has('month') ? 'is-invalid' :'' }}" />
+            <x-admin.lable value="Month" required/>
+            <x-admin.dropdown  wire:model.defer="month" placeHolderText="Please select one" autocomplete="off" class="{{ $errors->has('month') ? 'is-invalid' :'' }}">
+                    @foreach ($monthList as $month)
+                        <x-admin.dropdown-item  :value="$month['value']" :text="$month['text']"/>
+                    @endforeach
+            </x-admin.dropdown>
             <x-admin.input-error for="month" />
         </x-admin.form-group>
+
         <x-admin.form-group>
             <x-admin.lable value="Additional Instructions"   />
             <x-admin.input type="text" wire:model.defer="additional_instructions" placeholder="Additional Instructions"  class="{{ $errors->has('additional_instructions') ? 'is-invalid' :'' }}" />
@@ -34,20 +44,21 @@
      
 
         <x-admin.form-group>
-            <x-admin.lable value="Promo Code" required />
-            <x-admin.input type="text" wire:model.defer="promo_code" placeholder="promo code" autocomplete="off" class="{{ $errors->has('promo_code') ? 'is-invalid' :'' }}"/>
-            <x-admin.input-error for="promo_code" />
+            <x-admin.lable value="Bill No" required />
+            <x-admin.input type="text" wire:model.defer="bill_no" placeholder="Bill no" autocomplete="off" class="{{ $errors->has('bill_no') ? 'is-invalid' :'' }}"/>
+            <x-admin.input-error for="bill_no" />
         </x-admin.form-group>
 
+
         <x-admin.form-group>
-            <x-admin.lable value="Total Amount" required />
+            <x-admin.lable value="Billing Amount" required />
             <x-admin.input type="text" wire:model.defer="total_amount" placeholder="Total Amount" autocomplete="off" class="{{ $errors->has('total_amount') ? 'is-invalid' :'' }}"/>
             <x-admin.input-error for="total_amount" />
         </x-admin.form-group>
 
         <x-admin.form-group>
-            <x-admin.lable value="Discount Amount"  required />
-            <x-admin.input type="text" wire:model.defer="discount_amount" placeholder="Discount Amount" autocomplete="off" class="{{ $errors->has('discount_amount') ? 'is-invalid' :'' }}"/>
+            <x-admin.lable value="Paid Amount" />
+            <x-admin.input type="text" wire:model.defer="discount_amount" placeholder="Paid Amount" autocomplete="off" class="{{ $errors->has('discount_amount') ? 'is-invalid' :'' }}"/>
             <x-admin.input-error for="discount_amount" />
         </x-admin.form-group>
 
@@ -60,6 +71,15 @@
                     @endforeach
             </x-admin.dropdown>
             <x-admin.input-error for="payment_status" />
+        </x-admin.form-group>
+        <x-admin.form-group>
+            <x-admin.lable value="Payment Type" required/>
+            <x-admin.dropdown  wire:model.defer="payment_type" placeHolderText="Please select one" autocomplete="off" class="{{ $errors->has('payment_type') ? 'is-invalid' :'' }}">
+                    @foreach ($paymentType as $type)
+                        <x-admin.dropdown-item  :value="$type['value']" :text="$type['text']"/>
+                    @endforeach
+            </x-admin.dropdown>
+            <x-admin.input-error for="payment_type" />
         </x-admin.form-group>
 
 
