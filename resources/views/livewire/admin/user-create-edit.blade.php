@@ -21,13 +21,13 @@
                         <x-admin.input-error for="phone" />
                     </x-admin.form-group>
                     <x-admin.form-group>
-                        <x-admin.lable value="Wing Number" required />
-                        <x-admin.input type="text" wire:model.defer="tower_number" placeholder="Wing Number"  class="{{ $errors->has('tower_number') ? 'is-invalid' :'' }}" />
+                        <x-admin.lable value="Plot Number" required />
+                        <x-admin.input type="text" wire:model.defer="tower_number" placeholder="Plot Number"  class="{{ $errors->has('tower_number') ? 'is-invalid' :'' }}" />
                         <x-admin.input-error for="tower_number" />
                     </x-admin.form-group>
                     <x-admin.form-group>
-                        <x-admin.lable value="Flat Number"  required />
-                        <x-admin.input type="text" wire:model.defer="flat_number" placeholder="Flat Number"  class="{{ $errors->has('flat_number') ? 'is-invalid' :'' }}" />
+                        <x-admin.lable value="House Number"  required />
+                        <x-admin.input type="text" wire:model.defer="flat_number" placeholder="House Number"  class="{{ $errors->has('flat_number') ? 'is-invalid' :'' }}" />
                         <x-admin.input-error for="flat_number" />
                     </x-admin.form-group>
                     

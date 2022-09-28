@@ -49,6 +49,7 @@ class CreateUsersTable extends Migration
             $table->string('flat_number')->nullable();
             $table->boolean('first_login')->default(false);
             $table->boolean('active')->default(false);
+            $table->boolean('member')->default(false);
             $table->string('device_token')->nullable()->unique();
             $table->float('wallet_balance')->default(0);
             $table->string('stripe_customer_id')->nullable()->unique();

@@ -5,6 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use Rap2hpoutre\FastExcel\FastExcel;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
@@ -36,7 +40,30 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        (new FastExcel)->import(request()->file('file'), function ($row) {
+
+        $nick_name = $row['tower_number'].$row['flat_number'].$row['last_name'];
+
+           $user = User::create([
+                'first_name' => $row['first_name'],
+                'last_name' => $row['last_name'],
+                'active' => $row['active'],
+                'email' => $row['email'],
+                'phone' => $row['phone'],
+                'address' => $row['address'],
+                'tower_number' => $row['tower_number'],
+                'flat_number' => $row['flat_number'],
+                'nick_name' => $nick_name,
+                'password' => 123456,
+
+            ]);
+
+            $user->assignRole('USER');
+            
+        });
+
+        return redirect()->route('users.index')
+                        ->with('success','File uploaded successfully');
     }
 
     /**

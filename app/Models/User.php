@@ -81,7 +81,8 @@ class User extends Authenticatable implements HasMedia
         'cover_photo_path',
         'tower_number',
         'flat_number',
-        'first_login'
+        'first_login',
+        'member'
 
 
     ];
