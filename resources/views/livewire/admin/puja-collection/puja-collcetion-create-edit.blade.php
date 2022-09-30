@@ -63,7 +63,7 @@
         </x-admin.form-group>
 
 
-        <x-admin.form-group>
+        <!-- <x-admin.form-group>
             <x-admin.lable value="Payment Status" required/>
             <x-admin.dropdown  wire:model.defer="payment_status" placeHolderText="Please select one" autocomplete="off" class="{{ $errors->has('payment_status') ? 'is-invalid' :'' }}">
                     @foreach ($paymentList as $status)
@@ -71,7 +71,7 @@
                     @endforeach
             </x-admin.dropdown>
             <x-admin.input-error for="payment_status" />
-        </x-admin.form-group>
+        </x-admin.form-group> -->
         <x-admin.form-group>
             <x-admin.lable value="Payment Type" required/>
             <x-admin.dropdown  wire:model.defer="payment_type" placeHolderText="Please select one" autocomplete="off" class="{{ $errors->has('payment_type') ? 'is-invalid' :'' }}">

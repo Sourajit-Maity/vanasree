@@ -20,7 +20,7 @@ class PujaCollcetionList extends Component
 
     protected $paginationTheme = 'bootstrap';
 
-    public  $searchUser,$searchPaidAmount,$searchYear,$searchAmount,$searchMonth,$searchPaidDate,$searchDate,$searchStatus = -1, $perPage = 5,$search;
+    public  $searchUser,$searchPaidAmount,$searchYear,$searchAmount,$searchMonth,$searchPaidDate,$searchBill,$searchStatus = -1, $perPage = 5,$search;
     protected $listeners = ['deleteConfirm', 'changeStatus'];
 
     public function mount()
@@ -55,7 +55,7 @@ class PujaCollcetionList extends Component
         $this->searchPaidDate = "";
         $this->searchYear = "";
         $this->searchMonth = "";
-        $this->searchDate = "";
+        $this->searchBill = "";
         $this->searchAmount = "";
         $this->searchStatus = -1;
     }
@@ -77,8 +77,8 @@ class PujaCollcetionList extends Component
         if ($this->searchPaidDate)
             $queryData->Where('updated_at', 'like', '%' . $this->searchPaidDate . '%');
 
-        if ($this->searchDate)
-            $queryData->Where('created_at', 'like', '%' . $this->searchDate . '%');
+        if ($this->searchBill)
+            $queryData->Where('bill_no', 'like', '%' . $this->searchBill . '%');
         if ($this->searchAmount)
             $queryData->Where('total_amount', 'like', '%' . $this->searchAmount . '%');
         if ($this->searchPaidAmount)

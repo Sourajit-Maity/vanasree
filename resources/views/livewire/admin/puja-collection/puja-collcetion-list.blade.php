@@ -36,8 +36,8 @@
             
             
             <th tabindex="0" aria-controls="kt_table_1" rowspan="1" colspan="1" style="width: 12%;"
-                aria-sort="ascending" aria-label="Agent: activate to sort column descending">Billing Date <i
-                    class="fa fa-fw fa-sort pull-right" style="cursor: pointer;" wire:click="sortBy('created_at')"></i>
+                aria-sort="ascending" aria-label="Agent: activate to sort column descending">Bill No <i
+                    class="fa fa-fw fa-sort pull-right" style="cursor: pointer;" wire:click="sortBy('bill_no')"></i>
             </th>
             <th tabindex="0" aria-controls="kt_table_1" rowspan="1" colspan="1" style="width: 12%;"
                 aria-sort="ascending" aria-label="Agent: activate to sort column descending">Paid Date <i
@@ -76,7 +76,7 @@
            
            
             <th>
-                <x-admin.input type="search" wire:model.defer="searchDate" placeholder="" autocomplete="off"
+                <x-admin.input type="search" wire:model.defer="searchBill" placeholder="" autocomplete="off"
                     class="form-control-sm form-filter" />
             </th>
             <th>
@@ -87,8 +87,8 @@
                 <select class="form-control form-control-sm form-filter kt-input" wire:model.defer="searchStatus"
                     title="Select" data-col-index="2">
                     <option value="-1">Select</option>
-                    <option value="1">Active</option>
-                    <option value="0">Deactive</option>
+                    <option value="1">Paid</option>
+                    <option value="0">Due</option>
                 </select>
             </th>
             <th>
@@ -126,7 +126,7 @@
                     <td>{{ $item->discount_amount }}</td>
                     <td>{{ $item->year }}</td>
                     <td>{{ $item->month }}</td>
-                    <td>{!! \Carbon\Carbon::parse($item->created_at)->format('d M Y') !!}</td>
+                    <td>{{ $item->bill_no }}</td>
                     <td>{!! \Carbon\Carbon::parse($item->updated_at)->format('d M Y') !!}</td>
                 <td class="align-center"><span
                         class="kt-badge  kt-badge--{{ $item->active  == 1 ? 'success' : 'warning' }} kt-badge--inline cursor-pointer"

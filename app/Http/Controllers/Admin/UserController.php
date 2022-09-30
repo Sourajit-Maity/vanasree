@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Log;
 use Rap2hpoutre\FastExcel\FastExcel;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
@@ -42,17 +43,29 @@ class UserController extends Controller
     {
         (new FastExcel)->import(request()->file('file'), function ($row) {
 
-        $nick_name = $row['tower_number'].$row['flat_number'].$row['last_name'];
+            $name = $row['full_name'];
+            $splitName = explode(' ', $name, 2); 
+            $first_name = $splitName[0];
+            $last_name = !empty($splitName[1]) ? $splitName[1] : '';
+
+            
+            $email = $first_name.$last_name.'@gmail.com';
+            $phone = 9123456789;
+            $address = 'Plaza Housing';
+            $token = Str::random(4);
+            $tower_number = $token;
+            $flat_number = $token;
+            $nick_name = $tower_number .$flat_number.$last_name;
 
            $user = User::create([
-                'first_name' => $row['first_name'],
-                'last_name' => $row['last_name'],
+                'first_name' => $first_name,
+                'last_name' => $last_name,
                 'active' => $row['active'],
-                'email' => $row['email'],
-                'phone' => $row['phone'],
-                'address' => $row['address'],
-                'tower_number' => $row['tower_number'],
-                'flat_number' => $row['flat_number'],
+                'email' => $email,
+                'phone' => $phone,
+                'address' => $address,
+                'tower_number' => $tower_number,
+                'flat_number' => $flat_number,
                 'nick_name' => $nick_name,
                 'password' => 123456,
 

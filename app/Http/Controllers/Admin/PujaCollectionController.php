@@ -45,7 +45,6 @@ class PujaCollectionController extends Controller
             
             PujaCollection::create([
                 'user_id' => $row['user_id'],
-                'additional_instructions' => $row['additional_instructions'],
                 'discount_amount' => $row['discount_amount'],
                 'total_amount' => $row['total_amount'],
                 'year' => $row['year'],

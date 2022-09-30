@@ -44,8 +44,8 @@ class PujaCollcetionCreateEdit extends Component
        
         $this->statusList = [
             ['value' => 0, 'text' => "Choose Status"],
-            ['value' => 1, 'text' => "Active"],
-            ['value' => 0, 'text' => "Inactive"]
+            ['value' => 1, 'text' => "Due"],
+            ['value' => 0, 'text' => "Paid"]
         ];
        
 
@@ -53,7 +53,6 @@ class PujaCollcetionCreateEdit extends Component
             ['value' => 1, 'text' => "Choose Status"],
             ['value' => 1, 'text' => "Due"],
             ['value' => 2, 'text' => "Paid"],
-            ['value' => 3, 'text' => "Not Given"]
         ];
         $this->monthList = [
             ['value' => 1, 'text' => "Choose Status"],
@@ -103,7 +102,7 @@ class PujaCollcetionCreateEdit extends Component
                 'month' => ['required'],
                 'discount_amount' => ['nullable', 'regex:/^([0-9\s+\(\)]*)$/', 'min:1', 'max:50'],
                 'total_amount' => ['required', 'regex:/^([0-9\s+\(\)]*)$/', 'min:1', 'max:50'],
-                'payment_status' => ['required'],
+                //'payment_status' => ['required'],
                 'payment_type' => ['required'],
 
             ];
@@ -120,7 +119,7 @@ class PujaCollcetionCreateEdit extends Component
                 'discount_amount' => ['required', 'regex:/^([0-9\s+\(\)]*)$/', 'min:1', 'max:50'],
                 'total_amount' => ['required', 'regex:/^([0-9\s+\(\)]*)$/', 'min:1', 'max:50'],
                 'month' => ['required'],
-                'payment_status' => ['required'],
+               // 'payment_status' => ['required'],
                 'payment_type' => ['required'],
             ];
     }
