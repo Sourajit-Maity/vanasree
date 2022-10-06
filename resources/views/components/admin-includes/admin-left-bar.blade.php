@@ -56,6 +56,15 @@
 					<li class="kt-menu__item  {{ Request::is('admin/moms*') ? 'kt-menu__item--active' : '' }}" aria-haspopup="true"><a href="{{route('moms.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon fa fa-arrows-alt"></i><span class="kt-menu__link-text">Minutes of Meeting</span></a></li>
 					
 					<li class="kt-menu__section ">
+						<h4 class="kt-menu__section-text">Monthly Expense/Collection Management</h4>
+						<i class="kt-menu__section-icon flaticon-more-v2"></i>
+					</li>
+					<li class="kt-menu__item  {{ Request::is('admin/monthly-charge*') ? 'kt-menu__item--active' : '' }}" aria-haspopup="true"><a href="{{route('monthly-charge.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon fas fa-file-alt"></i><span class="kt-menu__link-text">Monthly Collection</span></a></li>
+					<li class="kt-menu__item  {{ Request::is('admin/monthly-expenses*') ? 'kt-menu__item--active' : '' }}" aria-haspopup="true"><a href="{{route('monthly-expenses.index')}}" class="kt-menu__link "><i class="kt-menu__link-icon fas fa-file-alt"></i><span class="kt-menu__link-text">Monthly Expenses</span></a></li>
+					
+
+
+					<li class="kt-menu__section ">
 						<h4 class="kt-menu__section-text">Puja Collcetion Management</h4>
 						<i class="kt-menu__section-icon flaticon-more-v2"></i>
 					</li>
