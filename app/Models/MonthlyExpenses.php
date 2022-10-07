@@ -12,7 +12,7 @@ class MonthlyExpenses extends Model
     {
         $status = '';
         if ($value == 1) {
-            $status = 'In Progress';
+            $status = 'In Progress'; 
         }
         if ($value == 2) {
             $status = 'Completed';
@@ -26,6 +26,7 @@ class MonthlyExpenses extends Model
     }
     protected $fillable = [
     	'user_id',
+        'receiver_name',
         'bill_post_date',
         'bill_payment_date',
         'payment_status',

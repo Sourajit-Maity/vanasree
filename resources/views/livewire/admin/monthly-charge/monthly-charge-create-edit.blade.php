@@ -115,12 +115,12 @@
 
         <x-admin.form-group>
             <x-admin.lable value="Status" required/>
-            <x-admin.dropdown  wire:model.defer="active" placeHolderText="Please select one" autocomplete="off" class="{{ $errors->has('active') ? 'is-invalid' :'' }}">
+            <x-admin.dropdown  wire:model.defer="payment_status" placeHolderText="Please select one" autocomplete="off" class="{{ $errors->has('payment_status') ? 'is-invalid' :'' }}">
                     @foreach ($statusList as $status)
                         <x-admin.dropdown-item  :value="$status['value']" :text="$status['text']"/>
                     @endforeach
             </x-admin.dropdown>
-            <x-admin.input-error for="active" />
+            <x-admin.input-error for="payment_status" />
         </x-admin.form-group>
 
         

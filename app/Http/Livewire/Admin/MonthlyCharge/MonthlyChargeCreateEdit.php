@@ -94,7 +94,6 @@ class MonthlyChargeCreateEdit extends Component
     {
         return
             [
-                'active' => ['required'],
                 'user_id' => ['required'],
                 'service_charge' => ['nullable', 'regex:/^([0-9\s+\(\)]*)$/', 'min:1', 'max:50'],
                 'security_charge' => ['nullable', 'regex:/^([0-9\s+\(\)]*)$/', 'min:1', 'max:50'],
@@ -107,7 +106,7 @@ class MonthlyChargeCreateEdit extends Component
                 'month' => ['required'],
                 'discount_amount' => ['nullable', 'regex:/^([0-9\s+\(\)]*)$/', 'min:1', 'max:50'],
                 'total_amount' => ['required', 'regex:/^([0-9\s+\(\)]*)$/', 'min:1', 'max:50'],
-                //'payment_status' => ['required'],
+                'payment_status' => ['required'],
                 'payment_type' => ['required'],
 
             ];
@@ -116,7 +115,6 @@ class MonthlyChargeCreateEdit extends Component
     {
         return
             [
-                'active' => ['required'],
                 'user_id' => ['required'],
                 'service_charge' => ['nullable', 'regex:/^([0-9\s+\(\)]*)$/', 'min:1', 'max:50'],
                 'security_charge' => ['nullable', 'regex:/^([0-9\s+\(\)]*)$/', 'min:1', 'max:50'],
@@ -129,7 +127,7 @@ class MonthlyChargeCreateEdit extends Component
                 'discount_amount' => ['required', 'regex:/^([0-9\s+\(\)]*)$/', 'min:1', 'max:50'],
                 'total_amount' => ['required', 'regex:/^([0-9\s+\(\)]*)$/', 'min:1', 'max:50'],
                 'month' => ['required'],
-                //'payment_status' => ['required'],
+                'payment_status' => ['required'],
                 'payment_type' => ['required'],
             ];
     }

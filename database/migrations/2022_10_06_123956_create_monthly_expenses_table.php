@@ -16,7 +16,7 @@ class CreateMonthlyExpensesTable extends Migration
         Schema::create('monthly_expenses', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->nullable();
-            $table->foreignId('received_by_id')->nullable();
+            $table->string('receiver_name')->nullable();
             $table->dateTime('bill_post_date')->nullable();
             $table->dateTime('bill_payment_date')->nullable();
             $table->string('year')->nullable();
