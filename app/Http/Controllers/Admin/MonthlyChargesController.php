@@ -10,7 +10,7 @@ use Rap2hpoutre\FastExcel\FastExcel;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use App\Models\User;
-
+use Carbon\Carbon;
 class MonthlyChargesController extends Controller
 {
     /**
@@ -44,14 +44,23 @@ class MonthlyChargesController extends Controller
         (new FastExcel)->import(request()->file('file'), function ($row) {
             
             MonthlyCharges::create([
+                'received_by_id' => auth()->user()->id,
                 'user_id' => $row['user_id'],
+                'service_charge' => $row['service_charge'],
+                'water_charge' => $row['water_charge'],
+                'maintainence_charge' => $row['maintainence_charge'],
+                'other_expenses_charge' => $row['other_expenses_charge'],
                 'discount_amount' => $row['discount_amount'],
                 'total_amount' => $row['total_amount'],
                 'year' => $row['year'],
                 'month' => $row['month'],
                 'bill_no' => $row['bill_no'],
-                'payment_type' => 1,
-                'payment_status' => 2,
+                'payment_type' => $row['payment_type'],
+                'payment_status' => $row['payment_status'],
+                'security_charge' => $row['security_charge'],
+                'electricity_charge' => $row['electricity_charge'],
+                'bill_post_date' => $row['bill_post_date'],
+                'bill_payment_date' => $row['bill_payment_date'],
                 
                 
 

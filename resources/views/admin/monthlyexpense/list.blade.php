@@ -12,7 +12,7 @@
 				</x-admin.breadcrumbs>
 
 			    <x-slot name="toolbar" >
-					<a href="{{asset('test_data/bill_test_data.xlsx')}}" class="btn btn-brand btn-elevate btn-icon-sm">
+					<a href="{{asset('test_data/monthly_expenses_test.xlsx')}}" class="btn btn-brand btn-elevate btn-icon-sm">
 						<i class="la la-download"></i>
 						Download Dummy Excel File
 					</a>
@@ -34,7 +34,7 @@
 
 						<!-- Modal Header -->
 						<div class="modal-header">
-							<h4 class="modal-title">Upload Processing</h4>
+							<h4 class="modal-title">Upload Details</h4>
 							<button type="button" class="close" data-dismiss="modal"></button>
 						</div>
 

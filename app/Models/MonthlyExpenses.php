@@ -22,7 +22,6 @@ class MonthlyExpenses extends Model
         }
       
         return $status;
-    
     }
     protected $fillable = [
     	'user_id',
